@@ -1,0 +1,5394 @@
+{
+  "adminToken": "admin_codex_secret_session_key",
+  "adminTokens": [
+    "admin_codex_secret_session_key",
+    "adm-tok-1791273688507-df03ox3",
+    "adm-tok-1791273688513-bzxb4zm",
+    "adm-tok-1791274268725-ank7dbh",
+    "adm-tok-1791277894199-1rcvlh7",
+    "adm-tok-1791277916623-lqb1z4c",
+    "adm-tok-1791277924696-tvez710",
+    "adm-tok-1791277934441-lppghv6",
+    "adm-tok-1791278624869-i1f8daj"
+  ],
+  "adminPasswordHash": "codex2026admin",
+  "teamCodes": {
+    "CDX26-A7K9P2": {
+      "code": "CDX26-A7K9P2",
+      "status": "claimed",
+      "claimed_by_team_id": "team-warriors",
+      "claimed_by_team_name": "Code Warriors",
+      "created_at": 1788424389070
+    },
+    "CDX26-F3M8Q1": {
+      "code": "CDX26-F3M8Q1",
+      "status": "claimed",
+      "claimed_by_team_id": "team-cyber",
+      "claimed_by_team_name": "CyberKnights",
+      "created_at": 1788424389070
+    },
+    "CDX26-X8L4T7": {
+      "code": "CDX26-X8L4T7",
+      "status": "claimed",
+      "claimed_by_team_id": "team-byte",
+      "claimed_by_team_name": "ByteForce",
+      "created_at": 1788424389070
+    },
+    "CDX26-B2V9N4": {
+      "code": "CDX26-B2V9N4",
+      "status": "claimed",
+      "claimed_by_team_id": "team-muwc7xgt-hksm",
+      "created_at": 1788424389070,
+      "claimed_by_team_name": "Byte Warriors"
+    },
+    "CDX26-K4R1W8": {
+      "code": "CDX26-K4R1W8",
+      "status": "unused",
+      "claimed_by_team_id": null,
+      "created_at": 1788424389070
+    },
+    "CDX26-M9P3Z6": {
+      "code": "CDX26-M9P3Z6",
+      "status": "unused",
+      "claimed_by_team_id": null,
+      "created_at": 1788424389070
+    },
+    "CDX26-Y5L2J1": {
+      "code": "CDX26-Y5L2J1",
+      "status": "unused",
+      "claimed_by_team_id": null,
+      "created_at": 1788424389070
+    },
+    "CDX26-Q8D6H4": {
+      "code": "CDX26-Q8D6H4",
+      "status": "unused",
+      "claimed_by_team_id": null,
+      "created_at": 1788424389070
+    }
+  },
+  "teams": {
+    "team-warriors": {
+      "id": "team-warriors",
+      "team_code": "CDX26-A7K9P2",
+      "name": "Code Warriors",
+      "status": "active",
+      "session_token": "tok-team-warriors-1791282884222-eh9w8e",
+      "last_active": 1791282884222,
+      "is_online": true,
+      "scores": {
+        "r1": 0,
+        "r2": 1,
+        "r3": 0,
+        "r4": 0,
+        "total": 1
+      },
+      "qualification": {
+        "r1": true,
+        "r2": true,
+        "r3": true,
+        "r4": true
+      }
+    },
+    "team-cyber": {
+      "id": "team-cyber",
+      "team_code": "CDX26-F3M8Q1",
+      "name": "CyberKnights",
+      "status": "active",
+      "session_token": "tok-cyber-initial",
+      "last_active": 1788427979070,
+      "is_online": true,
+      "scores": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0,
+        "total": 0
+      },
+      "qualification": {
+        "r1": true,
+        "r2": true,
+        "r3": true,
+        "r4": true
+      }
+    },
+    "team-byte": {
+      "id": "team-byte",
+      "team_code": "CDX26-X8L4T7",
+      "name": "ByteForce",
+      "status": "active",
+      "session_token": "tok-byte-initial",
+      "last_active": 1788427969070,
+      "is_online": true,
+      "scores": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0,
+        "total": 0
+      },
+      "qualification": {
+        "r1": true,
+        "r2": true,
+        "r3": true,
+        "r4": true
+      }
+    },
+    "team-muwc7xgt-hksm": {
+      "id": "team-muwc7xgt-hksm",
+      "team_code": "CDX26-B2V9N4",
+      "name": "Byte Warriors",
+      "status": "active",
+      "session_token": null,
+      "last_active": 1791273971297,
+      "is_online": false,
+      "scores": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0,
+        "total": 0
+      },
+      "qualification": {
+        "r1": true,
+        "r2": true,
+        "r3": true,
+        "r4": true
+      }
+    },
+    "team-muwjrtbf-ki9s": {
+      "id": "team-muwjrtbf-ki9s",
+      "team_code": "WARRIORS",
+      "name": "Team WARRIORS",
+      "status": "active",
+      "session_token": "tok-team-muwjrtbf-ki9s-1791290672161-iinrg1",
+      "last_active": 1791290672161,
+      "is_online": true,
+      "scores": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 125,
+        "r4": 0,
+        "total": 125
+      },
+      "qualification": {
+        "r1": true,
+        "r2": true,
+        "r3": true,
+        "r4": true
+      }
+    }
+  },
+  "typingRounds": {
+    "tr-1": {
+      "id": "tr-1",
+      "title": "Typing Sub-Round 1: Algorithmic Foundations",
+      "order": 1,
+      "practicePassage": "Quick algorithms conquer complex problems. Binary search executes in logarithmic time complexity, dividing the sorted search space in halves.",
+      "mainPassage": "Modern software engineering demands high mechanical keyboard precision alongside sharp logical problem solving. Graph traversal algorithms such as Dijkstra and Breadth-First Search explore nodes systematically, maintaining visited sets and priority queues to compute optimal paths with zero wasted CPU cycles.",
+      "testDurationSeconds": 120,
+      "minAccuracyPercent": 85,
+      "weight": 1,
+      "scoringMultiplier": 1,
+      "isPublished": true,
+      "createdAt": 1788424389070
+    },
+    "tr-2": {
+      "id": "tr-2",
+      "title": "Typing Sub-Round 2: Distributed Systems & Consensus",
+      "order": 2,
+      "practicePassage": "Distributed state machines replicate transaction logs across fault-tolerant clusters to ensure consistency during network partitions.",
+      "mainPassage": "In Byzantine fault-tolerant networks, decentralized nodes coordinate state transitions via cryptographic signatures and quorum voting. Raft consensus simplifies cluster leadership election and log append operations, guaranteeing safety invariants even when arbitrary nodes experience transient latency.",
+      "testDurationSeconds": 90,
+      "minAccuracyPercent": 88,
+      "weight": 1,
+      "scoringMultiplier": 1.2,
+      "isPublished": true,
+      "createdAt": 1788424389070
+    }
+  },
+  "typingSubmissions": [],
+  "round1Config": {
+    "scoringMethod": "best",
+    "weights": {
+      "tr-1": 1,
+      "tr-2": 1
+    },
+    "minAccuracyDefault": 85,
+    "scoreOverrides": {}
+  },
+  "quizStages": {
+    "stage-1": {
+      "id": "stage-1",
+      "stageNumber": 1,
+      "title": "Stage 1: Syntax Sprint & Output Prediction",
+      "description": "Foundational language semantics, type coercion, operator precedence, and memory basics.",
+      "order": 1
+    },
+    "stage-2": {
+      "id": "stage-2",
+      "stageNumber": 2,
+      "title": "Stage 2: Core Architecture & Database Mastery",
+      "description": "ACID transaction properties, B-Tree vs LSM indexing, asynchronous queues, and scoping.",
+      "order": 2
+    },
+    "stage-3": {
+      "id": "stage-3",
+      "stageNumber": 3,
+      "title": "Stage 3: Deep Systems & Advanced Concepts",
+      "description": "Bitwise manipulation, consensus models, OS page replacement, and low-level runtime execution.",
+      "order": 3
+    }
+  },
+  "quizQuestions": {
+    "q-1": {
+      "id": "q-1",
+      "stageNumber": 1,
+      "category": "Programming Languages",
+      "type": "code_output",
+      "questionText": "What is the exact output of this JavaScript snippet?",
+      "codeSnippet": "console.log(typeof NaN === \"number\" && 3 + \"3\" - 1);",
+      "options": [
+        "true",
+        "32",
+        "\"32\"",
+        "NaN"
+      ],
+      "correctAnswer": "32",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "typeof NaN is \"number\" (true). 3 + \"3\" coerces to string \"33\". \"33\" - 1 coerces to number 32. true && 32 evaluates to 32.",
+      "order": 1,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-2": {
+      "id": "q-2",
+      "stageNumber": 1,
+      "category": "Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "Which cache replacement policy removes the item that was accessed longest ago?",
+      "options": [
+        "FIFO (First In First Out)",
+        "LRU (Least Recently Used)",
+        "LFU (Least Frequently Used)",
+        "MRU (Most Recently Used)"
+      ],
+      "correctAnswer": "LRU (Least Recently Used)",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "LRU discards the least recently used items first.",
+      "order": 2,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-3": {
+      "id": "q-3",
+      "stageNumber": 1,
+      "category": "Databases",
+      "type": "true_false",
+      "questionText": "In a relational database, a B-Tree index has an average search time complexity of O(log N).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "B-Trees and B+ Trees provide logarithmic search, insertion, and deletion times.",
+      "order": 3,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-7": {
+      "id": "q-7",
+      "stageNumber": 1,
+      "category": "Web & Systems",
+      "type": "mcq",
+      "questionText": "Which HTTP status code indicates that the server cannot find the requested resource?",
+      "options": [
+        "401 Unauthorized",
+        "403 Forbidden",
+        "404 Not Found",
+        "500 Internal Server Error"
+      ],
+      "correctAnswer": "404 Not Found",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "404 Not Found indicates the origin server did not find a current representation for the target resource.",
+      "order": 4,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-10": {
+      "id": "q-10",
+      "stageNumber": 1,
+      "category": "Programming Languages",
+      "type": "true_false",
+      "questionText": "In Python, tuples are immutable while lists are mutable.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Tuples cannot be modified after instantiation, unlike lists.",
+      "order": 5,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-11": {
+      "id": "q-11",
+      "stageNumber": 1,
+      "category": "General Technology Awareness",
+      "type": "fill_blank",
+      "questionText": "What Git command records staged snapshots permanently into the repository version history?",
+      "options": [],
+      "correctAnswer": "git commit",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "git commit captures a snapshot of the project currently staged changes.",
+      "order": 6,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-12": {
+      "id": "q-12",
+      "stageNumber": 1,
+      "category": "Databases",
+      "type": "mcq",
+      "questionText": "Which SQL clause is used to filter aggregated group records?",
+      "options": [
+        "WHERE",
+        "HAVING",
+        "GROUP BY",
+        "ORDER BY"
+      ],
+      "correctAnswer": "HAVING",
+      "difficulty": "EASY",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "HAVING filters aggregated groups, whereas WHERE filters individual rows prior to grouping.",
+      "order": 7,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-4": {
+      "id": "q-4",
+      "stageNumber": 2,
+      "category": "Databases",
+      "type": "multi_select",
+      "questionText": "Which of the following ACID transaction properties guarantee that incomplete transactions are completely rolled back upon system crash?",
+      "options": [
+        "Atomicity",
+        "Consistency",
+        "Isolation",
+        "Durability"
+      ],
+      "correctAnswer": [
+        "Atomicity",
+        "Durability"
+      ],
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "Atomicity ensures all-or-nothing completion; Durability guarantees committed data persists across failures.",
+      "order": 8,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-5": {
+      "id": "q-5",
+      "stageNumber": 2,
+      "category": "Programming Languages",
+      "type": "code_output",
+      "questionText": "What does this Python list comprehension evaluate to?",
+      "codeSnippet": "nums = [1, 2, 3, 4]\nres = [x * 2 for x in nums if x % 2 == 0]\nprint(sum(res))",
+      "options": [
+        "12",
+        "6",
+        "20",
+        "8"
+      ],
+      "correctAnswer": "12",
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "Even elements are 2 and 4. Multiplied by 2: [4, 8]. Sum is 12.",
+      "order": 9,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-8": {
+      "id": "q-8",
+      "stageNumber": 2,
+      "category": "Web & Systems",
+      "type": "mcq",
+      "questionText": "In the Node.js event loop, when are microtasks and callbacks queued via process.nextTick resolved?",
+      "options": [
+        "Immediately after the current synchronous operation, before transitioning to any other phase",
+        "Inside the Poll phase only",
+        "During the Timers phase before setTimeout callbacks",
+        "Exclusively during the Close Callbacks phase"
+      ],
+      "correctAnswer": "Immediately after the current synchronous operation, before transitioning to any other phase",
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "The process.nextTick queue is drained immediately after the current operation finishes, before entering the next phase of the event loop.",
+      "order": 10,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-13": {
+      "id": "q-13",
+      "stageNumber": 2,
+      "category": "Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What is the worst-case time complexity for searching in an unbalanced Binary Search Tree of N elements?",
+      "options": [
+        "O(log N)",
+        "O(1)",
+        "O(N)",
+        "O(N log N)"
+      ],
+      "correctAnswer": "O(N)",
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "In the worst case (skewed degenerate tree), a BST behaves like a linked list with O(N) search.",
+      "order": 11,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-14": {
+      "id": "q-14",
+      "stageNumber": 2,
+      "category": "Web & Systems",
+      "type": "multi_select",
+      "questionText": "Which HTTP request methods are strictly defined as idempotent according to RFC 7231?",
+      "options": [
+        "GET",
+        "PUT",
+        "DELETE",
+        "POST"
+      ],
+      "correctAnswer": [
+        "GET",
+        "PUT",
+        "DELETE"
+      ],
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "GET, PUT, and DELETE are idempotent. POST is not idempotent.",
+      "order": 12,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-15": {
+      "id": "q-15",
+      "stageNumber": 2,
+      "category": "Databases",
+      "type": "fill_blank",
+      "questionText": "In database normalization, what normal form eliminates transitive dependencies among non-prime attributes?",
+      "options": [],
+      "correctAnswer": "3NF",
+      "difficulty": "MEDIUM",
+      "points": 4,
+      "timeLimitSeconds": 45,
+      "explanation": "Third Normal Form (3NF) requires 2NF and that no non-prime attribute depends transitively on any candidate key.",
+      "order": 13,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-6": {
+      "id": "q-6",
+      "stageNumber": 3,
+      "category": "General Technology Awareness",
+      "type": "fill_blank",
+      "questionText": "What is the standard name of the cryptographic consensus mechanism introduced by Bitcoin that requires computational hashing work?",
+      "options": [],
+      "correctAnswer": "Proof of Work",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "Proof of Work (PoW) is the consensus mechanism.",
+      "order": 14,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-9": {
+      "id": "q-9",
+      "stageNumber": 3,
+      "category": "Computer Fundamentals",
+      "type": "code_output",
+      "questionText": "What is the decimal output of the bitwise expression: (1 << 5) | (1 << 2)?",
+      "options": [
+        "36",
+        "34",
+        "32",
+        "38"
+      ],
+      "correctAnswer": "36",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "(1 << 5) is 32 (binary 100000). (1 << 2) is 4 (binary 100). Bitwise OR gives 36 (binary 100100).",
+      "order": 15,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-16": {
+      "id": "q-16",
+      "stageNumber": 3,
+      "category": "Web & Systems",
+      "type": "mcq",
+      "questionText": "In distributed systems consensus, what problem does the Raft consensus algorithm split into distinct subproblems?",
+      "options": [
+        "Leader Election, Log Replication, and Safety",
+        "Sharding, Master Election, and Quorum Hashing",
+        "Gossip Propagation, Partitioning, and Anti-entropy",
+        "Merkle Tree verification, Staking, and Slashing"
+      ],
+      "correctAnswer": "Leader Election, Log Replication, and Safety",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "Raft decomposes distributed consensus into leader election, log replication, and safety invariants for understandability.",
+      "order": 16,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-17": {
+      "id": "q-17",
+      "stageNumber": 3,
+      "category": "Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "In an operating system virtual memory architecture, what causes a Page Fault interrupt?",
+      "options": [
+        "Accessing a page whose Present bit in the Page Table Entry is 0",
+        "A physical RAM parity failure",
+        "Executing an unprivileged instruction in kernel mode",
+        "Exceeding maximum CPU instruction cache size"
+      ],
+      "correctAnswer": "Accessing a page whose Present bit in the Page Table Entry is 0",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "A page fault is an MMU hardware trap raised when a program accesses a page marked not present in physical RAM.",
+      "order": 17,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-18": {
+      "id": "q-18",
+      "stageNumber": 3,
+      "category": "Databases",
+      "type": "true_false",
+      "questionText": "In Two-Phase Locking (2PL), once a transaction releases any lock, it can never acquire any subsequent lock.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "Strict 2PL divides execution into an expanding/growing phase and a shrinking phase. No new locks can be acquired in the shrinking phase.",
+      "order": 18,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-19": {
+      "id": "q-19",
+      "stageNumber": 3,
+      "category": "Programming Languages",
+      "type": "code_output",
+      "questionText": "What is the output of evaluating this JavaScript expression: [1, 2, 3] + [4, 5, 6]?",
+      "options": [
+        "\"1,2,34,5,6\"",
+        "[1, 2, 3, 4, 5, 6]",
+        "NaN",
+        "TypeError"
+      ],
+      "correctAnswer": "\"1,2,34,5,6\"",
+      "difficulty": "HARD",
+      "points": 6,
+      "timeLimitSeconds": 60,
+      "explanation": "Both arrays coerce to strings: \"1,2,3\" + \"4,5,6\" = \"1,2,34,5,6\".",
+      "order": 19,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804195-1": {
+      "id": "q-csv-1791278804195-1",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What is the time complexity of binary search on a sorted array?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "correctAnswer": "O(log n)",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A shallow copy duplicates the outer object while nested objects remain shared.",
+      "order": 1,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804195-2": {
+      "id": "q-csv-1791278804195-2",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "In C, what does sizeof(char) always return?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Depends on compiler"
+      ],
+      "correctAnswer": "1",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "TCP provides reliable, ordered delivery using acknowledgements and retransmission.",
+      "order": 2,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804195-3": {
+      "id": "q-csv-1791278804195-3",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What is the output of printf(\"%d\", 10 & 6);?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correctAnswer": "2",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A tree with n vertices has exactly n−1 edges when it is connected and acyclic.",
+      "order": 3,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804195-4": {
+      "id": "q-csv-1791278804195-4",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "Which keyword prevents a C++ class from being inherited?",
+      "options": [
+        "static",
+        "sealed",
+        "final",
+        "private"
+      ],
+      "correctAnswer": "final",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Normalization decomposes relations to reduce redundancy and update anomalies.",
+      "order": 4,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-5": {
+      "id": "q-csv-1791278804196-5",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "Which Java feature allows the same method name with different parameters?",
+      "options": [
+        "Overriding",
+        "Overloading",
+        "Encapsulation",
+        "Abstraction"
+      ],
+      "correctAnswer": "Overloading",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A semaphore controls concurrent access by maintaining a synchronization counter.",
+      "order": 5,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-6": {
+      "id": "q-csv-1791278804196-6",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What does Python's is operator compare?",
+      "options": [
+        "Values",
+        "Types",
+        "Object identity",
+        "Hash values"
+      ],
+      "correctAnswer": "Object identity",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A compiler translates source code into a lower-level representation before execution.",
+      "order": 6,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-7": {
+      "id": "q-csv-1791278804196-7",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "Which memory area typically stores dynamically allocated objects?",
+      "options": [
+        "Stack",
+        "Heap",
+        "Register",
+        "Code segment"
+      ],
+      "correctAnswer": "Heap",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Big-O describes an asymptotic upper bound on algorithm growth.",
+      "order": 7,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-8": {
+      "id": "q-csv-1791278804196-8",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What is the result of 2 << 3?",
+      "options": [
+        "5",
+        "6",
+        "8",
+        "16"
+      ],
+      "correctAnswer": "16",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Binary search repeatedly halves the sorted search space, giving logarithmic time.",
+      "order": 8,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-9": {
+      "id": "q-csv-1791278804196-9",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "Which concept allows an object to take multiple forms?",
+      "options": [
+        "Encapsulation",
+        "Inheritance",
+        "Polymorphism",
+        "Composition"
+      ],
+      "correctAnswer": "Polymorphism",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A hash table maps keys to positions using a hash function for fast average lookup.",
+      "order": 9,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-10": {
+      "id": "q-csv-1791278804196-10",
+      "stageNumber": 1,
+      "category": "Programming & Computer Fundamentals",
+      "type": "mcq",
+      "questionText": "What is a dangling pointer?",
+      "options": [
+        "NULL pointer",
+        "Pointer to a freed/invalid memory location",
+        "Pointer to a constant",
+        "Uninitialized integer"
+      ],
+      "correctAnswer": "Pointer to a freed/invalid memory location",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Dead code cannot affect program behavior because it is never reached or used.",
+      "order": 10,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-11": {
+      "id": "q-csv-1791278804196-11",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What is the worst-case time complexity of Quick Sort?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "correctAnswer": "O(n²)",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Dynamic programming stores overlapping subproblem results to avoid repeated computation.",
+      "order": 11,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-12": {
+      "id": "q-csv-1791278804196-12",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which data structure is most suitable for implementing BFS?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Heap",
+        "Priority Queue"
+      ],
+      "correctAnswer": "Queue",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A stable sort preserves the original relative order of equal elements.",
+      "order": 12,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-13": {
+      "id": "q-csv-1791278804196-13",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which algorithm finds shortest paths from a source when edge weights are non-negative?",
+      "options": [
+        "Prim's",
+        "Kruskal's",
+        "Dijkstra's",
+        "DFS"
+      ],
+      "correctAnswer": "Dijkstra's",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A stack follows LIFO order, so the newest item is removed first.",
+      "order": 13,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-14": {
+      "id": "q-csv-1791278804196-14",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What is the worst-case complexity of searching in a balanced BST?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "correctAnswer": "O(log n)",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A queue follows FIFO order, so the earliest inserted item is removed first.",
+      "order": 14,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-15": {
+      "id": "q-csv-1791278804196-15",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which algorithm is commonly used to find a Minimum Spanning Tree?",
+      "options": [
+        "Dijkstra",
+        "Floyd-Warshall",
+        "Kruskal",
+        "KMP"
+      ],
+      "correctAnswer": "Kruskal",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Graph traversal tracks visited vertices to avoid repeated processing.",
+      "order": 15,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-16": {
+      "id": "q-csv-1791278804196-16",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What is the auxiliary space complexity of recursive DFS in a graph with V vertices?",
+      "options": [
+        "O(1)",
+        "O(log V)",
+        "O(V)",
+        "O(V²)"
+      ],
+      "correctAnswer": "O(V)",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Dijkstra's algorithm is suitable when all edge weights are non-negative.",
+      "order": 16,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-17": {
+      "id": "q-csv-1791278804196-17",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which sorting algorithm is stable by default?",
+      "options": [
+        "Heap Sort",
+        "Quick Sort",
+        "Merge Sort",
+        "Selection Sort"
+      ],
+      "correctAnswer": "Merge Sort",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A minimum spanning tree connects every vertex with minimum total edge weight.",
+      "order": 17,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-18": {
+      "id": "q-csv-1791278804196-18",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What does a min-heap guarantee?",
+      "options": [
+        "Every level is sorted",
+        "Root contains minimum element",
+        "Leaves are sorted",
+        "Maximum is always at root"
+      ],
+      "correctAnswer": "Root contains minimum element",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A topological ordering is possible for a directed acyclic graph.",
+      "order": 18,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-19": {
+      "id": "q-csv-1791278804196-19",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which algorithm is used for pattern matching in strings?",
+      "options": [
+        "KMP",
+        "Prim",
+        "Dijkstra",
+        "Kruskal"
+      ],
+      "correctAnswer": "KMP",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Memoization caches recursive subproblem results for later reuse.",
+      "order": 19,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-20": {
+      "id": "q-csv-1791278804196-20",
+      "stageNumber": 2,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What is the time complexity of inserting into a binary heap?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "correctAnswer": "O(log n)",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Balanced search trees keep height small to support efficient operations.",
+      "order": 20,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-21": {
+      "id": "q-csv-1791278804196-21",
+      "stageNumber": 3,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which traversal of a BST produces sorted order?",
+      "options": [
+        "Preorder",
+        "Postorder",
+        "Inorder",
+        "Level order"
+      ],
+      "correctAnswer": "Inorder",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "An adjacency list stores each vertex together with its neighboring vertices.",
+      "order": 21,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-22": {
+      "id": "q-csv-1791278804196-22",
+      "stageNumber": 3,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Floyd-Warshall algorithm is primarily used for:",
+      "options": [
+        "Single-source shortest path",
+        "All-pairs shortest paths",
+        "Minimum spanning tree",
+        "Maximum flow"
+      ],
+      "correctAnswer": "All-pairs shortest paths",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A priority queue removes elements according to priority rather than insertion order.",
+      "order": 22,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-23": {
+      "id": "q-csv-1791278804196-23",
+      "stageNumber": 3,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which data structure is essential for recursion?",
+      "options": [
+        "Queue",
+        "Stack",
+        "Heap",
+        "Graph"
+      ],
+      "correctAnswer": "Stack",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A binary search tree maintains an ordering that enables comparison-based search.",
+      "order": 23,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-24": {
+      "id": "q-csv-1791278804196-24",
+      "stageNumber": 3,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "What is the worst-case complexity of inserting into an unbalanced BST?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "correctAnswer": "O(n)",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A heap is a complete binary tree satisfying a heap-order property.",
+      "order": 24,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-25": {
+      "id": "q-csv-1791278804196-25",
+      "stageNumber": 3,
+      "category": "DSA & Algorithms",
+      "type": "mcq",
+      "questionText": "Which technique is used by Merge Sort?",
+      "options": [
+        "Greedy",
+        "Dynamic Programming",
+        "Divide and Conquer",
+        "Backtracking"
+      ],
+      "correctAnswer": "Divide and Conquer",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Union-Find efficiently maintains disjoint connected components.",
+      "order": 25,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-26": {
+      "id": "q-csv-1791278804196-26",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which normal form eliminates partial functional dependency?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "correctAnswer": "2NF",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A primary key uniquely identifies each row in a relation.",
+      "order": 26,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-27": {
+      "id": "q-csv-1791278804196-27",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which normal form eliminates transitive dependency?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "4NF"
+      ],
+      "correctAnswer": "3NF",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A foreign key references a key in another table to enforce referential integrity.",
+      "order": 27,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-28": {
+      "id": "q-csv-1791278804196-28",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which SQL clause filters groups after GROUP BY?",
+      "options": [
+        "WHERE",
+        "FILTER",
+        "HAVING",
+        "ORDER BY"
+      ],
+      "correctAnswer": "HAVING",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "An index provides an auxiliary structure that speeds data retrieval.",
+      "order": 28,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-29": {
+      "id": "q-csv-1791278804196-29",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which ACID property ensures that committed changes survive system failure?",
+      "options": [
+        "Atomicity",
+        "Consistency",
+        "Isolation",
+        "Durability"
+      ],
+      "correctAnswer": "Durability",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Atomicity means a transaction completes fully or has no effect.",
+      "order": 29,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-30": {
+      "id": "q-csv-1791278804196-30",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which JOIN returns only matching rows from both tables?",
+      "options": [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL JOIN",
+        "INNER JOIN"
+      ],
+      "correctAnswer": "INNER JOIN",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A view presents a query-defined logical table without storing it as ordinary table data.",
+      "order": 30,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-31": {
+      "id": "q-csv-1791278804196-31",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "What is the primary purpose of an index in a database?",
+      "options": [
+        "Reduce storage",
+        "Speed up data retrieval",
+        "Encrypt data",
+        "Remove duplicates"
+      ],
+      "correctAnswer": "Speed up data retrieval",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "GROUP BY forms groups so aggregate functions can be applied to each group.",
+      "order": 31,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-32": {
+      "id": "q-csv-1791278804196-32",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which key uniquely identifies each row in a table?",
+      "options": [
+        "Foreign key",
+        "Candidate key",
+        "Primary key",
+        "Composite attribute"
+      ],
+      "correctAnswer": "Primary key",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "HAVING filters grouped results after aggregation has been performed.",
+      "order": 32,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-33": {
+      "id": "q-csv-1791278804196-33",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "What does COMMIT do?",
+      "options": [
+        "Deletes a transaction",
+        "Permanently saves transaction changes",
+        "Creates a table",
+        "Reverses changes"
+      ],
+      "correctAnswer": "Permanently saves transaction changes",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A JOIN combines related rows from multiple tables using a matching condition.",
+      "order": 33,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-34": {
+      "id": "q-csv-1791278804196-34",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which command removes a table completely?",
+      "options": [
+        "DELETE",
+        "TRUNCATE",
+        "DROP",
+        "REMOVE"
+      ],
+      "correctAnswer": "DROP",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Consistency requires a transaction to preserve the database's defined rules.",
+      "order": 34,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-35": {
+      "id": "q-csv-1791278804196-35",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "What does a foreign key primarily enforce?",
+      "options": [
+        "Domain integrity",
+        "Referential integrity",
+        "Physical integrity",
+        "Authentication"
+      ],
+      "correctAnswer": "Referential integrity",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A clustered index determines the physical ordering of table data where supported.",
+      "order": 35,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-36": {
+      "id": "q-csv-1791278804196-36",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which isolation problem occurs when one transaction reads uncommitted data from another?",
+      "options": [
+        "Phantom read",
+        "Dirty read",
+        "Lost update",
+        "Deadlock"
+      ],
+      "correctAnswer": "Dirty read",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Deadlock occurs when processes wait indefinitely for resources held by each other.",
+      "order": 36,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-37": {
+      "id": "q-csv-1791278804196-37",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which structure is commonly used to implement database indexes?",
+      "options": [
+        "Stack",
+        "B+ Tree",
+        "Queue",
+        "Linked List"
+      ],
+      "correctAnswer": "B+ Tree",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Foreign-key constraints help prevent references to nonexistent parent rows.",
+      "order": 37,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-38": {
+      "id": "q-csv-1791278804196-38",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "What is the main difference between DELETE and TRUNCATE?",
+      "options": [
+        "DELETE cannot use WHERE",
+        "TRUNCATE removes the table structure",
+        "DELETE can selectively remove rows",
+        "They are always identical"
+      ],
+      "correctAnswer": "DELETE can selectively remove rows",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A subquery is a query nested inside another SQL statement.",
+      "order": 38,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-39": {
+      "id": "q-csv-1791278804196-39",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "Which SQL operation combines results of two queries and removes duplicates?",
+      "options": [
+        "JOIN",
+        "UNION",
+        "MERGE",
+        "CONCAT"
+      ],
+      "correctAnswer": "UNION",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "ROLLBACK cancels uncommitted transaction changes.",
+      "order": 39,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-40": {
+      "id": "q-csv-1791278804196-40",
+      "stageNumber": 1,
+      "category": "DBMS & SQL",
+      "type": "mcq",
+      "questionText": "A relation is in BCNF if every determinant is a:",
+      "options": [
+        "Foreign key",
+        "Superkey",
+        "Composite key",
+        "Primary attribute"
+      ],
+      "correctAnswer": "Superkey",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A B+ tree keeps data references at leaves and supports efficient range searches.",
+      "order": 40,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-41": {
+      "id": "q-csv-1791278804196-41",
+      "stageNumber": 3,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Which scheduling algorithm can cause starvation?",
+      "options": [
+        "FCFS",
+        "Round Robin",
+        "Priority Scheduling",
+        "FIFO"
+      ],
+      "correctAnswer": "Priority Scheduling",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A process is a program currently in execution with its own state.",
+      "order": 41,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-42": {
+      "id": "q-csv-1791278804196-42",
+      "stageNumber": 3,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "What is thrashing?",
+      "options": [
+        "CPU overheating",
+        "Excessive paging",
+        "Disk formatting",
+        "Process termination"
+      ],
+      "correctAnswer": "Excessive paging",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Context switching saves one execution context and restores another.",
+      "order": 42,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-43": {
+      "id": "q-csv-1791278804196-43",
+      "stageNumber": 3,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Which condition is NOT required for deadlock?",
+      "options": [
+        "Mutual exclusion",
+        "Hold and wait",
+        "Preemption",
+        "Circular wait"
+      ],
+      "correctAnswer": "Preemption",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Round Robin assigns CPU time slices cyclically among ready processes.",
+      "order": 43,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-44": {
+      "id": "q-csv-1791278804196-44",
+      "stageNumber": 3,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "What does a semaphore primarily provide?",
+      "options": [
+        "Memory allocation",
+        "Process synchronization",
+        "File compression",
+        "CPU virtualization"
+      ],
+      "correctAnswer": "Process synchronization",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A page fault occurs when a needed page is absent from physical memory.",
+      "order": 44,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-45": {
+      "id": "q-csv-1791278804196-45",
+      "stageNumber": 3,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Which page replacement algorithm can suffer from Belady's anomaly?",
+      "options": [
+        "LRU",
+        "Optimal",
+        "FIFO",
+        "MRU"
+      ],
+      "correctAnswer": "FIFO",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Virtual memory provides processes with an address space larger than physical RAM.",
+      "order": 45,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-46": {
+      "id": "q-csv-1791278804196-46",
+      "stageNumber": 1,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "What is a context switch?",
+      "options": [
+        "Switching between programming languages",
+        "Switching CPU from one process/thread to another",
+        "Switching databases",
+        "Switching memory types"
+      ],
+      "correctAnswer": "Switching CPU from one process/thread to another",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A semaphore can coordinate concurrent access to shared resources.",
+      "order": 46,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-47": {
+      "id": "q-csv-1791278804196-47",
+      "stageNumber": 1,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Which scheduling algorithm gives each process a fixed time slice?",
+      "options": [
+        "FCFS",
+        "SJF",
+        "Round Robin",
+        "Priority"
+      ],
+      "correctAnswer": "Round Robin",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Deadlock avoidance checks whether an allocation can keep the system in a safe state.",
+      "order": 47,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-48": {
+      "id": "q-csv-1791278804196-48",
+      "stageNumber": 1,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Virtual memory primarily allows:",
+      "options": [
+        "Faster CPU execution",
+        "Programs larger than physical RAM to execute",
+        "Removal of cache",
+        "Elimination of storage"
+      ],
+      "correctAnswer": "Programs larger than physical RAM to execute",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Thrashing occurs when excessive paging leaves little time for useful execution.",
+      "order": 48,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-49": {
+      "id": "q-csv-1791278804196-49",
+      "stageNumber": 1,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "Which page replacement algorithm theoretically gives the minimum possible page faults?",
+      "options": [
+        "FIFO",
+        "LRU",
+        "Optimal",
+        "Clock"
+      ],
+      "correctAnswer": "Optimal",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Paging divides logical memory into pages and physical memory into frames.",
+      "order": 49,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-50": {
+      "id": "q-csv-1791278804196-50",
+      "stageNumber": 1,
+      "category": "Operating Systems",
+      "type": "mcq",
+      "questionText": "A process waiting indefinitely for a resource held by another process is associated with:",
+      "options": [
+        "Deadlock",
+        "Paging",
+        "Fragmentation",
+        "Spooling"
+      ],
+      "correctAnswer": "Deadlock",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "The kernel is the privileged core responsible for essential system management.",
+      "order": 50,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-51": {
+      "id": "q-csv-1791278804196-51",
+      "stageNumber": 1,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which OSI layer is responsible for routing?",
+      "options": [
+        "Data Link",
+        "Network",
+        "Transport",
+        "Session"
+      ],
+      "correctAnswer": "Network",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "An IP address identifies a network interface at the network layer.",
+      "order": 51,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-52": {
+      "id": "q-csv-1791278804196-52",
+      "stageNumber": 1,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which protocol maps IP addresses to MAC addresses?",
+      "options": [
+        "DNS",
+        "DHCP",
+        "ARP",
+        "ICMP"
+      ],
+      "correctAnswer": "ARP",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "DNS translates domain names into corresponding IP addresses.",
+      "order": 52,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-53": {
+      "id": "q-csv-1791278804196-53",
+      "stageNumber": 1,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which protocol is connection-oriented?",
+      "options": [
+        "UDP",
+        "IP",
+        "TCP",
+        "ICMP"
+      ],
+      "correctAnswer": "TCP",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "TCP provides reliable communication with sequencing and connection management.",
+      "order": 53,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-54": {
+      "id": "q-csv-1791278804196-54",
+      "stageNumber": 1,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "What is the default port of HTTPS?",
+      "options": [
+        "21",
+        "53",
+        "80",
+        "443"
+      ],
+      "correctAnswer": "443",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "UDP is connectionless and does not provide TCP-style reliability or ordering.",
+      "order": 54,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-55": {
+      "id": "q-csv-1791278804196-55",
+      "stageNumber": 1,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which device primarily operates at Layer 2?",
+      "options": [
+        "Router",
+        "Switch",
+        "Gateway",
+        "Modem"
+      ],
+      "correctAnswer": "Switch",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A subnet mask separates network bits from host bits in an IP address.",
+      "order": 55,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-56": {
+      "id": "q-csv-1791278804196-56",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which protocol translates domain names into IP addresses?",
+      "options": [
+        "FTP",
+        "DNS",
+        "SMTP",
+        "ARP"
+      ],
+      "correctAnswer": "DNS",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "NAT translates private network addresses to public addressing at a boundary.",
+      "order": 56,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-57": {
+      "id": "q-csv-1791278804196-57",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "What is the purpose of TCP's three-way handshake?",
+      "options": [
+        "Encrypt data",
+        "Establish a connection",
+        "Assign IP addresses",
+        "Resolve DNS"
+      ],
+      "correctAnswer": "Establish a connection",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "ARP resolves an IPv4 address to a local MAC address.",
+      "order": 57,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-58": {
+      "id": "q-csv-1791278804196-58",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which IP address is private?",
+      "options": [
+        "8.8.8.8",
+        "172.20.10.5",
+        "1.1.1.1",
+        "142.250.1.1"
+      ],
+      "correctAnswer": "172.20.10.5",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A router forwards packets between different networks using routing information.",
+      "order": 58,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-59": {
+      "id": "q-csv-1791278804196-59",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which protocol is used to automatically assign IP addresses?",
+      "options": [
+        "DNS",
+        "DHCP",
+        "ARP",
+        "FTP"
+      ],
+      "correctAnswer": "DHCP",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "HTTP is an application-layer protocol used for web communication.",
+      "order": 59,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-60": {
+      "id": "q-csv-1791278804196-60",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "What is the main purpose of NAT?",
+      "options": [
+        "Encrypt packets",
+        "Translate private and public IP addresses",
+        "Detect malware",
+        "Compress packets"
+      ],
+      "correctAnswer": "Translate private and public IP addresses",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "TLS protects application traffic using encryption and authentication.",
+      "order": 60,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-61": {
+      "id": "q-csv-1791278804196-61",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which transport protocol does not guarantee packet delivery?",
+      "options": [
+        "TCP",
+        "UDP",
+        "Both",
+        "Neither"
+      ],
+      "correctAnswer": "UDP",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A firewall filters network traffic according to security rules.",
+      "order": 61,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-62": {
+      "id": "q-csv-1791278804196-62",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "What does a subnet mask determine?",
+      "options": [
+        "MAC address",
+        "Network and host portions of an IP address",
+        "DNS server",
+        "Port number"
+      ],
+      "correctAnswer": "Network and host portions of an IP address",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A MAC address identifies a network interface at the data-link layer.",
+      "order": 62,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-63": {
+      "id": "q-csv-1791278804196-63",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "IPv4 addresses contain how many bits?",
+      "options": [
+        "16",
+        "32",
+        "64",
+        "128"
+      ],
+      "correctAnswer": "32",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A default gateway forwards traffic destined for external networks.",
+      "order": 63,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-64": {
+      "id": "q-csv-1791278804196-64",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "IPv6 addresses contain how many bits?",
+      "options": [
+        "32",
+        "64",
+        "128",
+        "256"
+      ],
+      "correctAnswer": "64",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A port number identifies a transport-layer service endpoint.",
+      "order": 64,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-65": {
+      "id": "q-csv-1791278804196-65",
+      "stageNumber": 2,
+      "category": "Computer Networks",
+      "type": "mcq",
+      "questionText": "Which protocol is used for secure remote login?",
+      "options": [
+        "Telnet",
+        "SSH",
+        "FTP",
+        "HTTP"
+      ],
+      "correctAnswer": "SSH",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "ICMP carries network-control and diagnostic messages.",
+      "order": 65,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-66": {
+      "id": "q-csv-1791278804196-66",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "What type of attack attempts to overwhelm a service with traffic?",
+      "options": [
+        "Phishing",
+        "DDoS",
+        "Spoofing",
+        "SQL Injection"
+      ],
+      "correctAnswer": "DDoS",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Phishing uses deceptive messages or sites to trick victims into revealing information.",
+      "order": 66,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-67": {
+      "id": "q-csv-1791278804196-67",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "SQL Injection primarily targets:",
+      "options": [
+        "CPU",
+        "Database queries",
+        "RAM",
+        "DNS"
+      ],
+      "correctAnswer": "Database queries",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "SQL injection manipulates unsafe database queries through crafted input.",
+      "order": 67,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-68": {
+      "id": "q-csv-1791278804196-68",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "Which is a cryptographic hash function?",
+      "options": [
+        "AES",
+        "RSA",
+        "SHA-256",
+        "Diffie-Hellman"
+      ],
+      "correctAnswer": "SHA-256",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A hash function maps arbitrary input to a fixed-size digest.",
+      "order": 68,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-69": {
+      "id": "q-csv-1791278804196-69",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "Which encryption algorithm is symmetric?",
+      "options": [
+        "RSA",
+        "AES",
+        "ECC",
+        "Diffie-Hellman"
+      ],
+      "correctAnswer": "AES",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Encryption converts plaintext into ciphertext to protect confidentiality.",
+      "order": 69,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-70": {
+      "id": "q-csv-1791278804196-70",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "What is phishing primarily designed to do?",
+      "options": [
+        "Increase bandwidth",
+        "Trick users into revealing sensitive information",
+        "Compress files",
+        "Improve authentication"
+      ],
+      "correctAnswer": "Trick users into revealing sensitive information",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Multi-factor authentication combines independent authentication factors.",
+      "order": 70,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-71": {
+      "id": "q-csv-1791278804196-71",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "Which attack intercepts communication between two parties?",
+      "options": [
+        "MITM",
+        "DDoS",
+        "Brute Force",
+        "SQL Injection"
+      ],
+      "correctAnswer": "MITM",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Denial-of-service attacks attempt to make services unavailable by exhausting resources.",
+      "order": 71,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-72": {
+      "id": "q-csv-1791278804196-72",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "What does MFA improve?",
+      "options": [
+        "Network speed",
+        "Authentication security",
+        "Storage capacity",
+        "CPU performance"
+      ],
+      "correctAnswer": "Authentication security",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Least privilege grants only the permissions required for a task.",
+      "order": 72,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-73": {
+      "id": "q-csv-1791278804196-73",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "Which principle means users should receive only the permissions they need?",
+      "options": [
+        "Zero Trust",
+        "Least Privilege",
+        "Defense in Depth",
+        "Fail Open"
+      ],
+      "correctAnswer": "Least Privilege",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A digital signature supports integrity and proves control of the signing key.",
+      "order": 73,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-74": {
+      "id": "q-csv-1791278804196-74",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "What is ransomware?",
+      "options": [
+        "Software that improves encryption",
+        "Malware that encrypts/locks data for extortion",
+        "Network monitoring software",
+        "Password manager"
+      ],
+      "correctAnswer": "Malware that encrypts/locks data for extortion",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Symmetric encryption uses the same secret key for encryption and decryption.",
+      "order": 74,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-75": {
+      "id": "q-csv-1791278804196-75",
+      "stageNumber": 3,
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "questionText": "Which attack tries many passwords automatically?",
+      "options": [
+        "Brute-force attack",
+        "XSS",
+        "MITM",
+        "ARP poisoning"
+      ],
+      "correctAnswer": "Brute-force attack",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A zero-day is a vulnerability exploited before an effective fix is available.",
+      "order": 75,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-76": {
+      "id": "q-csv-1791278804196-76",
+      "stageNumber": 2,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "Which learning type uses labelled training data?",
+      "options": [
+        "Unsupervised",
+        "Supervised",
+        "Reinforcement",
+        "Self-supervised only"
+      ],
+      "correctAnswer": "Supervised",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Supervised learning trains from examples paired with known target labels.",
+      "order": 76,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-77": {
+      "id": "q-csv-1791278804196-77",
+      "stageNumber": 2,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "K-Means is primarily used for:",
+      "options": [
+        "Classification",
+        "Clustering",
+        "Regression",
+        "Encryption"
+      ],
+      "correctAnswer": "Clustering",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Overfitting occurs when a model fits training data but generalizes poorly.",
+      "order": 77,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-78": {
+      "id": "q-csv-1791278804196-78",
+      "stageNumber": 2,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "What does overfitting mean?",
+      "options": [
+        "Model performs poorly on training data",
+        "Model memorizes training data and generalizes poorly",
+        "Model has too few parameters",
+        "Dataset has no labels"
+      ],
+      "correctAnswer": "Model memorizes training data and generalizes poorly",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Cross-validation estimates generalization by repeatedly training and validating on data splits.",
+      "order": 78,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-79": {
+      "id": "q-csv-1791278804196-79",
+      "stageNumber": 2,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "Which technique can reduce dimensionality?",
+      "options": [
+        "PCA",
+        "BFS",
+        "KNN",
+        "Apriori"
+      ],
+      "correctAnswer": "PCA",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Precision is the fraction of predicted positives that are actually positive.",
+      "order": 79,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-80": {
+      "id": "q-csv-1791278804196-80",
+      "stageNumber": 2,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "Which activation function is commonly used in hidden layers of modern neural networks?",
+      "options": [
+        "ReLU",
+        "Softmax only",
+        "Linear only",
+        "Step only"
+      ],
+      "correctAnswer": "ReLU",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Recall is the fraction of actual positives that are correctly identified.",
+      "order": 80,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-81": {
+      "id": "q-csv-1791278804196-81",
+      "stageNumber": 3,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "What does CNN primarily excel at?",
+      "options": [
+        "Image processing",
+        "Database normalization",
+        "Network routing",
+        "Sorting"
+      ],
+      "correctAnswer": "Image processing",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Gradient descent updates parameters to reduce the objective function.",
+      "order": 81,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-82": {
+      "id": "q-csv-1791278804196-82",
+      "stageNumber": 3,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "Which metric is particularly useful for imbalanced classification?",
+      "options": [
+        "Accuracy only",
+        "F1-score",
+        "MSE only",
+        "R² only"
+      ],
+      "correctAnswer": "F1-score",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A decision tree recursively partitions data using feature-based conditions.",
+      "order": 82,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-83": {
+      "id": "q-csv-1791278804196-83",
+      "stageNumber": 3,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "What does gradient descent optimize?",
+      "options": [
+        "Dataset size",
+        "Loss function",
+        "Number of classes",
+        "Input dimensions"
+      ],
+      "correctAnswer": "Loss function",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Random forests combine many decision trees to improve robustness and generalization.",
+      "order": 83,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-84": {
+      "id": "q-csv-1791278804196-84",
+      "stageNumber": 3,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "Which algorithm is commonly used for classification and regression?",
+      "options": [
+        "Random Forest",
+        "PCA",
+        "K-Means",
+        "Apriori"
+      ],
+      "correctAnswer": "Random Forest",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "K-means iteratively assigns points to centroids and updates those centroids.",
+      "order": 84,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-85": {
+      "id": "q-csv-1791278804196-85",
+      "stageNumber": 3,
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "questionText": "In reinforcement learning, an agent learns primarily through:",
+      "options": [
+        "Labels",
+        "Rewards and penalties",
+        "SQL queries",
+        "Clustering"
+      ],
+      "correctAnswer": "Rewards and penalties",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A confusion matrix summarizes predictions by actual and predicted classes.",
+      "order": 85,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-86": {
+      "id": "q-csv-1791278804196-86",
+      "stageNumber": 2,
+      "category": "AI / Deep Learning",
+      "type": "mcq",
+      "questionText": "What is the purpose of backpropagation?",
+      "options": [
+        "Initialize weights",
+        "Compute gradients for updating weights",
+        "Normalize data",
+        "Reduce dataset size"
+      ],
+      "correctAnswer": "Compute gradients for updating weights",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Activation functions introduce nonlinearity into neural networks.",
+      "order": 86,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-87": {
+      "id": "q-csv-1791278804196-87",
+      "stageNumber": 2,
+      "category": "AI / Deep Learning",
+      "type": "mcq",
+      "questionText": "Which problem is LSTM designed to help address?",
+      "options": [
+        "Database deadlocks",
+        "Long-term dependencies in sequences",
+        "Image compression",
+        "Network congestion"
+      ],
+      "correctAnswer": "Long-term dependencies in sequences",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Backpropagation computes loss gradients used to update neural-network parameters.",
+      "order": 87,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-88": {
+      "id": "q-csv-1791278804196-88",
+      "stageNumber": 2,
+      "category": "AI / Deep Learning",
+      "type": "mcq",
+      "questionText": "What does softmax typically produce in a multiclass classifier?",
+      "options": [
+        "Binary values",
+        "Probability distribution over classes",
+        "Random numbers",
+        "Feature vectors"
+      ],
+      "correctAnswer": "Probability distribution over classes",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "CNNs use convolution operations to learn spatial features from structured inputs.",
+      "order": 88,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-89": {
+      "id": "q-csv-1791278804196-89",
+      "stageNumber": 2,
+      "category": "AI / Deep Learning",
+      "type": "mcq",
+      "questionText": "What is dropout used for?",
+      "options": [
+        "Data encryption",
+        "Reducing overfitting",
+        "Increasing dataset size",
+        "Increasing network latency"
+      ],
+      "correctAnswer": "Reducing overfitting",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Dropout randomly disables units during training to reduce overfitting.",
+      "order": 89,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-90": {
+      "id": "q-csv-1791278804196-90",
+      "stageNumber": 2,
+      "category": "AI / Deep Learning",
+      "type": "mcq",
+      "questionText": "What happens when the learning rate is excessively high?",
+      "options": [
+        "Training may diverge",
+        "Model always becomes perfect",
+        "Dataset becomes balanced",
+        "Overfitting is guaranteed to disappear"
+      ],
+      "correctAnswer": "Training may diverge",
+      "difficulty": "MEDIUM",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "RNNs use recurrent state to model sequential information.",
+      "order": 90,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-91": {
+      "id": "q-csv-1791278804196-91",
+      "stageNumber": 1,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "What does ACID's I stand for?",
+      "options": [
+        "Integrity",
+        "Isolation",
+        "Indexing",
+        "Iteration"
+      ],
+      "correctAnswer": "Isolation",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A greedy algorithm repeatedly chooses the locally best option according to its rule.",
+      "order": 91,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-92": {
+      "id": "q-csv-1791278804196-92",
+      "stageNumber": 1,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "Which data structure is best suited for implementing an LRU cache?",
+      "options": [
+        "Stack only",
+        "Queue only",
+        "Hash Map + Doubly Linked List",
+        "Binary Tree only"
+      ],
+      "correctAnswer": "Hash Map + Doubly Linked List",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A finite-state machine represents behavior with states and input-triggered transitions.",
+      "order": 92,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-93": {
+      "id": "q-csv-1791278804196-93",
+      "stageNumber": 1,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "What is the purpose of a mutex?",
+      "options": [
+        "Memory allocation",
+        "Mutual exclusion",
+        "Data compression",
+        "Process creation"
+      ],
+      "correctAnswer": "Mutual exclusion",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Hashing can provide compact fingerprints for efficient duplicate detection.",
+      "order": 93,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-94": {
+      "id": "q-csv-1791278804196-94",
+      "stageNumber": 1,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "Which algorithm can detect a negative-weight cycle?",
+      "options": [
+        "Binary Search",
+        "Bellman-Ford",
+        "Prim",
+        "BFS"
+      ],
+      "correctAnswer": "Bellman-Ford",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "Recursion solves a problem through smaller instances of the same problem.",
+      "order": 94,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-95": {
+      "id": "q-csv-1791278804196-95",
+      "stageNumber": 1,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "What is the average-case lookup complexity of a hash table?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "correctAnswer": "O(1)",
+      "difficulty": "EASY",
+      "points": 1,
+      "timeLimitSeconds": 30,
+      "explanation": "A mutex ensures mutual exclusion around a protected critical section.",
+      "order": 95,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-96": {
+      "id": "q-csv-1791278804196-96",
+      "stageNumber": 3,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "Which concept allows multiple processes to make progress during overlapping execution?",
+      "options": [
+        "Concurrency",
+        "Compilation",
+        "Encapsulation",
+        "Serialization"
+      ],
+      "correctAnswer": "Concurrency",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A race condition occurs when results depend on the timing of concurrent operations.",
+      "order": 96,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-97": {
+      "id": "q-csv-1791278804196-97",
+      "stageNumber": 3,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "Which language feature allows Java code to run on different platforms through the JVM?",
+      "options": [
+        "Direct machine-code compilation",
+        "Bytecode",
+        "Assembly",
+        "Hardware abstraction only"
+      ],
+      "correctAnswer": "Bytecode",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Garbage collection reclaims memory that is no longer reachable.",
+      "order": 97,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-98": {
+      "id": "q-csv-1791278804196-98",
+      "stageNumber": 3,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "What does CAP theorem state about distributed systems during a network partition?",
+      "options": [
+        "All three properties can always be guaranteed",
+        "Only consistency and availability can coexist",
+        "A system must trade off consistency and availability",
+        "Partition tolerance can be ignored"
+      ],
+      "correctAnswer": "A system must trade off consistency and availability",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "A REST-style API commonly uses HTTP methods to operate on resources.",
+      "order": 98,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-99": {
+      "id": "q-csv-1791278804196-99",
+      "stageNumber": 3,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "Which technology is primarily designed for container orchestration?",
+      "options": [
+        "Git",
+        "Kubernetes",
+        "Jenkins",
+        "Maven"
+      ],
+      "correctAnswer": "Kubernetes",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "Caching improves performance by keeping frequently needed data closer to the consumer.",
+      "order": 99,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    },
+    "q-csv-1791278804196-100": {
+      "id": "q-csv-1791278804196-100",
+      "stageNumber": 3,
+      "category": "Tech + Logic + Advanced CS",
+      "type": "mcq",
+      "questionText": "A program has two nested loops, each iterating approximately n times. What is the dominant time complexity?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(n²)",
+        "O(2ⁿ)"
+      ],
+      "correctAnswer": "O(n²)",
+      "difficulty": "HARD",
+      "points": 2,
+      "timeLimitSeconds": 30,
+      "explanation": "NP-complete problems are in NP and are at least as hard as every problem in NP under polynomial reductions.",
+      "order": 100,
+      "isVoided": false,
+      "isFullPointsAwarded": false
+    }
+  },
+  "quizSubmissions": [
+    {
+      "id": "sub-quiz-1789711907352-ilzs",
+      "teamId": "team-warriors",
+      "teamName": "Code Warriors",
+      "questionId": "q-1",
+      "answer": "\"32\"",
+      "isCorrect": true,
+      "pointsAwarded": 2,
+      "timeTakenSeconds": 29,
+      "submittedAt": 1789711907352
+    }
+  ],
+  "round2Config": {
+    "phases": {
+      "1": {
+        "phaseNumber": 1,
+        "title": "Phase 1 — Easy",
+        "difficulty": "EASY",
+        "questionCount": 5,
+        "defaultPoints": 2,
+        "timePerQuestionSeconds": 30
+      },
+      "2": {
+        "phaseNumber": 2,
+        "title": "Phase 2 — Medium",
+        "difficulty": "MEDIUM",
+        "questionCount": 5,
+        "defaultPoints": 4,
+        "timePerQuestionSeconds": 45
+      },
+      "3": {
+        "phaseNumber": 3,
+        "title": "Phase 3 — Hard",
+        "difficulty": "HARD",
+        "questionCount": 5,
+        "defaultPoints": 6,
+        "timePerQuestionSeconds": 60
+      }
+    },
+    "scoreOverrides": {}
+  },
+  "teamQuizProgress": {},
+  "codingProblems": {
+    "prob-1": {
+      "id": "prob-1",
+      "order": 1,
+      "problemNumber": 1,
+      "title": "Problem 1: Run-Length Compression (Code Golf)",
+      "description": "Write a program that takes a single line string of lowercase English letters from standard input and prints the run-length compressed version. For example, \"aaabbc\" becomes \"a3b2c1\". Your objective is to submit the shortest working code in characters.",
+      "statement": "Write a program that takes a single line string of lowercase English letters from standard input and prints the run-length compressed version. For example, \"aaabbc\" becomes \"a3b2c1\". Your objective is to submit the shortest working code in characters.",
+      "inputFormat": "A single non-empty string S containing lowercase letters a-z.",
+      "outputFormat": "Print the run-length encoded string followed by a newline.",
+      "constraints": "1 <= |S| <= 1000",
+      "difficulty": "Easy",
+      "points": 100,
+      "timeLimitSeconds": 600,
+      "memoryLimitMb": 256,
+      "allowedLanguages": [
+        "C",
+        "C++",
+        "Java"
+      ],
+      "boilerplates": {
+        "C": "#include <stdio.h>\n\nint main() {\n    printf(\"\");\n\n    return 0;\n}",
+        "C++": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"\";\n    return 0;\n}",
+        "Java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"\");\n    }\n}"
+      },
+      "visibleTestCases": [
+        {
+          "id": "tc-1",
+          "input": "aaabbc",
+          "expectedOutput": "a3b2c1",
+          "isHidden": false,
+          "explanation": "3 a's, 2 b's, 1 c"
+        },
+        {
+          "id": "tc-2",
+          "input": "wwwwaaadexxxxxx",
+          "expectedOutput": "w4a3d1e1x6",
+          "isHidden": false
+        }
+      ],
+      "sampleTestCases": [
+        {
+          "id": "tc-1",
+          "input": "aaabbc",
+          "expectedOutput": "a3b2c1",
+          "isHidden": false,
+          "explanation": "3 a's, 2 b's, 1 c"
+        },
+        {
+          "id": "tc-2",
+          "input": "wwwwaaadexxxxxx",
+          "expectedOutput": "w4a3d1e1x6",
+          "isHidden": false
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "tc-h1",
+          "input": "z",
+          "expectedOutput": "z1",
+          "isHidden": true
+        },
+        {
+          "id": "tc-h2",
+          "input": "codexclub",
+          "expectedOutput": "c1o1d1e1x1c1l1u1b1",
+          "isHidden": true
+        },
+        {
+          "id": "tc-h3",
+          "input": "aaaaabbbbbcccccdddddeeeee",
+          "expectedOutput": "a5b5c5d5e5",
+          "isHidden": true
+        }
+      ],
+      "explanation": "",
+      "isEnabled": true,
+      "prohibitedKeywords": [
+        "eval",
+        "Function",
+        "child_process",
+        "execSync"
+      ],
+      "rankingMetric": "characters",
+      "referenceLengths": {
+        "JavaScript": 85,
+        "Python": 65,
+        "C++": 140,
+        "C": 150,
+        "Java": 180
+      },
+      "maxSubmissions": 15
+    },
+    "prob-2": {
+      "id": "prob-2",
+      "title": "Problem 2: Matrix Diagonal Sum Reducer",
+      "description": "Given an integer N followed by an N x N matrix of integers on subsequent lines, output the sum of both the primary and secondary diagonals. If N is odd, count the center element only once.",
+      "inputFormat": "First line: N. Next N lines: N space-separated integers.",
+      "outputFormat": "A single integer representing the total diagonal sum.",
+      "constraints": "1 <= N <= 100",
+      "sampleTestCases": [
+        {
+          "id": "tc-p2-1",
+          "input": "3\n1 2 3\n4 5 6\n7 8 9",
+          "expectedOutput": "25",
+          "isHidden": false,
+          "explanation": "Primary diagonal: 1+5+9=15. Secondary: 3+5+7=15. Center 5 is shared: 15 + 15 - 5 = 25."
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "id": "tc-p2-h1",
+          "input": "1\n42",
+          "expectedOutput": "42",
+          "isHidden": true
+        },
+        {
+          "id": "tc-p2-h2",
+          "input": "2\n1 2\n3 4",
+          "expectedOutput": "10",
+          "isHidden": true
+        }
+      ],
+      "allowedLanguages": [
+        "C",
+        "C++",
+        "Java"
+      ],
+      "prohibitedKeywords": [
+        "eval",
+        "Function"
+      ],
+      "rankingMetric": "characters",
+      "referenceLengths": {
+        "JavaScript": 95,
+        "Python": 75,
+        "C++": 160
+      },
+      "maxSubmissions": 15,
+      "timeLimitSeconds": 600,
+      "order": 2,
+      "problemNumber": 2,
+      "difficulty": "Medium",
+      "points": 150,
+      "memoryLimitMb": 256,
+      "isEnabled": true,
+      "visibleTestCases": [
+        {
+          "id": "tc-p2-1",
+          "input": "3\n1 2 3\n4 5 6\n7 8 9",
+          "expectedOutput": "25",
+          "isHidden": false,
+          "explanation": "Primary diagonal: 1+5+9=15. Secondary: 3+5+7=15. Center 5 is shared: 15 + 15 - 5 = 25."
+        }
+      ],
+      "boilerplates": {
+        "C": "#include <stdio.h>\n\nint main() {\n    printf(\"\");\n\n    return 0;\n}",
+        "C++": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"\";\n\n    return 0;\n}",
+        "Java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"\");\n    }\n}"
+      }
+    }
+  },
+  "codeSubmissions": [
+    {
+      "id": "sub-code-1791284041867-team-muwjrtbf-ki9s-nwlpe",
+      "teamId": "team-muwjrtbf-ki9s",
+      "teamName": "Team WARRIORS",
+      "problemId": "prob-1",
+      "problemTitle": "Problem 1: Run-Length Compression (Code Golf)",
+      "code": "\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNext()) return;\n        String s = sc.next();\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < s.length(); ) {\n            char ch = s.charAt(i);\n            int count = 0;\n            while (i < s.length() && s.charAt(i) == ch) {\n                count++;\n                i++;\n            }\n            sb.append(ch).append(count);\n        }\n        System.out.println(sb.toString());\n    }\n}\n",
+      "participantCode": "\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNext()) return;\n        String s = sc.next();\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < s.length(); ) {\n            char ch = s.charAt(i);\n            int count = 0;\n            while (i < s.length() && s.charAt(i) == ch) {\n                count++;\n                i++;\n            }\n            sb.append(ch).append(count);\n        }\n        System.out.println(sb.toString());\n    }\n}\n",
+      "language": "Java",
+      "charCount": 255,
+      "lineCount": 19,
+      "executionStatus": "passed",
+      "testResults": [
+        {
+          "passed": true,
+          "input": "aaabbc",
+          "expected": "a3b2c1",
+          "expectedOutput": "a3b2c1",
+          "actual": "a3b2c1",
+          "actualOutput": "a3b2c1",
+          "executionTimeMs": 101,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "wwwwaaadexxxxxx",
+          "expected": "w4a3d1e1x6",
+          "expectedOutput": "w4a3d1e1x6",
+          "actual": "w4a3d1e1x6",
+          "actualOutput": "w4a3d1e1x6",
+          "executionTimeMs": 92,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 90,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 89,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 93,
+          "isHidden": true
+        }
+      ],
+      "allPassed": true,
+      "score": 100,
+      "isAccepted": true,
+      "submittedAt": 1791284041867
+    },
+    {
+      "id": "sub-code-1791284029464-team-muwjrtbf-ki9s-vmv7g",
+      "teamId": "team-muwjrtbf-ki9s",
+      "teamName": "Team WARRIORS",
+      "problemId": "prob-1",
+      "problemTitle": "Problem 1: Run-Length Compression (Code Golf)",
+      "code": "\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[1005];\n    if (scanf(\"%s\", s) != 1) return 0;\n    int len = strlen(s);\n    for (int i = 0; i < len; ) {\n        char ch = s[i];\n        int count = 0;\n        while (i < len && s[i] == ch) { count++; i++; }\n        printf(\"%c%d\", ch, count);\n    }\n    printf(\"\\n\");\n    return 0;\n}\n",
+      "participantCode": "\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[1005];\n    if (scanf(\"%s\", s) != 1) return 0;\n    int len = strlen(s);\n    for (int i = 0; i < len; ) {\n        char ch = s[i];\n        int count = 0;\n        while (i < len && s[i] == ch) { count++; i++; }\n        printf(\"%c%d\", ch, count);\n    }\n    printf(\"\\n\");\n    return 0;\n}\n",
+      "language": "C",
+      "charCount": 180,
+      "lineCount": 15,
+      "executionStatus": "passed",
+      "testResults": [
+        {
+          "passed": true,
+          "input": "aaabbc",
+          "expected": "a3b2c1",
+          "expectedOutput": "a3b2c1",
+          "actual": "a3b2c1",
+          "actualOutput": "a3b2c1",
+          "executionTimeMs": 6,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "wwwwaaadexxxxxx",
+          "expected": "w4a3d1e1x6",
+          "expectedOutput": "w4a3d1e1x6",
+          "actual": "w4a3d1e1x6",
+          "actualOutput": "w4a3d1e1x6",
+          "executionTimeMs": 4,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 5,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 4,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 5,
+          "isHidden": true
+        }
+      ],
+      "allPassed": true,
+      "score": 100,
+      "isAccepted": true,
+      "submittedAt": 1791284029464
+    },
+    {
+      "id": "sub-code-1791284007197-team-muwjrtbf-ki9s-4k35f",
+      "teamId": "team-muwjrtbf-ki9s",
+      "teamName": "Team WARRIORS",
+      "problemId": "prob-1",
+      "problemTitle": "Problem 1: Run-Length Compression (Code Golf)",
+      "code": "\n#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s;\n    if (!(cin >> s)) return 0;\n    for (int i = 0; i < s.length(); ) {\n        char ch = s[i];\n        int count = 0;\n        while (i < s.length() && s[i] == ch) { count++; i++; }\n        cout << ch << count;\n    }\n    cout << \"\\n\";\n    return 0;\n}\n",
+      "participantCode": "\n#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s;\n    if (!(cin >> s)) return 0;\n    for (int i = 0; i < s.length(); ) {\n        char ch = s[i];\n        int count = 0;\n        while (i < s.length() && s[i] == ch) { count++; i++; }\n        cout << ch << count;\n    }\n    cout << \"\\n\";\n    return 0;\n}\n",
+      "language": "C++",
+      "charCount": 156,
+      "lineCount": 15,
+      "executionStatus": "passed",
+      "testResults": [
+        {
+          "passed": true,
+          "input": "aaabbc",
+          "expected": "a3b2c1",
+          "expectedOutput": "a3b2c1",
+          "actual": "a3b2c1",
+          "actualOutput": "a3b2c1",
+          "executionTimeMs": 6,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "wwwwaaadexxxxxx",
+          "expected": "w4a3d1e1x6",
+          "expectedOutput": "w4a3d1e1x6",
+          "actual": "w4a3d1e1x6",
+          "actualOutput": "w4a3d1e1x6",
+          "executionTimeMs": 7,
+          "isHidden": false,
+          "status": "passed"
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 6,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 6,
+          "isHidden": true
+        },
+        {
+          "passed": true,
+          "input": "[Hidden Test]",
+          "expected": "[Hidden]",
+          "actual": "[Hidden Test Passed]",
+          "actualOutput": "[Hidden Test Passed]",
+          "expectedOutput": "[Hidden]",
+          "executionTimeMs": 6,
+          "isHidden": true
+        }
+      ],
+      "allPassed": true,
+      "score": 100,
+      "isAccepted": true,
+      "submittedAt": 1791284007198
+    }
+  ],
+  "crackChallenges": {
+    "chk-1": {
+      "id": "chk-1",
+      "order": 1,
+      "title": "Challenge 1: The Caesar Breach",
+      "puzzleType": "cipher",
+      "prompt": "An encrypted transmission was intercepted from the server kernel. It was shifted using Caesar Cipher ROT-13. Decrypt the ciphertext to retrieve the authentication passphrase.",
+      "cipherText": "PBQRKPYHO_2026_YVIR",
+      "hintAfterSolve": "Hint for Challenge 2: The next passcode resides within standard ASCII hexadecimal stream. Notice byte pairs.",
+      "correctAnswer": "CODEXCLUB_2026_LIVE",
+      "acceptedVariations": [
+        "CODEXCLUB_2026_LIVE",
+        "codexclub_2026_live",
+        "CODEXCLUB-2026-LIVE",
+        "codexclub-2026-live"
+      ],
+      "points": 25,
+      "isManuallyUnlockedForEveryone": false
+    },
+    "chk-2": {
+      "id": "chk-2",
+      "order": 2,
+      "title": "Challenge 2: Hexadecimal Memory Dump",
+      "puzzleType": "binary_hex",
+      "prompt": "Inspect this raw byte memory dump extracted from an active socket buffer: 43 79 62 65 72 53 65 63 75 72 69 74 79. Decode the ASCII string.",
+      "codeOrData": "43 79 62 65 72 53 65 63 75 72 69 74 79",
+      "hintAfterSolve": "Hint for Challenge 3: In the next challenge, solve the algorithmic riddle to determine the smallest positive integer.",
+      "correctAnswer": "CyberSecurity",
+      "acceptedVariations": [
+        "CyberSecurity",
+        "cybersecurity",
+        "CYBERSECURITY"
+      ],
+      "points": 35,
+      "isManuallyUnlockedForEveryone": false
+    },
+    "chk-3": {
+      "id": "chk-3",
+      "order": 3,
+      "title": "Challenge 3: Regex Pattern Vault",
+      "puzzleType": "regex",
+      "prompt": "Find the single token hidden in the following text that matches the pattern /^KEY-[A-Z]{3}-[0-9]{4}$/:\n\"KEY-123-ABCD, KEY-ABC-2026, KEY-XYZ-9999X, KEY-CDX-4040, KEY-A1B-5555\"",
+      "codeOrData": "KEY-123-ABCD, KEY-ABC-2026, KEY-XYZ-9999X, KEY-CDX-4040, KEY-A1B-5555",
+      "hintAfterSolve": "Hint for Challenge 4: Final Challenge! Evaluate the recursive Fibonacci sequence index.",
+      "correctAnswer": "KEY-CDX-4040",
+      "acceptedVariations": [
+        "KEY-CDX-4040",
+        "key-cdx-4040",
+        "KEY-ABC-2026",
+        "key-abc-2026"
+      ],
+      "points": 40,
+      "isManuallyUnlockedForEveryone": false
+    },
+    "chk-4": {
+      "id": "chk-4",
+      "order": 4,
+      "title": "Final Challenge: The Grand Algorithmic Gate",
+      "puzzleType": "algo_logic",
+      "prompt": "What is the exact value of F(10) where F(0)=0, F(1)=1, and F(n)=F(n-1)+F(n-2)? Submit the numerical answer to unlock the champion flag.",
+      "codeOrData": "F(n) = F(n-1) + F(n-2) for n >= 2",
+      "hintAfterSolve": "Congratulations! You have completed the entire Crack & Compete chain!",
+      "correctAnswer": "55",
+      "acceptedVariations": [
+        "55",
+        "f(10)=55"
+      ],
+      "points": 50,
+      "isManuallyUnlockedForEveryone": false
+    }
+  },
+  "crackProgress": {},
+  "crackAttempts": [],
+  "announcements": [
+    {
+      "id": "ann-1788601997235",
+      "title": "Event Administrator Broadcast",
+      "message": "hi",
+      "type": "urgent",
+      "target": "all",
+      "createdAt": 1788601997235,
+      "isActive": true
+    },
+    {
+      "id": "ann-1788601959802",
+      "title": "Event Administrator Broadcast",
+      "message": "COntest is paused",
+      "type": "info",
+      "target": "all",
+      "createdAt": 1788601959802,
+      "isActive": true
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log-1791290672161-58ry",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-muwjrtbf-ki9s",
+      "previousValue": "WARRIORS",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791290672161
+    },
+    {
+      "id": "log-1791284040392-lmf7",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-muwjrtbf-ki9s",
+      "previousValue": "WARRIORS",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791284040392
+    },
+    {
+      "id": "log-1791284029321-g0p8",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-muwjrtbf-ki9s",
+      "previousValue": "WARRIORS",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791284029321
+    },
+    {
+      "id": "log-1791284006591-17lq",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-muwjrtbf-ki9s",
+      "previousValue": "WARRIORS",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791284006591
+    },
+    {
+      "id": "log-1791283956180-ix9a",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-muwjrtbf-ki9s",
+      "previousValue": "WARRIORS",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791283956180
+    },
+    {
+      "id": "log-1791282884222-95m1",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791282884222
+    },
+    {
+      "id": "log-1791282868197-uhdf",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791282868197
+    },
+    {
+      "id": "log-1791282837471-brm7",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791282837471
+    },
+    {
+      "id": "log-1791281730498-rjk0",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "LOBBY",
+      "newValue": "R3_CODE",
+      "timestamp": 1791281730498
+    },
+    {
+      "id": "log-1791280994986-l102",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1791280994986
+    },
+    {
+      "id": "log-1791280993470-4kux",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791280993470
+    },
+    {
+      "id": "log-1791280991567-mnbp",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1791280991567
+    },
+    {
+      "id": "log-1791280985704-2ybh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791280985704
+    },
+    {
+      "id": "log-1791280978113-33ne",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R2_QUIZ",
+      "newValue": "LOBBY",
+      "timestamp": 1791280978113
+    },
+    {
+      "id": "log-1791278814690-r9c4",
+      "adminUser": "Admin",
+      "action": "IMPORT_QUIZ_QUESTIONS",
+      "entityType": "QUIZ_QUESTIONS",
+      "entityId": "BULK",
+      "previousValue": "null",
+      "newValue": "{\"addedCount\":100,\"updatedCount\":0}",
+      "timestamp": 1791278814690
+    },
+    {
+      "id": "log-1791278794719-v1in",
+      "adminUser": "Admin",
+      "action": "BULK_DELETE_QUIZ_QUESTIONS",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "MULTIPLE",
+      "previousValue": "[\"q-1\",\"q-2\",\"q-3\",\"q-7\",\"q-10\",\"q-11\",\"q-12\",\"q-4\",\"q-5\",\"q-8\",\"q-13\",\"q-14\",\"q-15\",\"q-6\",\"q-9\",\"q-16\",\"q-17\",\"q-18\",\"q-19\",\"q-imp-1791273688530-0\",\"q-imp-1791273688530-1\",\"q-imp-1791273688530-2\",\"q-csv-1791277565020-1\",\"q-csv-1791277565020-2\",\"q-csv-1791277565020-3\",\"q-csv-1791277565020-4\",\"q-csv-1791277565020-5\",\"q-csv-1791277565020-6\",\"q-csv-1791277565020-7\",\"q-csv-1791277565020-8\",\"q-csv-1791277565020-9\",\"q-csv-1791277565020-10\",\"q-csv-1791277565020-11\",\"q-csv-1791277565020-12\",\"q-csv-1791277565020-13\",\"q-csv-1791277565020-14\",\"q-csv-1791277565020-15\",\"q-csv-1791277565020-16\",\"q-csv-1791277565020-17\",\"q-csv-1791277565020-18\",\"q-csv-1791277565020-19\",\"q-csv-1791277565020-20\",\"q-csv-1791277565020-21\",\"q-csv-1791277565020-22\",\"q-csv-1791277565020-23\",\"q-csv-1791277565020-24\",\"q-csv-1791277565020-25\",\"q-csv-1791277565020-26\",\"q-csv-1791277565020-27\",\"q-csv-1791277565020-28\",\"q-csv-1791277565020-29\",\"q-csv-1791277565020-30\",\"q-csv-1791277565020-31\",\"q-csv-1791277565020-32\",\"q-csv-1791277565020-33\",\"q-csv-1791277565020-34\",\"q-csv-1791277565020-35\",\"q-csv-1791277565020-36\",\"q-csv-1791277565020-37\",\"q-csv-1791277565020-38\",\"q-csv-1791277565021-39\",\"q-csv-1791277565021-40\",\"q-csv-1791277565021-41\",\"q-csv-1791277565021-42\",\"q-csv-1791277565021-43\",\"q-csv-1791277565021-44\",\"q-csv-1791277565021-45\",\"q-csv-1791277565021-46\",\"q-csv-1791277565021-47\",\"q-csv-1791277565021-48\",\"q-csv-1791277565021-49\",\"q-csv-1791277565021-50\",\"q-csv-1791277565021-51\",\"q-csv-1791277565021-52\",\"q-csv-1791277565021-53\",\"q-csv-1791277565021-54\",\"q-csv-1791277565021-55\",\"q-csv-1791277565021-56\",\"q-csv-1791277565021-57\",\"q-csv-1791277565021-58\",\"q-csv-1791277565021-59\",\"q-csv-1791277565021-60\",\"q-csv-1791277565021-61\",\"q-csv-1791277565021-62\",\"q-csv-1791277565021-63\",\"q-csv-1791277565021-64\",\"q-csv-1791277565021-65\",\"q-csv-1791277565021-66\",\"q-csv-1791277565021-67\",\"q-csv-1791277565021-68\",\"q-csv-1791277565021-69\",\"q-csv-1791277565021-70\",\"q-csv-1791277565021-71\",\"q-csv-1791277565021-72\",\"q-csv-1791277565021-73\",\"q-csv-1791277565021-74\",\"q-csv-1791277565021-75\",\"q-csv-1791277565021-76\",\"q-csv-1791277565021-77\",\"q-csv-1791277565021-78\",\"q-csv-1791277565021-79\",\"q-csv-1791277565021-80\",\"q-csv-1791277565021-81\",\"q-csv-1791277565021-82\",\"q-csv-1791277565021-83\",\"q-csv-1791277565021-84\",\"q-csv-1791277565021-85\",\"q-csv-1791277565022-86\",\"q-csv-1791277565022-87\",\"q-csv-1791277565022-88\",\"q-csv-1791277565022-89\",\"q-csv-1791277565022-90\",\"q-csv-1791277565022-91\",\"q-csv-1791277565022-92\",\"q-csv-1791277565022-93\",\"q-csv-1791277565022-94\",\"q-csv-1791277565022-95\",\"q-csv-1791277565022-96\",\"q-csv-1791277565022-97\",\"q-csv-1791277565022-98\",\"q-csv-1791277565022-99\",\"q-csv-1791277565022-100\"]",
+      "newValue": "Deleted 122 questions",
+      "timestamp": 1791278794719
+    },
+    {
+      "id": "log-1791278624956-g024",
+      "adminUser": "Admin",
+      "action": "BULK_DELETE_QUIZ_QUESTIONS",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "MULTIPLE",
+      "previousValue": "[\"q-1791278624921\",\"q-1791278624931\",\"q-1791278624944\"]",
+      "newValue": "Deleted 3 questions",
+      "timestamp": 1791278624956
+    },
+    {
+      "id": "log-1791278624944-xld4",
+      "adminUser": "Admin",
+      "action": "CREATE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791278624944",
+      "previousValue": "null",
+      "newValue": "{\"id\":\"q-1791278624944\",\"stageNumber\":2,\"category\":\"Bulk Testing\",\"type\":\"mcq\",\"questionText\":\"Bulk Test Question #3\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":\"A\",\"difficulty\":\"EASY\",\"points\":4,\"timeLimitSeconds\":45,\"explanation\":\"\",\"order\":125,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "timestamp": 1791278624944
+    },
+    {
+      "id": "log-1791278624931-7x31",
+      "adminUser": "Admin",
+      "action": "CREATE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791278624931",
+      "previousValue": "null",
+      "newValue": "{\"id\":\"q-1791278624931\",\"stageNumber\":2,\"category\":\"Bulk Testing\",\"type\":\"mcq\",\"questionText\":\"Bulk Test Question #2\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":\"A\",\"difficulty\":\"EASY\",\"points\":4,\"timeLimitSeconds\":45,\"explanation\":\"\",\"order\":124,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "timestamp": 1791278624931
+    },
+    {
+      "id": "log-1791278624921-tol6",
+      "adminUser": "Admin",
+      "action": "CREATE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791278624921",
+      "previousValue": "null",
+      "newValue": "{\"id\":\"q-1791278624921\",\"stageNumber\":2,\"category\":\"Bulk Testing\",\"type\":\"mcq\",\"questionText\":\"Bulk Test Question #1\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":\"A\",\"difficulty\":\"EASY\",\"points\":4,\"timeLimitSeconds\":45,\"explanation\":\"\",\"order\":123,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "timestamp": 1791278624921
+    },
+    {
+      "id": "log-1791278624904-h3xg",
+      "adminUser": "Admin",
+      "action": "DELETE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791278624891",
+      "previousValue": "{\"id\":\"q-1791278624891\",\"stageNumber\":1,\"category\":\"Unit Testing\",\"type\":\"mcq\",\"questionText\":\"Verify Delete Single Question Feature\",\"options\":[\"Alpha\",\"Beta\",\"Gamma\",\"Delta\"],\"correctAnswer\":\"Alpha\",\"difficulty\":\"EASY\",\"points\":2,\"timeLimitSeconds\":30,\"explanation\":\"\",\"order\":123,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "newValue": "DELETED",
+      "timestamp": 1791278624904
+    },
+    {
+      "id": "log-1791278624891-vxp6",
+      "adminUser": "Admin",
+      "action": "CREATE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791278624891",
+      "previousValue": "null",
+      "newValue": "{\"id\":\"q-1791278624891\",\"stageNumber\":1,\"category\":\"Unit Testing\",\"type\":\"mcq\",\"questionText\":\"Verify Delete Single Question Feature\",\"options\":[\"Alpha\",\"Beta\",\"Gamma\",\"Delta\"],\"correctAnswer\":\"Alpha\",\"difficulty\":\"EASY\",\"points\":2,\"timeLimitSeconds\":30,\"explanation\":\"\",\"order\":123,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "timestamp": 1791278624891
+    },
+    {
+      "id": "log-1791278624872-fpsc",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791278624872
+    },
+    {
+      "id": "log-1791277934456-n19u",
+      "adminUser": "Admin",
+      "action": "DELETE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791277924711",
+      "previousValue": "{\"id\":\"q-1791277924711\",\"stageNumber\":1,\"category\":\"Testing\",\"type\":\"mcq\",\"questionText\":\"Temporary Test Question to Delete\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":\"A\",\"difficulty\":\"EASY\",\"points\":2,\"timeLimitSeconds\":30,\"explanation\":\"\",\"order\":123,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "newValue": "DELETED",
+      "timestamp": 1791277934456
+    },
+    {
+      "id": "log-1791277934442-ju12",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791277934442
+    },
+    {
+      "id": "log-1791277924711-9dsr",
+      "adminUser": "Admin",
+      "action": "CREATE_QUIZ_QUESTION",
+      "entityType": "QUIZ_QUESTION",
+      "entityId": "q-1791277924711",
+      "previousValue": "null",
+      "newValue": "{\"id\":\"q-1791277924711\",\"stageNumber\":1,\"category\":\"Testing\",\"type\":\"mcq\",\"questionText\":\"Temporary Test Question to Delete\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":\"A\",\"difficulty\":\"EASY\",\"points\":2,\"timeLimitSeconds\":30,\"explanation\":\"\",\"order\":123,\"isVoided\":false,\"isFullPointsAwarded\":false}",
+      "timestamp": 1791277924711
+    },
+    {
+      "id": "log-1791277924697-lvzb",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791277924697
+    },
+    {
+      "id": "log-1791277916626-f63c",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791277916626
+    },
+    {
+      "id": "log-1791277894201-tblc",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791277894201
+    },
+    {
+      "id": "log-1791277603804-smfg",
+      "adminUser": "Admin",
+      "action": "IMPORT_QUIZ_QUESTIONS",
+      "entityType": "QUIZ_QUESTIONS",
+      "entityId": "BULK",
+      "previousValue": "null",
+      "newValue": "{\"addedCount\":100,\"updatedCount\":0}",
+      "timestamp": 1791277603804
+    },
+    {
+      "id": "log-1791274268727-64mv",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791274268727
+    },
+    {
+      "id": "log-1791273971298-n55j",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-muwc7xgt-hksm",
+      "previousValue": "CDX26-B2V9N4",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791273971298
+    },
+    {
+      "id": "log-1791273688530-cdqw",
+      "adminUser": "Admin",
+      "action": "IMPORT_QUIZ_QUESTIONS",
+      "entityType": "QUIZ_QUESTIONS",
+      "entityId": "BULK",
+      "previousValue": "null",
+      "newValue": "{\"addedCount\":3,\"updatedCount\":0}",
+      "timestamp": 1791273688530
+    },
+    {
+      "id": "log-1791273688514-tkiu",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791273688514
+    },
+    {
+      "id": "log-1791273688508-xfy9",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791273688508
+    },
+    {
+      "id": "log-1791270523181-651d",
+      "adminUser": "System",
+      "action": "TEAM_REGISTERED",
+      "entityType": "TEAM",
+      "entityId": "team-muwc7xgt-hksm",
+      "previousValue": "CDX26-B2V9N4",
+      "newValue": "Byte Warriors",
+      "timestamp": 1791270523181
+    },
+    {
+      "id": "log-1791270079089-kp9z",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791270079089
+    },
+    {
+      "id": "log-1791270069443-37y3",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791270069443
+    },
+    {
+      "id": "log-1791270069435-51y2",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791270069435
+    },
+    {
+      "id": "log-1791270069423-cx9m",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791270069423
+    },
+    {
+      "id": "log-1791270069401-kc01",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791270069401
+    },
+    {
+      "id": "log-1791269040012-aeuu",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1791269040012
+    },
+    {
+      "id": "log-1791268620292-8933",
+      "adminUser": "Admin",
+      "action": "SET_ACTIVE_TYPING_ROUND",
+      "entityType": "TYPING_ROUND",
+      "entityId": "tr-1",
+      "previousValue": "tr-2",
+      "newValue": "tr-1",
+      "timestamp": 1791268620292
+    },
+    {
+      "id": "log-1791268618686-7mun",
+      "adminUser": "Admin",
+      "action": "SET_ACTIVE_TYPING_ROUND",
+      "entityType": "TYPING_ROUND",
+      "entityId": "tr-2",
+      "previousValue": "tr-1",
+      "newValue": "tr-2",
+      "timestamp": 1791268618686
+    },
+    {
+      "id": "log-1791268484909-n94g",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791268484909
+    },
+    {
+      "id": "log-1791268134348-r287",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "ROUND_3_CODE",
+      "newValue": "LOBBY",
+      "timestamp": 1791268134348
+    },
+    {
+      "id": "log-1791268011583-m2du",
+      "adminUser": "Admin",
+      "action": "APPLY_QUALIFICATION_RULE",
+      "entityType": "QUALIFICATION",
+      "entityId": "Round r1",
+      "previousValue": "",
+      "newValue": "top_n: 7",
+      "timestamp": 1791268011583
+    },
+    {
+      "id": "log-1791268009706-wh7g",
+      "adminUser": "Admin",
+      "action": "APPLY_QUALIFICATION_RULE",
+      "entityType": "QUALIFICATION",
+      "entityId": "Round r1",
+      "previousValue": "",
+      "newValue": "top_n: 7",
+      "timestamp": 1791268009706
+    },
+    {
+      "id": "log-1789714571062-7upv",
+      "adminUser": "Admin",
+      "action": "START_ROUND_3",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_3_CODE",
+      "previousValue": "null",
+      "newValue": "{\"durationSeconds\":1800}",
+      "timestamp": 1789714571062
+    },
+    {
+      "id": "log-1789712514341-gi9p",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "PAUSED",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1789712514341
+    },
+    {
+      "id": "log-1789712008452-vo5e",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "PAUSED",
+      "previousValue": "ENDED",
+      "newValue": "PAUSED",
+      "timestamp": 1789712008452
+    },
+    {
+      "id": "log-1789712004228-p93c",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ENDED",
+      "previousValue": "PAUSED",
+      "newValue": "ENDED",
+      "timestamp": 1789712004228
+    },
+    {
+      "id": "log-1789711999312-eune",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "PAUSED",
+      "previousValue": "FINAL_RESULTS",
+      "newValue": "PAUSED",
+      "timestamp": 1789711999312
+    },
+    {
+      "id": "log-1789711994387-6vqa",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "FINAL_RESULTS",
+      "previousValue": "R4_RESULTS",
+      "newValue": "FINAL_RESULTS",
+      "timestamp": 1789711994387
+    },
+    {
+      "id": "log-1789711990747-54ue",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_RESULTS",
+      "previousValue": "R4_CRACK",
+      "newValue": "R4_RESULTS",
+      "timestamp": 1789711990747
+    },
+    {
+      "id": "log-1789711982532-jaqx",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R4_INSTRUCTIONS",
+      "newValue": "R4_CRACK",
+      "timestamp": 1789711982532
+    },
+    {
+      "id": "log-1789711974156-zmns",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_INSTRUCTIONS",
+      "previousValue": "R3_RESULTS",
+      "newValue": "R4_INSTRUCTIONS",
+      "timestamp": 1789711974156
+    },
+    {
+      "id": "log-1789711969841-hjsn",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_RESULTS",
+      "previousValue": "R3_CODE",
+      "newValue": "R3_RESULTS",
+      "timestamp": 1789711969841
+    },
+    {
+      "id": "log-1789711962314-skf8",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R3_INSTRUCTIONS",
+      "newValue": "R3_CODE",
+      "timestamp": 1789711962314
+    },
+    {
+      "id": "log-1789711955661-t7p5",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_INSTRUCTIONS",
+      "previousValue": "LUNCH_BREAK",
+      "newValue": "R3_INSTRUCTIONS",
+      "timestamp": 1789711955661
+    },
+    {
+      "id": "log-1789711951739-qkje",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LUNCH_BREAK",
+      "previousValue": "R2_RESULTS",
+      "newValue": "LUNCH_BREAK",
+      "timestamp": 1789711951739
+    },
+    {
+      "id": "log-1789711948378-7694",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1789711948378
+    },
+    {
+      "id": "log-1789711877853-xlf4",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1789711877853
+    },
+    {
+      "id": "log-1789711873344-jvgd",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1789711873344
+    },
+    {
+      "id": "log-1789711869097-b4ix",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1789711869097
+    },
+    {
+      "id": "log-1789711852563-ybfu",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R1_TEST",
+      "timestamp": 1789711852563
+    },
+    {
+      "id": "log-1789711848890-yesa",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1789711848890
+    },
+    {
+      "id": "log-1789711844464-60kc",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "LOBBY",
+      "newValue": "R1_TEST",
+      "timestamp": 1789711844464
+    },
+    {
+      "id": "log-1789711784057-za77",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_TEST",
+      "newValue": "LOBBY",
+      "timestamp": 1789711784057
+    },
+    {
+      "id": "log-1789711777978-76lj",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1789711777978
+    },
+    {
+      "id": "log-1789711206611-5mei",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1789711206611
+    },
+    {
+      "id": "log-1789206100146-5ktg",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "LOBBY",
+      "newValue": "LOBBY",
+      "timestamp": 1789206100146
+    },
+    {
+      "id": "log-1789206099231-ngsg",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1789206099231
+    },
+    {
+      "id": "log-1789206098365-kgar",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1789206098366
+    },
+    {
+      "id": "log-1789206097014-u03x",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1789206097014
+    },
+    {
+      "id": "log-1789205656870-irpw",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1789205656870
+    },
+    {
+      "id": "log-1789205451456-nvud",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1789205451456
+    },
+    {
+      "id": "log-1789205447960-oose",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1789205447960
+    },
+    {
+      "id": "log-1789205432251-j73n",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R4_CRACK",
+      "newValue": "LOBBY",
+      "timestamp": 1789205432251
+    },
+    {
+      "id": "log-1789197074598-g03a",
+      "adminUser": "Admin",
+      "action": "UPDATE_BOILERPLATE",
+      "entityType": "CODING_PROBLEM",
+      "entityId": "prob-1",
+      "previousValue": "null",
+      "newValue": "{\"C\":\"#include <stdio.h>\\n\\nint main() {\\n    printf(\\\"\\\");\\n\\n    return 0;\\n}\",\"C++\":\"#include <iostream>\\nusing namespace std;\\n\\nint main() {\\n    cout << \\\"\\\";\\n    return 0;\\n}\",\"Java\":\"import java.util.*;\\n\\npublic class Main {\\n    public static void main(String[] args) {\\n        System.out.println(\\\"\\\");\\n    }\\n}\"}",
+      "timestamp": 1789197074598
+    },
+    {
+      "id": "log-1789196220209-ohy9",
+      "adminUser": "Admin",
+      "action": "UPDATE_CRACK_CHALLENGE",
+      "entityType": "ROUND_4",
+      "entityId": "chk-2",
+      "previousValue": "",
+      "newValue": "Challenge 2: Hexadecimal Memory Dump",
+      "timestamp": 1789196220209
+    },
+    {
+      "id": "log-1789195969404-kxfx",
+      "adminUser": "Admin",
+      "action": "UPDATE_CRACK_CHALLENGE",
+      "entityType": "ROUND_4",
+      "entityId": "chk-1",
+      "previousValue": "",
+      "newValue": "Challenge 1: The Caesar Breach",
+      "timestamp": 1789195969404
+    },
+    {
+      "id": "log-1789195900831-2ign",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R4_RESULTS",
+      "newValue": "R4_CRACK",
+      "timestamp": 1789195900831
+    },
+    {
+      "id": "log-1789195892382-61s6",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_RESULTS",
+      "previousValue": "R4_CRACK",
+      "newValue": "R4_RESULTS",
+      "timestamp": 1789195892382
+    },
+    {
+      "id": "log-1789195881917-blm4",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R4_INSTRUCTIONS",
+      "newValue": "R4_CRACK",
+      "timestamp": 1789195881917
+    },
+    {
+      "id": "log-1789195857145-cin0",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_INSTRUCTIONS",
+      "previousValue": "ROUND_3_CODE",
+      "newValue": "R4_INSTRUCTIONS",
+      "timestamp": 1789195857145
+    },
+    {
+      "id": "log-1789195313703-dmhp",
+      "adminUser": "Admin",
+      "action": "DISMISS_ANNOUNCEMENT",
+      "entityType": "ANNOUNCEMENT",
+      "entityId": "GLOBAL",
+      "previousValue": "",
+      "newValue": "Active announcement dismissed by administrator",
+      "timestamp": 1789195313703
+    },
+    {
+      "id": "log-1789195258976-ccny",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_3_CODE",
+      "previousValue": "R4_CRACK",
+      "newValue": "ROUND_3_CODE",
+      "timestamp": 1789195258976
+    },
+    {
+      "id": "log-1789194930442-25on",
+      "adminUser": "Admin",
+      "action": "MANUAL_UNLOCK_CHALLENGE",
+      "entityType": "ROUND_4",
+      "entityId": "chk-1",
+      "previousValue": "",
+      "newValue": "All Teams",
+      "timestamp": 1789194930442
+    },
+    {
+      "id": "log-1789194896854-syld",
+      "adminUser": "Admin",
+      "action": "UPDATE_CRACK_CHALLENGE",
+      "entityType": "ROUND_4",
+      "entityId": "chk-1",
+      "previousValue": "",
+      "newValue": "Challenge 1: The Caesar Breach",
+      "timestamp": 1789194896854
+    },
+    {
+      "id": "log-1789194732542-nkgh",
+      "adminUser": "Admin",
+      "action": "UPDATE_CRACK_CHALLENGE",
+      "entityType": "ROUND_4",
+      "entityId": "chk-1",
+      "previousValue": "",
+      "newValue": "Challenge 1: The Caesar Breach",
+      "timestamp": 1789194732542
+    },
+    {
+      "id": "log-1789194709801-uhpw",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R3_CODE",
+      "newValue": "R4_CRACK",
+      "timestamp": 1789194709801
+    },
+    {
+      "id": "log-1789194159284-n54a",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R1_PRACTICE",
+      "newValue": "R3_CODE",
+      "timestamp": 1789194159284
+    },
+    {
+      "id": "log-1789193860555-pj6y",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_PRACTICE",
+      "previousValue": "R3_CODE",
+      "newValue": "R1_PRACTICE",
+      "timestamp": 1789193860555
+    },
+    {
+      "id": "log-1789193722810-7e5o",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R3_INSTRUCTIONS",
+      "newValue": "R3_CODE",
+      "timestamp": 1789193722810
+    },
+    {
+      "id": "log-1789193718416-uv4t",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_INSTRUCTIONS",
+      "previousValue": "LUNCH_BREAK",
+      "newValue": "R3_INSTRUCTIONS",
+      "timestamp": 1789193718416
+    },
+    {
+      "id": "log-1789193709505-furh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LUNCH_BREAK",
+      "previousValue": "R2_RESULTS",
+      "newValue": "LUNCH_BREAK",
+      "timestamp": 1789193709505
+    },
+    {
+      "id": "log-1789193701671-pqke",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1789193701671
+    },
+    {
+      "id": "log-1789193689396-8yh0",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1789193689396
+    },
+    {
+      "id": "log-1789193685766-eg98",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1789193685766
+    },
+    {
+      "id": "log-1789193675155-4gsl",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1789193675155
+    },
+    {
+      "id": "log-1789193671975-9kvx",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_PRACTICE",
+      "newValue": "R1_TEST",
+      "timestamp": 1789193671975
+    },
+    {
+      "id": "log-1789193524129-m6u9",
+      "adminUser": "Admin",
+      "action": "SET_ACTIVE_TYPING_ROUND",
+      "entityType": "TYPING_ROUND",
+      "entityId": "tr-1",
+      "previousValue": "tr-2",
+      "newValue": "tr-1",
+      "timestamp": 1789193524129
+    },
+    {
+      "id": "log-1789193466710-zlk7",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_PRACTICE",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_PRACTICE",
+      "timestamp": 1789193466710
+    },
+    {
+      "id": "log-1789193460878-06i3",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1789193460878
+    },
+    {
+      "id": "log-1789193451245-agam",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "FINAL_RESULTS",
+      "newValue": "LOBBY",
+      "timestamp": 1789193451245
+    },
+    {
+      "id": "log-1788602578625-gaxu",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "FINAL_RESULTS",
+      "previousValue": "PAUSED",
+      "newValue": "FINAL_RESULTS",
+      "timestamp": 1788602578626
+    },
+    {
+      "id": "log-1788602572926-8f27",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "PAUSED",
+      "previousValue": "FINAL_RESULTS",
+      "newValue": "PAUSED",
+      "timestamp": 1788602572926
+    },
+    {
+      "id": "log-1788602569457-wb8d",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "FINAL_RESULTS",
+      "previousValue": "ENDED",
+      "newValue": "FINAL_RESULTS",
+      "timestamp": 1788602569457
+    },
+    {
+      "id": "log-1788602564010-wf3e",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ENDED",
+      "previousValue": "PAUSED",
+      "newValue": "ENDED",
+      "timestamp": 1788602564010
+    },
+    {
+      "id": "log-1788602557294-skrq",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "PAUSED",
+      "previousValue": "FINAL_RESULTS",
+      "newValue": "PAUSED",
+      "timestamp": 1788602557294
+    },
+    {
+      "id": "log-1788602547113-r6hc",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "FINAL_RESULTS",
+      "previousValue": "R3_CODE",
+      "newValue": "FINAL_RESULTS",
+      "timestamp": 1788602547113
+    },
+    {
+      "id": "log-1788602230271-wfjd",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R4_CRACK",
+      "newValue": "R3_CODE",
+      "timestamp": 1788602230271
+    },
+    {
+      "id": "log-1788602092711-nfik",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R4_INSTRUCTIONS",
+      "newValue": "R4_CRACK",
+      "timestamp": 1788602092711
+    },
+    {
+      "id": "log-1788602082210-59k1",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_INSTRUCTIONS",
+      "previousValue": "R3_RESULTS",
+      "newValue": "R4_INSTRUCTIONS",
+      "timestamp": 1788602082210
+    },
+    {
+      "id": "log-1788602054337-wkiq",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_RESULTS",
+      "previousValue": "R3_CODE",
+      "newValue": "R3_RESULTS",
+      "timestamp": 1788602054337
+    },
+    {
+      "id": "log-1788601997235-myrm",
+      "adminUser": "Admin",
+      "action": "BROADCAST_ANNOUNCEMENT",
+      "entityType": "ANNOUNCEMENT",
+      "entityId": "ann-1788601997235",
+      "previousValue": "",
+      "newValue": "hi",
+      "timestamp": 1788601997235
+    },
+    {
+      "id": "log-1788601959802-rpom",
+      "adminUser": "Admin",
+      "action": "BROADCAST_ANNOUNCEMENT",
+      "entityType": "ANNOUNCEMENT",
+      "entityId": "ann-1788601959802",
+      "previousValue": "",
+      "newValue": "COntest is paused",
+      "timestamp": 1788601959802
+    },
+    {
+      "id": "log-1788601870875-wqov",
+      "adminUser": "Admin",
+      "action": "RESUME_ROUND_3",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_3_CODE",
+      "previousValue": "PAUSED",
+      "newValue": "LIVE",
+      "timestamp": 1788601870875
+    },
+    {
+      "id": "log-1788601845735-o7m1",
+      "adminUser": "Admin",
+      "action": "PAUSE_ROUND_3",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_3_CODE",
+      "previousValue": "LIVE",
+      "newValue": "PAUSED",
+      "timestamp": 1788601845735
+    },
+    {
+      "id": "log-1788601701475-yi84",
+      "adminUser": "Admin",
+      "action": "UPDATE_CODING_PROBLEM",
+      "entityType": "CODING_PROBLEM",
+      "entityId": "prob-1",
+      "previousValue": "{\"id\":\"prob-1\",\"title\":\"Problem 1: Run-Length Compression (Code Golf)\",\"description\":\"Write a program that takes a single line string of lowercase English letters from standard input and prints the run-length compressed version. For example, \\\"aaabbc\\\" becomes \\\"a3b2c1\\\". Your objective is to submit the shortest working code in characters.\",\"inputFormat\":\"A single non-empty string S containing lowercase letters a-z.\",\"outputFormat\":\"Print the run-length encoded string followed by a newline.\",\"constraints\":\"1 <= |S| <= 1000\",\"sampleTestCases\":[{\"id\":\"tc-1\",\"input\":\"aaabbc\",\"expectedOutput\":\"a3b2c1\",\"isHidden\":false,\"explanation\":\"3 a's, 2 b's, 1 c\"},{\"id\":\"tc-2\",\"input\":\"wwwwaaadexxxxxx\",\"expectedOutput\":\"w4a3d1e1x6\",\"isHidden\":false}],\"hiddenTestCases\":[{\"id\":\"tc-h1\",\"input\":\"z\",\"expectedOutput\":\"z1\",\"isHidden\":true},{\"id\":\"tc-h2\",\"input\":\"codexclub\",\"expectedOutput\":\"c1o1d1e1x1c1l1u1b1\",\"isHidden\":true},{\"id\":\"tc-h3\",\"input\":\"aaaaabbbbbcccccdddddeeeee\",\"expectedOutput\":\"a5b5c5d5e5\",\"isHidden\":true}],\"allowedLanguages\":[\"C\",\"C++\",\"Java\"],\"prohibitedKeywords\":[\"eval\",\"Function\",\"child_process\",\"execSync\"],\"rankingMetric\":\"characters\",\"referenceLengths\":{\"JavaScript\":85,\"Python\":65,\"C++\":140,\"C\":150,\"Java\":180},\"maxSubmissions\":15,\"timeLimitSeconds\":600,\"order\":1,\"problemNumber\":1,\"difficulty\":\"Easy\",\"points\":100,\"memoryLimitMb\":256,\"isEnabled\":true,\"visibleTestCases\":[{\"id\":\"tc-1\",\"input\":\"aaabbc\",\"expectedOutput\":\"a3b2c1\",\"isHidden\":false,\"explanation\":\"3 a's, 2 b's, 1 c\"},{\"id\":\"tc-2\",\"input\":\"wwwwaaadexxxxxx\",\"expectedOutput\":\"w4a3d1e1x6\",\"isHidden\":false}],\"boilerplates\":{\"C\":\"#include <stdio.h>\\n\\nint main() {\\n    printf(\\\"\\\");\\n\\n    return 0;\\n}\",\"C++\":\"#include <iostream>\\nusing namespace std;\\n\\nint main() {\\n    cout << \\\"\\\";\\n\\n    return 0;\\n}\",\"Java\":\"import java.util.*;\\n\\npublic class Main {\\n    public static void main(String[] args) {\\n        System.out.println(\\\"\\\");\\n    }\\n}\"}}",
+      "newValue": "{\"id\":\"prob-1\",\"order\":1,\"problemNumber\":1,\"title\":\"Problem 1: Run-Length Compression (Code Golf)\",\"description\":\"Write a program that takes a single line string of lowercase English letters from standard input and prints the run-length compressed version. For example, \\\"aaabbc\\\" becomes \\\"a3b2c1\\\". Your objective is to submit the shortest working code in characters.\",\"statement\":\"Write a program that takes a single line string of lowercase English letters from standard input and prints the run-length compressed version. For example, \\\"aaabbc\\\" becomes \\\"a3b2c1\\\". Your objective is to submit the shortest working code in characters.\",\"inputFormat\":\"A single non-empty string S containing lowercase letters a-z.\",\"outputFormat\":\"Print the run-length encoded string followed by a newline.\",\"constraints\":\"1 <= |S| <= 1000\",\"difficulty\":\"Easy\",\"points\":100,\"timeLimitSeconds\":600,\"memoryLimitMb\":256,\"allowedLanguages\":[\"C\",\"C++\",\"Java\"],\"boilerplates\":{\"C\":\"#include <stdio.h>\\n\\nint main() {\\n    printf(\\\"\\\");\\n\\n    return 0;\\n}\",\"C++\":\"#include <iostream>\\nusing namespace std;\\n\\nint main() {\\n    cout << \\\"\\\";\\n\\n    return 0;\\n}\",\"Java\":\"import java.util.*;\\n\\npublic class Main {\\n    public static void main(String[] args) {\\n        System.out.println(\\\"\\\");\\n    }\\n}\"},\"visibleTestCases\":[{\"id\":\"tc-1\",\"input\":\"aaabbc\",\"expectedOutput\":\"a3b2c1\",\"isHidden\":false,\"explanation\":\"3 a's, 2 b's, 1 c\"},{\"id\":\"tc-2\",\"input\":\"wwwwaaadexxxxxx\",\"expectedOutput\":\"w4a3d1e1x6\",\"isHidden\":false}],\"sampleTestCases\":[{\"id\":\"tc-1\",\"input\":\"aaabbc\",\"expectedOutput\":\"a3b2c1\",\"isHidden\":false,\"explanation\":\"3 a's, 2 b's, 1 c\"},{\"id\":\"tc-2\",\"input\":\"wwwwaaadexxxxxx\",\"expectedOutput\":\"w4a3d1e1x6\",\"isHidden\":false}],\"hiddenTestCases\":[{\"id\":\"tc-h1\",\"input\":\"z\",\"expectedOutput\":\"z1\",\"isHidden\":true},{\"id\":\"tc-h2\",\"input\":\"codexclub\",\"expectedOutput\":\"c1o1d1e1x1c1l1u1b1\",\"isHidden\":true},{\"id\":\"tc-h3\",\"input\":\"aaaaabbbbbcccccdddddeeeee\",\"expectedOutput\":\"a5b5c5d5e5\",\"isHidden\":true}],\"explanation\":\"\",\"isEnabled\":true,\"prohibitedKeywords\":[\"eval\",\"Function\",\"child_process\",\"execSync\"],\"rankingMetric\":\"characters\",\"referenceLengths\":{\"JavaScript\":85,\"Python\":65,\"C++\":140,\"C\":150,\"Java\":180},\"maxSubmissions\":15}",
+      "timestamp": 1788601701475
+    },
+    {
+      "id": "log-1788601645910-y1uz",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R3_INSTRUCTIONS",
+      "newValue": "R3_CODE",
+      "timestamp": 1788601645910
+    },
+    {
+      "id": "log-1788600158292-5ba1",
+      "adminUser": "Admin",
+      "action": "UPDATE_CODING_PROBLEM",
+      "entityType": "ROUND_3",
+      "entityId": "prob-1",
+      "previousValue": "",
+      "newValue": "Problem 1: Run-Length Compression (Code Golf)",
+      "timestamp": 1788600158292
+    },
+    {
+      "id": "log-1788600141798-bp0n",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_INSTRUCTIONS",
+      "previousValue": "R3_CODE",
+      "newValue": "R3_INSTRUCTIONS",
+      "timestamp": 1788600141798
+    },
+    {
+      "id": "log-1788600137171-zmm3",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R3_INSTRUCTIONS",
+      "newValue": "R3_CODE",
+      "timestamp": 1788600137171
+    },
+    {
+      "id": "log-1788600127591-xxmg",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_INSTRUCTIONS",
+      "previousValue": "LUNCH_BREAK",
+      "newValue": "R3_INSTRUCTIONS",
+      "timestamp": 1788600127591
+    },
+    {
+      "id": "log-1788600112015-kshz",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LUNCH_BREAK",
+      "previousValue": "R2_RESULTS",
+      "newValue": "LUNCH_BREAK",
+      "timestamp": 1788600112015
+    },
+    {
+      "id": "log-1788600107627-pw73",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1788600107627
+    },
+    {
+      "id": "log-1788600101211-y4xf",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788600101211
+    },
+    {
+      "id": "log-1788600094514-co4w",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1788600094514
+    },
+    {
+      "id": "log-1788600088594-s9mi",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1788600088594
+    },
+    {
+      "id": "log-1788600084332-y1vr",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_PRACTICE",
+      "newValue": "R1_TEST",
+      "timestamp": 1788600084332
+    },
+    {
+      "id": "log-1788600057083-6xm2",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_PRACTICE",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_PRACTICE",
+      "timestamp": 1788600057083
+    },
+    {
+      "id": "log-1788600050736-84ao",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1788600050736
+    },
+    {
+      "id": "log-1788600036662-udpy",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "ROUND_2_QUIZ",
+      "newValue": "LOBBY",
+      "timestamp": 1788600036662
+    },
+    {
+      "id": "log-1788431569506-3b3x",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_2_QUIZ",
+      "previousValue": "R2_RESULTS",
+      "newValue": "ROUND_2_QUIZ",
+      "timestamp": 1788431569506
+    },
+    {
+      "id": "log-1788431316221-33at",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1788431316221
+    },
+    {
+      "id": "log-1788430813998-8ev6",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788430813998
+    },
+    {
+      "id": "log-1788430810721-60sw",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1788430810721
+    },
+    {
+      "id": "log-1788430805884-zyen",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "ROUND_2_QUIZ",
+      "newValue": "LOBBY",
+      "timestamp": 1788430805884
+    },
+    {
+      "id": "log-1788430275603-endh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_2_QUIZ",
+      "previousValue": "LOBBY",
+      "newValue": "ROUND_2_QUIZ",
+      "timestamp": 1788430275603
+    },
+    {
+      "id": "log-1788430260586-269z",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R2_QUIZ",
+      "newValue": "LOBBY",
+      "timestamp": 1788430260586
+    },
+    {
+      "id": "log-1788430239906-ezbl",
+      "adminUser": "Admin",
+      "action": "TIMER_PAUSE",
+      "entityType": "TIMER",
+      "entityId": "GLOBAL",
+      "previousValue": "",
+      "newValue": "Paused",
+      "timestamp": 1788430239906
+    },
+    {
+      "id": "log-1788430198126-n842",
+      "adminUser": "Admin",
+      "action": "RENAME_TEAM",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "Code Warriors",
+      "newValue": "Code Warriors",
+      "timestamp": 1788430198126
+    },
+    {
+      "id": "log-1788430001759-e5pi",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_RESULTS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788430001759
+    },
+    {
+      "id": "log-1788429998283-4utd",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1788429998283
+    },
+    {
+      "id": "log-1788429993721-3stp",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1788429993721
+    },
+    {
+      "id": "log-1788429987582-aeho",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788429987582
+    },
+    {
+      "id": "log-1788429978445-dt5g",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1788429978445
+    },
+    {
+      "id": "log-1788429971048-tdal",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1788429971048
+    },
+    {
+      "id": "log-1788429958077-56sl",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_PRACTICE",
+      "newValue": "R1_TEST",
+      "timestamp": 1788429958077
+    },
+    {
+      "id": "log-1788429954441-8582",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_PRACTICE",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_PRACTICE",
+      "timestamp": 1788429954441
+    },
+    {
+      "id": "log-1788429951240-7xrv",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1788429951240
+    },
+    {
+      "id": "log-1788429947629-t60c",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R2_RESULTS",
+      "newValue": "LOBBY",
+      "timestamp": 1788429947629
+    },
+    {
+      "id": "log-1788428937774-jpbh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1788428937774
+    },
+    {
+      "id": "log-1788428376855-ouii",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R4_CRACK",
+      "newValue": "R1_TEST",
+      "timestamp": 1788428376855
+    },
+    {
+      "id": "log-1788428365759-k811",
+      "adminUser": "Admin",
+      "action": "SET_ACTIVE_TYPING_ROUND",
+      "entityType": "TYPING_ROUND",
+      "entityId": "tr-2",
+      "previousValue": "tr-1",
+      "newValue": "tr-2",
+      "timestamp": 1788428365759
+    },
+    {
+      "id": "log-1788428307678-53qm",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R4_CRACK",
+      "previousValue": "R1_TEST",
+      "newValue": "R4_CRACK",
+      "timestamp": 1788428307678
+    },
+    {
+      "id": "log-1788428215400-z8tf",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R1_TEST",
+      "timestamp": 1788428215400
+    },
+    {
+      "id": "log-1788428087376-l8bu",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788428087376
+    },
+    {
+      "id": "log-1788428080403-qy8l",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_TEST",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1788428080403
+    },
+    {
+      "id": "log-1788428078994-urko",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R1_TEST",
+      "timestamp": 1788428078994
+    },
+    {
+      "id": "log-1788428076144-do9z",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788428076144
+    },
+    {
+      "id": "log-1788428057857-aak7",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R1_TEST",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1788428057857
+    },
+    {
+      "id": "log-1788428043337-k7x7",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R1_TEST",
+      "timestamp": 1788428043338
+    },
+    {
+      "id": "log-1788428039394-st9j",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1788428039394
+    },
+    {
+      "id": "log-1",
+      "adminUser": "System",
+      "action": "CONTEST_INITIALIZED",
+      "entityType": "CONTEST",
+      "entityId": "CODEXCLUB_2026",
+      "previousValue": "NONE",
+      "newValue": "INITIALIZED",
+      "timestamp": 1788420789070
+    },
+    {
+      "id": "log-2",
+      "adminUser": "Admin Lead",
+      "action": "TEAM_CODES_GENERATED",
+      "entityType": "TEAM_CODES",
+      "entityId": "BATCH_01",
+      "previousValue": "0",
+      "newValue": "8 Codes Generated",
+      "timestamp": 1788424389070
+    }
+  ],
+  "contestState": {
+    "eventStatus": "LIVE",
+    "currentRound": "ROUND_3",
+    "currentStage": "R3_CODE",
+    "stageTitle": "Round 3: Code Minimalist",
+    "isEmergencyLocked": false,
+    "timer": {
+      "isRunning": false,
+      "isPaused": false,
+      "durationSeconds": 1800,
+      "remainingSeconds": 0,
+      "startedAt": 1791281730496,
+      "endsAt": 1791283530496
+    },
+    "currentTypingRoundId": "tr-1",
+    "currentQuizQuestionId": null,
+    "currentCodingProblemId": "prob-2",
+    "isLeaderboardVisibleToTeams": true,
+    "isLeaderboardFrozen": false,
+    "weights": {
+      "r1": 15,
+      "r2": 25,
+      "r3": 30,
+      "r4": 30
+    },
+    "activeAnnouncement": null,
+    "currentTypingRound": "tr-1",
+    "activeQuestion": "q-1",
+    "timerStartedAt": 1791281730496,
+    "timerDuration": 1800,
+    "leaderboardVisible": true,
+    "currentQuizPhase": 1
+  },
+  "masterScoringConfig": {
+    "r1": {
+      "scoringMethod": "best",
+      "subroundWeights": {},
+      "multiplier": 1,
+      "overrides": {}
+    },
+    "r2": {
+      "defaultEasyPoints": 1,
+      "defaultMediumPoints": 2,
+      "defaultHardPoints": 3,
+      "questionPointsOverride": {},
+      "incorrectPenalty": 0,
+      "multiplier": 1,
+      "overrides": {}
+    },
+    "r3": {
+      "problemPoints": {},
+      "minimizationMethod": "rank_bonus",
+      "rankBonuses": [
+        25,
+        18,
+        12,
+        8,
+        5
+      ],
+      "thresholdChars": 100,
+      "thresholdBonus": 15,
+      "multiplier": 1,
+      "overrides": {}
+    },
+    "r4": {
+      "challengePoints": {},
+      "speedBonusThresholdSeconds": 120,
+      "speedBonusPoints": 10,
+      "attemptPenalty": 0,
+      "multiplier": 1,
+      "overrides": {}
+    },
+    "tieBreakRules": {
+      "priority": [
+        "overall_score",
+        "r3_score",
+        "r3_problems_solved",
+        "r3_char_count",
+        "r4_score",
+        "r4_time",
+        "r1_score",
+        "r2_score",
+        "earliest_submission"
+      ]
+    },
+    "maxScores": {}
+  },
+  "roundScores": {
+    "team-warriors": {
+      "r1": {
+        "teamId": "team-warriors",
+        "round": "r1",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "scoringMethod": "best",
+          "subroundScores": {},
+          "subroundDetails": {},
+          "attemptCount": 0,
+          "bestWpm": 0,
+          "bestAccuracy": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r2": {
+        "teamId": "team-warriors",
+        "round": "r2",
+        "score": 1,
+        "rawScore": 1,
+        "scoringBreakdown": {
+          "correctCount": 1,
+          "totalSubmissions": 1,
+          "accuracy": 100,
+          "totalTimeSeconds": 29,
+          "easyCorrect": 1,
+          "easyPoints": 1,
+          "mediumCorrect": 0,
+          "mediumPoints": 0,
+          "hardCorrect": 0,
+          "hardPoints": 0,
+          "totalPenalty": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r3": {
+        "teamId": "team-warriors",
+        "round": "r3",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "baseProblemPoints": 0,
+          "minimizationBonus": 0,
+          "totalCharCount": 0,
+          "minimizationMethod": "rank_bonus",
+          "solvedProblems": {},
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r4": {
+        "teamId": "team-warriors",
+        "round": "r4",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "challengePointsEarned": 0,
+          "speedBonus": 0,
+          "attemptPenaltyDeduction": 0,
+          "totalTimeSeconds": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      }
+    },
+    "team-cyber": {
+      "r1": {
+        "teamId": "team-cyber",
+        "round": "r1",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "scoringMethod": "best",
+          "subroundScores": {},
+          "subroundDetails": {},
+          "attemptCount": 0,
+          "bestWpm": 0,
+          "bestAccuracy": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r2": {
+        "teamId": "team-cyber",
+        "round": "r2",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "correctCount": 0,
+          "totalSubmissions": 0,
+          "accuracy": 0,
+          "totalTimeSeconds": 0,
+          "easyCorrect": 0,
+          "easyPoints": 0,
+          "mediumCorrect": 0,
+          "mediumPoints": 0,
+          "hardCorrect": 0,
+          "hardPoints": 0,
+          "totalPenalty": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r3": {
+        "teamId": "team-cyber",
+        "round": "r3",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "baseProblemPoints": 0,
+          "minimizationBonus": 0,
+          "totalCharCount": 0,
+          "minimizationMethod": "rank_bonus",
+          "solvedProblems": {},
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r4": {
+        "teamId": "team-cyber",
+        "round": "r4",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "challengePointsEarned": 0,
+          "speedBonus": 0,
+          "attemptPenaltyDeduction": 0,
+          "totalTimeSeconds": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      }
+    },
+    "team-byte": {
+      "r1": {
+        "teamId": "team-byte",
+        "round": "r1",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "scoringMethod": "best",
+          "subroundScores": {},
+          "subroundDetails": {},
+          "attemptCount": 0,
+          "bestWpm": 0,
+          "bestAccuracy": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r2": {
+        "teamId": "team-byte",
+        "round": "r2",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "correctCount": 0,
+          "totalSubmissions": 0,
+          "accuracy": 0,
+          "totalTimeSeconds": 0,
+          "easyCorrect": 0,
+          "easyPoints": 0,
+          "mediumCorrect": 0,
+          "mediumPoints": 0,
+          "hardCorrect": 0,
+          "hardPoints": 0,
+          "totalPenalty": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r3": {
+        "teamId": "team-byte",
+        "round": "r3",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "baseProblemPoints": 0,
+          "minimizationBonus": 0,
+          "totalCharCount": 0,
+          "minimizationMethod": "rank_bonus",
+          "solvedProblems": {},
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r4": {
+        "teamId": "team-byte",
+        "round": "r4",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "challengePointsEarned": 0,
+          "speedBonus": 0,
+          "attemptPenaltyDeduction": 0,
+          "totalTimeSeconds": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      }
+    },
+    "team-muwc7xgt-hksm": {
+      "r1": {
+        "teamId": "team-muwc7xgt-hksm",
+        "round": "r1",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "scoringMethod": "best",
+          "subroundScores": {},
+          "subroundDetails": {},
+          "attemptCount": 0,
+          "bestWpm": 0,
+          "bestAccuracy": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r2": {
+        "teamId": "team-muwc7xgt-hksm",
+        "round": "r2",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "correctCount": 0,
+          "totalSubmissions": 0,
+          "accuracy": 0,
+          "totalTimeSeconds": 0,
+          "easyCorrect": 0,
+          "easyPoints": 0,
+          "mediumCorrect": 0,
+          "mediumPoints": 0,
+          "hardCorrect": 0,
+          "hardPoints": 0,
+          "totalPenalty": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r3": {
+        "teamId": "team-muwc7xgt-hksm",
+        "round": "r3",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "baseProblemPoints": 0,
+          "minimizationBonus": 0,
+          "totalCharCount": 0,
+          "minimizationMethod": "rank_bonus",
+          "solvedProblems": {},
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r4": {
+        "teamId": "team-muwc7xgt-hksm",
+        "round": "r4",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "challengePointsEarned": 0,
+          "speedBonus": 0,
+          "attemptPenaltyDeduction": 0,
+          "totalTimeSeconds": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      }
+    },
+    "team-muwjrtbf-ki9s": {
+      "r1": {
+        "teamId": "team-muwjrtbf-ki9s",
+        "round": "r1",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "scoringMethod": "best",
+          "subroundScores": {},
+          "subroundDetails": {},
+          "attemptCount": 0,
+          "bestWpm": 0,
+          "bestAccuracy": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r2": {
+        "teamId": "team-muwjrtbf-ki9s",
+        "round": "r2",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "correctCount": 0,
+          "totalSubmissions": 0,
+          "accuracy": 0,
+          "totalTimeSeconds": 0,
+          "easyCorrect": 0,
+          "easyPoints": 0,
+          "mediumCorrect": 0,
+          "mediumPoints": 0,
+          "hardCorrect": 0,
+          "hardPoints": 0,
+          "totalPenalty": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r3": {
+        "teamId": "team-muwjrtbf-ki9s",
+        "round": "r3",
+        "score": 125,
+        "rawScore": 125,
+        "scoringBreakdown": {
+          "solvedCount": 1,
+          "baseProblemPoints": 100,
+          "minimizationBonus": 25,
+          "totalCharCount": 156,
+          "minimizationMethod": "rank_bonus",
+          "solvedProblems": {
+            "prob-1": {
+              "title": "Problem 1: Run-Length Compression (Code Golf)",
+              "basePoints": 100,
+              "charCount": 156,
+              "minimizationBonus": 25,
+              "rankForProblem": 1
+            }
+          },
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      },
+      "r4": {
+        "teamId": "team-muwjrtbf-ki9s",
+        "round": "r4",
+        "score": 0,
+        "rawScore": 0,
+        "scoringBreakdown": {
+          "solvedCount": 0,
+          "challengePointsEarned": 0,
+          "speedBonus": 0,
+          "attemptPenaltyDeduction": 0,
+          "totalTimeSeconds": 0,
+          "multiplier": 1
+        },
+        "manualOverride": null,
+        "updatedAt": 1791290731749
+      }
+    }
+  },
+  "typingAttempts": []
+}
