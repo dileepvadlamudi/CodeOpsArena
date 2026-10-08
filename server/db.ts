@@ -2608,6 +2608,52 @@ class DatabaseService {
     this.saveData();
   }
 
+  public deleteTeam(teamId: string, adminUser = 'Admin'): boolean {
+    const team = this.store.teams[teamId];
+    if (!team) return false;
+
+    const teamCode = team.team_code;
+    if (teamCode && this.store.teamCodes[teamCode]?.claimed_by_team_id === teamId) {
+      delete this.store.teamCodes[teamCode];
+    }
+
+    delete this.store.teams[teamId];
+    delete this.store.teamQuizProgress[teamId];
+    delete this.store.crackProgress[teamId];
+    delete this.store.roundScores[teamId];
+
+    this.store.typingSubmissions = (this.store.typingSubmissions || []).filter(s => s.teamId !== teamId);
+    this.store.quizSubmissions = (this.store.quizSubmissions || []).filter(s => s.teamId !== teamId);
+    this.store.codeSubmissions = (this.store.codeSubmissions || []).filter(s => s.teamId !== teamId);
+    this.store.crackAttempts = (this.store.crackAttempts || []).filter(s => s.teamId !== teamId);
+
+    this.store.announcements = (this.store.announcements || []).map(a => ({
+      ...a,
+      target: Array.isArray(a.target) ? a.target.filter(id => id !== teamId) : a.target
+    }));
+
+    this.store.auditLogs.push({
+      id: `audit-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      adminUser,
+      action: 'DELETE_TEAM',
+      entityType: 'TEAM',
+      entityId: teamId,
+      previousValue: JSON.stringify({
+        teamId: team.id,
+        teamCode: team.team_code,
+        teamName: team.name,
+        scores: team.scores
+      }),
+      newValue: 'Deleted permanently',
+      timestamp: Date.now()
+    });
+
+    this.recalculateTeamScores();
+    this.saveData();
+    broadcastLeaderboard(db.getLeaderboard());
+    return true;
+  }
+
   public toggleCodingProblemEnabled(id: string, adminUser = 'Admin'): boolean {
     const p = this.store.codingProblems[id];
     if (!p) throw new Error('Problem not found');
