@@ -75,7 +75,16 @@ router.post('/fullscreen-violation', (req: any, res) => {
   const current = Math.min(3, previous + 1);
   team.fullscreenWarnings[round] = current;
 
-  db.logAction('System', 'FULLSCREEN_EXIT', 'TEAM', team.id, String(previous), JSON.stringify({ round, warning: current, maxWarnings: 3 }));
+  // Three exits are the limit for a main round. The third warning immediately
+  // disqualifies the team; the first two warnings give the participant 7 seconds
+  // to return to fullscreen.
+  if (current >= 3) {
+    team.status = 'disqualified';
+    team.disqualified_reason = `Fullscreen policy violation: 3 fullscreen warnings in ${round.toUpperCase()}.`;
+    db.logAction('System', 'FULLSCREEN_DISQUALIFIED', 'TEAM', team.id, String(previous), JSON.stringify({ round, warning: current, maxWarnings: 3 }));
+  } else {
+    db.logAction('System', 'FULLSCREEN_EXIT', 'TEAM', team.id, String(previous), JSON.stringify({ round, warning: current, maxWarnings: 3 }));
+  }
   db.saveData();
 
   return res.json({
@@ -84,7 +93,39 @@ router.post('/fullscreen-violation', (req: any, res) => {
     warningCount: current,
     maxWarnings: 3,
     isFinalWarning: current >= 3,
-    warnings: team.fullscreenWarnings
+    disqualified: current >= 3,
+    warnings: team.fullscreenWarnings,
+    teamStatus: team.status,
+    message: current >= 3
+      ? 'Third fullscreen warning reached. Team has been disqualified.'
+      : 'Fullscreen exit recorded. Return within 7 seconds.'
+  });
+});
+
+// If a participant does not return to fullscreen within the client-side 7-second grace
+// period, lock/disqualify the team. This endpoint is intentionally valid only in a main round.
+router.post('/fullscreen-timeout', (req: any, res) => {
+  if (req.isAdminPreview) return res.json({ success: true, ignored: true });
+
+  const store = db.getStore();
+  const round = getMainRound(store.contestState.currentStage);
+  if (!round) return res.status(409).json({ success: false, message: 'Fullscreen enforcement is not active.' });
+
+  const team = req.team;
+  const warnings = team.fullscreenWarnings?.[round] || 0;
+
+  if (warnings > 0 && team.status !== 'disqualified') {
+    team.status = 'disqualified';
+    team.disqualified_reason = `Fullscreen policy violation: failed to return to fullscreen within 7 seconds after warning ${warnings}/3 in ${round.toUpperCase()}.`;
+    db.logAction('System', 'FULLSCREEN_TIMEOUT_DISQUALIFICATION', 'TEAM', team.id, String(warnings), JSON.stringify({ round, gracePeriodSeconds: 7 }));
+    db.saveData();
+  }
+
+  return res.json({
+    success: true,
+    disqualified: team.status === 'disqualified',
+    warnings: team.fullscreenWarnings,
+    teamStatus: team.status
   });
 });
 
