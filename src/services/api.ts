@@ -405,6 +405,14 @@ export const api = {
     return res.json();
   },
 
+  async deleteTeam(token: string, teamId: string) {
+    const res = await fetch(`${BASE_URL}/admin/teams/${teamId}`, {
+      method: 'DELETE',
+      headers: getHeaders(token)
+    });
+    return res.json();
+  },
+
   async toggleTeamLock(token: string, teamId: string) {
     const res = await fetch(`${BASE_URL}/admin/teams/${teamId}/lock`, {
       method: 'POST',
