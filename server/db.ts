@@ -2622,6 +2622,14 @@ class DatabaseService {
     delete this.store.crackProgress[teamId];
     delete this.store.roundScores[teamId];
 
+    // Remove all per-team scoring overrides so no historical score can reappear.
+    delete this.store.round1Config.scoreOverrides[teamId];
+    delete this.store.round2Config.scoreOverrides[teamId];
+    delete this.store.masterScoringConfig.r1.overrides[teamId];
+    delete this.store.masterScoringConfig.r2.overrides[teamId];
+    delete this.store.masterScoringConfig.r3.overrides[teamId];
+    delete this.store.masterScoringConfig.r4.overrides[teamId];
+
     this.store.typingSubmissions = (this.store.typingSubmissions || []).filter(s => s.teamId !== teamId);
     this.store.quizSubmissions = (this.store.quizSubmissions || []).filter(s => s.teamId !== teamId);
     this.store.codeSubmissions = (this.store.codeSubmissions || []).filter(s => s.teamId !== teamId);
