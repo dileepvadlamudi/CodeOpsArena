@@ -406,11 +406,15 @@ export const api = {
   },
 
   async deleteTeam(token: string, teamId: string) {
-    const res = await fetch(`${BASE_URL}/admin/teams/${teamId}`, {
+    const res = await fetch(`${BASE_URL}/admin/teams/${encodeURIComponent(teamId)}`, {
       method: 'DELETE',
       headers: getHeaders(token)
     });
-    return res.json();
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data?.message || `Failed to delete team (HTTP ${res.status})`);
+    }
+    return data;
   },
 
   async toggleTeamLock(token: string, teamId: string) {
