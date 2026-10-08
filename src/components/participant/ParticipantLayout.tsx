@@ -123,30 +123,16 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     setFullscreenLocked(!document.fullscreenElement);
     fullscreenActiveRef.current = Boolean(document.fullscreenElement);
 
-    const handleFullscreenChange = async () => {
-      const active = Boolean(document.fullscreenElement);
-      const wasActive = fullscreenActiveRef.current;
-      fullscreenActiveRef.current = active;
+    const recordViolation = async (reason: 'fullscreen_exit' | 'tab_switch' | 'window_blur') => {
+      if (!token || !fullscreenActiveRef.current) return;
 
-      if (active) {
-        setFullscreenLocked(false);
-        setFullscreenNotice(null);
-        setFullscreenSecondsLeft(null);
-        if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
-        fullscreenGraceTimerRef.current = null;
-        return;
-      }
-
-      // The initial security gate is not a violation. Only a real transition
-      // from fullscreen -> non-fullscreen records a warning.
-      if (!wasActive) {
-        setFullscreenLocked(true);
-        return;
-      }
+      // A single user action can fire multiple browser events (for example,
+      // leaving fullscreen can also change visibility). Count it only once.
+      const now = Date.now();
+      if (now - lastFullscreenViolationAtRef.current < 1000) return;
+      lastFullscreenViolationAtRef.current = now;
 
       setFullscreenLocked(true);
-
-      if (!token) return;
 
       try {
         const result = await api.recordFullscreenViolation(token, previewTeamId);
@@ -159,7 +145,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         const count = Number(result.warningCount || 0);
         setFullscreenWarningCount(count);
 
-        // Mirror the authoritative server response immediately.
         setTeamInfo(prev => prev ? {
           ...prev,
           status: result.disqualified ? 'disqualified' : prev.status,
@@ -175,14 +160,21 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
           return;
         }
 
-        setFullscreenNotice(`WARNING ${count}/3 — Return to fullscreen within 7 seconds.`);
+        const reasonText =
+          reason === 'tab_switch'
+            ? 'You switched away from the contest tab.'
+            : reason === 'window_blur'
+              ? 'You left the contest window.'
+              : 'You exited fullscreen.';
+
+        setFullscreenNotice(`WARNING ${count}/3 — ${reasonText} Return to fullscreen within 7 seconds.`);
 
         if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
         const deadline = Date.now() + 7000;
         setFullscreenSecondsLeft(7);
 
         fullscreenGraceTimerRef.current = setInterval(async () => {
-          if (document.fullscreenElement) {
+          if (document.fullscreenElement && !document.hidden && document.hasFocus()) {
             if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
             fullscreenGraceTimerRef.current = null;
             setFullscreenSecondsLeft(null);
@@ -213,14 +205,54 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         }, 250);
       } catch (error) {
         console.error('Failed to record fullscreen violation:', error);
-        setFullscreenNotice('Fullscreen exit detected, but the warning could not be recorded. Stay fullscreen and contact the coordinator.');
+        setFullscreenNotice('Security violation detected, but the warning could not be recorded. Stay on the contest screen and contact the coordinator.');
+      }
+    };
+
+    const handleFullscreenChange = async () => {
+      const active = Boolean(document.fullscreenElement);
+      const wasActive = fullscreenActiveRef.current;
+      fullscreenActiveRef.current = active;
+
+      if (active) {
+        setFullscreenLocked(false);
+        setFullscreenNotice(null);
+        setFullscreenSecondsLeft(null);
+        if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+        fullscreenGraceTimerRef.current = null;
+        return;
+      }
+
+      // The initial security gate is not a violation. Only a real transition
+      // from fullscreen -> non-fullscreen records a warning.
+      if (!wasActive) {
+        setFullscreenLocked(true);
+        return;
+      }
+
+      await recordViolation('fullscreen_exit');
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && fullscreenActiveRef.current) {
+        void recordViolation('tab_switch');
+      }
+    };
+
+    const handleWindowBlur = () => {
+      if (!document.hidden && fullscreenActiveRef.current) {
+        void recordViolation('window_blur');
       }
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('blur', handleWindowBlur);
 
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleWindowBlur);
       if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
       fullscreenGraceTimerRef.current = null;
     };
