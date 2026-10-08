@@ -362,8 +362,9 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
           {/* Target Passage Character Stream */}
           <div
             onClick={() => inputRef.current?.focus()}
-            className="p-6 bg-slate-950 rounded-2xl border border-slate-800/80 font-mono text-base sm:text-lg leading-relaxed select-none cursor-text min-h-[160px] tracking-wide relative overflow-hidden"
+            className="p-6 bg-slate-950 rounded-2xl border border-slate-800/80 font-mono text-base sm:text-lg leading-relaxed select-none cursor-text min-h-[160px] max-h-[280px] overflow-y-auto overflow-x-auto whitespace-pre-wrap break-words tracking-wide relative scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-950"
           >
+            <div className="whitespace-pre-wrap min-w-max">
             {passage.split('').map((char: string, index: number) => {
               const isTyped = index < userInput.length;
               const isCurrent = index === userInput.length;
@@ -378,7 +379,7 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
 
               return (
                 <span key={index} className={style}>
-                  {char}
+                  {char === '\n' ? '\n' : char}
                 </span>
               );
             })}
@@ -392,12 +393,13 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
               onChange={handleInputChange}
               disabled={contestState.isEmergencyLocked}
               placeholder="Click here or start typing immediately to capture keystrokes..."
-              rows={3}
-              className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-2xl text-white font-mono text-sm placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+              rows={6}
+              wrap="off"
+              className="w-full min-h-[150px] max-h-[260px] overflow-y-auto px-4 py-3 bg-slate-950 border border-slate-700 rounded-2xl text-white font-mono text-sm leading-relaxed placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-y whitespace-pre"
               autoFocus
             />
             <div className="flex items-center justify-between text-xs text-slate-500 mt-2">
-              <span>Keystrokes evaluated in sequence. Spaces and punctuation count.</span>
+              <span>Multiline input supported. Spaces, punctuation, and line breaks count exactly.</span>
               <span className="text-indigo-400 font-bold">Auto-submits on completion or timer expiry</span>
             </div>
           </div>
