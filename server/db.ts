@@ -837,6 +837,7 @@ print(sum(res))`,
       session_token: 'tok-warriors-initial',
       last_active: Date.now(),
       is_online: true,
+      fullscreenWarnings: { r1: 0, r2: 0, r3: 0, r4: 0 },
       scores: {
         r1: 0,
         r2: 0,
@@ -859,6 +860,7 @@ print(sum(res))`,
       session_token: 'tok-cyber-initial',
       last_active: Date.now() - 10000,
       is_online: true,
+      fullscreenWarnings: { r1: 0, r2: 0, r3: 0, r4: 0 },
       scores: {
         r1: 0,
         r2: 0,
@@ -881,6 +883,7 @@ print(sum(res))`,
       session_token: 'tok-byte-initial',
       last_active: Date.now() - 20000,
       is_online: true,
+      fullscreenWarnings: { r1: 0, r2: 0, r3: 0, r4: 0 },
       scores: {
         r1: 0,
         r2: 0,
@@ -1052,6 +1055,7 @@ class DatabaseService {
         const loadedTeams: Record<string, Team> = data.teams || initial.teams;
         Object.values(loadedTeams).forEach(t => {
           if (!t.scores) t.scores = { r1: 0, r2: 0, r3: 0, r4: 0, total: 0 };
+          if (!t.fullscreenWarnings) t.fullscreenWarnings = { r1: 0, r2: 0, r3: 0, r4: 0 };
           t.scores.r4 = 0;
         });
 
