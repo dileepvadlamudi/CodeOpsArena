@@ -224,9 +224,9 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     const handleFullscreenChange = async () => {
       const active = Boolean(document.fullscreenElement);
       const wasActive = fullscreenActiveRef.current;
-      fullscreenActiveRef.current = active;
 
       if (active) {
+        fullscreenActiveRef.current = true;
         setFullscreenLocked(false);
         setFullscreenNotice(null);
         setFullscreenSecondsLeft(null);
@@ -235,14 +235,17 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         return;
       }
 
-      // The initial security gate is not a violation. Only a real transition
-      // from fullscreen -> non-fullscreen records a warning.
+      // Keep the previous fullscreen state while recording the violation.
+      // recordViolation() uses it to distinguish a real Esc exit from the
+      // initial "fullscreen required" gate.
       if (!wasActive) {
+        fullscreenActiveRef.current = false;
         setFullscreenLocked(true);
         return;
       }
 
       await recordViolation('fullscreen_exit');
+      fullscreenActiveRef.current = false;
     };
 
     const handleVisibilityChange = () => {
