@@ -64,7 +64,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     }
   };
 
-  const isParticipantSession = user?.role === 'participant' && !previewTeamId;
+  const isParticipantSession = user?.role === 'team' && !previewTeamId;
   const isMainRound = Boolean(getMainRoundKey()) && isParticipantSession;
 
   const enterFullscreen = async () => {
