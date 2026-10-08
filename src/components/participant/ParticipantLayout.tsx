@@ -35,6 +35,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
   const fullscreenActiveRef = React.useRef(false);
   const fullscreenSubmittingRef = React.useRef(false);
   const lastFullscreenViolationAtRef = React.useRef(0);
+  const browserFullscreenRef = React.useRef(false);
 
   const getMainRoundKey = (): 'r1' | 'r2' | 'r3' | 'r4' | null => {
     switch (contestState.currentStage) {
@@ -120,10 +121,18 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
       return;
     }
 
-    setFullscreenLocked(!document.fullscreenElement);
-    fullscreenActiveRef.current = Boolean(document.fullscreenElement);
+    const isBrowserFullscreen = () => {
+      const heightMatches = window.innerHeight >= Math.max(0, window.screen.availHeight - 16);
+      const widthMatches = window.innerWidth >= Math.max(0, window.screen.availWidth - 16);
+      return heightMatches && widthMatches;
+    };
 
-    const recordViolation = async (reason: 'fullscreen_exit' | 'tab_switch' | 'window_blur') => {
+    const initiallyFullscreen = Boolean(document.fullscreenElement) || isBrowserFullscreen();
+    browserFullscreenRef.current = isBrowserFullscreen();
+    setFullscreenLocked(!initiallyFullscreen);
+    fullscreenActiveRef.current = initiallyFullscreen;
+
+    const recordViolation = async (reason: 'fullscreen_exit' | 'tab_switch' | 'window_blur' | 'browser_fullscreen_exit') => {
       if (!token || !fullscreenActiveRef.current) return;
 
       // A single user action can fire multiple browser events (for example,
@@ -165,7 +174,9 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
             ? 'You switched away from the contest tab.'
             : reason === 'window_blur'
               ? 'You left the contest window.'
-              : 'You exited fullscreen.';
+              : reason === 'browser_fullscreen_exit'
+                ? 'You exited browser fullscreen (F11).'
+                : 'You exited fullscreen.';
 
         setFullscreenNotice(`WARNING ${count}/3 — ${reasonText} Return to fullscreen within 7 seconds.`);
 
@@ -246,14 +257,42 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
       }
     };
 
+    const handleBrowserFullscreenResize = () => {
+      const browserFullscreen = isBrowserFullscreen();
+
+      if (browserFullscreen) {
+        browserFullscreenRef.current = true;
+
+        // F11 can provide browser fullscreen without document.fullscreenElement.
+        // Treat it as valid fullscreen for participants.
+        if (!fullscreenActiveRef.current) {
+          fullscreenActiveRef.current = true;
+          setFullscreenLocked(false);
+          setFullscreenNotice(null);
+        }
+        return;
+      }
+
+      // A transition from F11 fullscreen back to the normal browser viewport
+      // is a fullscreen exit even though fullscreenchange does not fire.
+      if (browserFullscreenRef.current && fullscreenActiveRef.current && !document.fullscreenElement) {
+        browserFullscreenRef.current = false;
+        void recordViolation('browser_fullscreen_exit');
+      } else {
+        browserFullscreenRef.current = false;
+      }
+    };
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('blur', handleWindowBlur);
+    window.addEventListener('resize', handleBrowserFullscreenResize);
 
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('blur', handleWindowBlur);
+      window.removeEventListener('resize', handleBrowserFullscreenResize);
       if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
       fullscreenGraceTimerRef.current = null;
     };
