@@ -2650,7 +2650,6 @@ class DatabaseService {
 
     this.recalculateTeamScores();
     this.saveData();
-    broadcastLeaderboard(db.getLeaderboard());
     return true;
   }
 
