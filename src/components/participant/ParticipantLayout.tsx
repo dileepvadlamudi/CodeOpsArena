@@ -178,6 +178,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
             if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
             fullscreenGraceTimerRef.current = null;
             setFullscreenSecondsLeft(null);
+            setFullscreenLocked(false);
             return;
           }
 
