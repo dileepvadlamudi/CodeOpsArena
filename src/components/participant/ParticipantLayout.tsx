@@ -125,20 +125,55 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         return;
       }
 
-      // During a main round, leaving fullscreen always locks the workstation.
+      // Initial gate: the participant has not entered fullscreen yet.
+      if (!wasActive) {
+        setFullscreenLocked(true);
+        return;
+      }
+
+      // A real exit: record exactly one warning for this exit.
       setFullscreenLocked(true);
 
-      // Give the participant 7 seconds to return. The timer starts only for a
-      // real fullscreen exit (not the initial fullscreen gate).
-      if (wasActive && token && !fullscreenSubmittingRef.current) {
+      if (!token) return;
+
+      const now = Date.now();
+      if (now - lastFullscreenViolationAtRef.current < 1000) return;
+      lastFullscreenViolationAtRef.current = now;
+
+      try {
+        const result = await api.recordFullscreenViolation(token, previewTeamId);
+
+        if (!result?.success || result?.ignored) {
+          setFullscreenNotice(result?.message || 'Fullscreen violation could not be recorded.');
+          return;
+        }
+
+        const count = Number(result.warningCount || 0);
+        setFullscreenWarningCount(count);
+        setTeamInfo(prev => prev ? {
+          ...prev,
+          status: result.disqualified ? 'disqualified' : prev.status,
+          disqualified_reason: result.disqualified
+            ? (result.message || 'Fullscreen policy violation.')
+            : prev.disqualified_reason,
+          fullscreenWarnings: result.warnings || prev.fullscreenWarnings
+        } : prev);
+
+        // Third exit is immediately enforced by the server.
+        if (result.disqualified || count >= 3) {
+          setFullscreenSecondsLeft(null);
+          setFullscreenNotice('WARNING 3/3 — Team disqualified for fullscreen policy violation.');
+          return;
+        }
+
+        setFullscreenNotice(`WARNING ${count}/3 — Return to fullscreen within 7 seconds.`);
+
+        // Only warnings 1 and 2 get the 7-second grace period.
         if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
         const deadline = Date.now() + 7000;
         setFullscreenSecondsLeft(7);
 
         fullscreenGraceTimerRef.current = setInterval(async () => {
-          const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-          setFullscreenSecondsLeft(remaining);
-
           if (document.fullscreenElement) {
             if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
             fullscreenGraceTimerRef.current = null;
@@ -146,57 +181,33 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
             return;
           }
 
+          const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+          setFullscreenSecondsLeft(remaining);
+
           if (remaining <= 0) {
             if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
             fullscreenGraceTimerRef.current = null;
+            setFullscreenSecondsLeft(null);
+
             try {
-              await api.fullscreenTimeout(token, previewTeamId);
-              setTeamInfo(prev => prev ? { ...prev, status: 'disqualified' } : prev);
+              const timeoutResult = await api.fullscreenTimeout(token, previewTeamId);
+              if (timeoutResult?.disqualified) {
+                setTeamInfo(prev => prev ? {
+                  ...prev,
+                  status: 'disqualified',
+                  disqualified_reason: 'Fullscreen policy violation: failed to return within 7 seconds.'
+                } : prev);
+              }
             } catch (error) {
               console.error('Failed to process fullscreen timeout:', error);
             }
           }
         }, 250);
-      }
-
-      // The initial state may be non-fullscreen before the participant has clicked
-      // "Enter Fullscreen"; that is a gate, not a violation.
-      if (!wasActive || !token || fullscreenSubmittingRef.current) return;
-
-      const now = Date.now();
-      if (now - lastFullscreenViolationAtRef.current < 1000) return;
-      lastFullscreenViolationAtRef.current = now;
-
-      fullscreenSubmittingRef.current = true;
-      setFullscreenSubmitting(true);
-
-      try {
-        const result = await api.recordFullscreenViolation(token, previewTeamId);
-
-        if (result?.success && !result?.ignored) {
-          const count = result.warningCount || 0;
-          setFullscreenWarningCount(count);
-          setTeamInfo(prev => prev ? {
-            ...prev,
-            status: result.disqualified ? 'disqualified' : prev.status,
-            fullscreenWarnings: result.warnings || prev.fullscreenWarnings
-          } : prev);
-
-          setFullscreenNotice(
-            count >= 3
-              ? 'WARNING 3/3 — This is your final fullscreen warning for this round.'
-              : `WARNING ${count}/3 — You exited fullscreen during the main round.`
-          );
-        }
       } catch (error) {
         console.error('Failed to record fullscreen violation:', error);
         setFullscreenNotice('Fullscreen exit detected, but the warning could not be recorded. Stay fullscreen and contact the coordinator.');
-      } finally {
-        fullscreenSubmittingRef.current = false;
-        setFullscreenSubmitting(false);
       }
     };
-
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
