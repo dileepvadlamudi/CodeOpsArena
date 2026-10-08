@@ -263,6 +263,14 @@ router.get('/teams', (req, res) => {
   });
 });
 
+router.delete('/teams/:id', (req, res) => {
+  const { id } = req.params;
+  const deleted = db.deleteTeam(id, 'Admin');
+  if (!deleted) return res.status(404).json({ success: false, message: 'Team not found.' });
+
+  res.json({ success: true, message: 'Team and all associated contest data deleted.' });
+});
+
 router.post('/teams/:id/lock', (req, res) => {
   const { id } = req.params;
   const store = db.getStore();
