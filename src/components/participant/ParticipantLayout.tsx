@@ -92,10 +92,25 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     }
   };
 
+  // Keep the displayed warning count synchronized with the server-provided team profile.
+  // This is intentionally separate from the fullscreen event listener so normal profile
+  // refreshes cannot recreate the listener or reset its state.
+  useEffect(() => {
+    if (!isMainRound) {
+      setFullscreenWarningCount(0);
+      return;
+    }
+
+    const roundKey = getMainRoundKey();
+    if (roundKey) {
+      setFullscreenWarningCount(Number(teamInfo?.fullscreenWarnings?.[roundKey] || 0));
+    }
+  }, [isMainRound, contestState.currentStage, teamInfo?.fullscreenWarnings]);
+
+  // Fullscreen enforcement is participant-only and active only during the four main rounds.
   useEffect(() => {
     if (!isMainRound) {
       setFullscreenLocked(false);
-      setFullscreenWarningCount(0);
       setFullscreenNotice(null);
       setFullscreenSecondsLeft(null);
       if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
@@ -105,9 +120,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
       return;
     }
 
-    const roundKey = getMainRoundKey();
-    const currentWarnings = teamInfo?.fullscreenWarnings?.[roundKey || 'r1'] || 0;
-    setFullscreenWarningCount(currentWarnings);
     setFullscreenLocked(!document.fullscreenElement);
     fullscreenActiveRef.current = Boolean(document.fullscreenElement);
 
@@ -125,20 +137,16 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         return;
       }
 
-      // Initial gate: the participant has not entered fullscreen yet.
+      // The initial security gate is not a violation. Only a real transition
+      // from fullscreen -> non-fullscreen records a warning.
       if (!wasActive) {
         setFullscreenLocked(true);
         return;
       }
 
-      // A real exit: record exactly one warning for this exit.
       setFullscreenLocked(true);
 
       if (!token) return;
-
-      const now = Date.now();
-      if (now - lastFullscreenViolationAtRef.current < 1000) return;
-      lastFullscreenViolationAtRef.current = now;
 
       try {
         const result = await api.recordFullscreenViolation(token, previewTeamId);
@@ -150,6 +158,8 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
         const count = Number(result.warningCount || 0);
         setFullscreenWarningCount(count);
+
+        // Mirror the authoritative server response immediately.
         setTeamInfo(prev => prev ? {
           ...prev,
           status: result.disqualified ? 'disqualified' : prev.status,
@@ -159,7 +169,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
           fullscreenWarnings: result.warnings || prev.fullscreenWarnings
         } : prev);
 
-        // Third exit is immediately enforced by the server.
         if (result.disqualified || count >= 3) {
           setFullscreenSecondsLeft(null);
           setFullscreenNotice('WARNING 3/3 — Team disqualified for fullscreen policy violation.');
@@ -168,7 +177,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
         setFullscreenNotice(`WARNING ${count}/3 — Return to fullscreen within 7 seconds.`);
 
-        // Only warnings 1 and 2 get the 7-second grace period.
         if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
         const deadline = Date.now() + 7000;
         setFullscreenSecondsLeft(7);
@@ -208,13 +216,15 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         setFullscreenNotice('Fullscreen exit detected, but the warning could not be recorded. Stay fullscreen and contact the coordinator.');
       }
     };
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
+
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
       if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
       fullscreenGraceTimerRef.current = null;
     };
-  }, [contestState.currentStage, token, previewTeamId, teamInfo?.id]);
+  }, [isMainRound, contestState.currentStage, token, previewTeamId]);
   // Disable copy, paste, cut, and right-click context menu for participants
   useEffect(() => {
     let warningTimeout: any = null;
