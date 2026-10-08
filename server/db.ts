@@ -2623,6 +2623,15 @@ class DatabaseService {
     delete this.store.roundScores[teamId];
 
     // Remove all per-team scoring overrides so no historical score can reappear.
+    // Initialize legacy/missing override maps first so deletion also works with
+    // older persisted database files created before these fields existed.
+    this.store.round1Config.scoreOverrides ||= {};
+    this.store.round2Config.scoreOverrides ||= {};
+    this.store.masterScoringConfig.r1.overrides ||= {};
+    this.store.masterScoringConfig.r2.overrides ||= {};
+    this.store.masterScoringConfig.r3.overrides ||= {};
+    this.store.masterScoringConfig.r4.overrides ||= {};
+
     delete this.store.round1Config.scoreOverrides[teamId];
     delete this.store.round2Config.scoreOverrides[teamId];
     delete this.store.masterScoringConfig.r1.overrides[teamId];
