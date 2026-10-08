@@ -177,6 +177,7 @@ router.post('/team-login', (req, res) => {
     session_token: sessionToken,
     last_active: Date.now(),
     is_online: true,
+    fullscreenWarnings: { r1: 0, r2: 0, r3: 0, r4: 0 },
     scores: { r1: 0, r2: 0, r3: 0, r4: 0, total: 0 },
     qualification: { r1: true, r2: true, r3: true, r4: true }
   };
