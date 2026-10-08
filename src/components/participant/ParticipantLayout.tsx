@@ -185,7 +185,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         setFullscreenSecondsLeft(7);
 
         fullscreenGraceTimerRef.current = setInterval(async () => {
-          if (document.fullscreenElement && !document.hidden && document.hasFocus()) {
+          if ((document.fullscreenElement || isBrowserFullscreen()) && !document.hidden && document.hasFocus()) {
             if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
             fullscreenGraceTimerRef.current = null;
             setFullscreenSecondsLeft(null);
