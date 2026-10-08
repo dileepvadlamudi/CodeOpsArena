@@ -1008,12 +1008,13 @@ export const Round1AdminTab: React.FC<Round1AdminTabProps> = ({ contestState, on
                   </span>
                 </div>
                 <textarea
-                  rows={3}
+                  rows={6}
+                  wrap="off"
                   required
                   value={editingRound.practicePassage || ''}
                   onChange={e => setEditingRound({ ...editingRound, practicePassage: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white font-mono leading-relaxed focus:outline-none focus:border-indigo-500"
-                  placeholder="Warmup text for participants to calibrate fingers before the official test..."
+                  className="w-full min-h-[140px] max-h-[240px] overflow-auto bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white font-mono leading-relaxed whitespace-pre focus:outline-none focus:border-indigo-500"
+                  placeholder="Warmup text, multiline text, or source code..."
                 />
               </div>
 
@@ -1022,19 +1023,20 @@ export const Round1AdminTab: React.FC<Round1AdminTabProps> = ({ contestState, on
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
                     <Play className="w-3.5 h-3.5 text-emerald-400" />
-                    Main Test Passage (Scored)
+                    Main Test Passage (Scored — multiline text/code supported)
                   </label>
                   <span className="text-[11px] text-slate-500 font-mono">
                     {editingRound.mainPassage?.length || 0} characters
                   </span>
                 </div>
                 <textarea
-                  rows={5}
+                  rows={8}
+                  wrap="off"
                   required
                   value={editingRound.mainPassage || ''}
                   onChange={e => setEditingRound({ ...editingRound, mainPassage: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white font-mono leading-relaxed focus:outline-none focus:border-indigo-500"
-                  placeholder="Official scored passage text..."
+                  className="w-full min-h-[180px] max-h-[300px] overflow-auto bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white font-mono leading-relaxed whitespace-pre focus:outline-none focus:border-indigo-500"
+                  placeholder="Official scored passage, multiline text, or source code..."
                 />
               </div>
 
