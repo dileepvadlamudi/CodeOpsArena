@@ -11,7 +11,7 @@ import { Round3CodeView } from './Round3CodeView';
 import { Round4CrackView } from './Round4CrackView';
 import { ResultsView } from './ResultsView';
 import { EmergencyPauseOverlay } from '../common/EmergencyPauseOverlay';
-import { ShieldAlert, AlertTriangle } from 'lucide-react';
+import { ShieldAlert, AlertTriangle, Maximize, LockKeyhole } from 'lucide-react';
 
 interface ParticipantLayoutProps {
   contestState: ContestState;
@@ -26,6 +26,106 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
   const [stageData, setStageData] = useState<any>(null);
   const [teamInfo, setTeamInfo] = useState<Team | null>(null);
   const [clipboardWarning, setClipboardWarning] = useState<string | null>(null);
+  const [fullscreenLocked, setFullscreenLocked] = useState(false);
+  const [fullscreenWarningCount, setFullscreenWarningCount] = useState(0);
+  const [fullscreenSubmitting, setFullscreenSubmitting] = useState(false);
+  const fullscreenActiveRef = React.useRef(false);
+  const lastFullscreenViolationAtRef = React.useRef(0);
+
+  const getMainRoundKey = (): 'r1' | 'r2' | 'r3' | 'r4' | null => {
+    switch (contestState.currentStage) {
+      case 'R1_TEST':
+      case 'ROUND_1_TEST':
+        return 'r1';
+      case 'R2_PHASE_1':
+      case 'ROUND_2_PHASE_1':
+      case 'R2_PHASE_2':
+      case 'ROUND_2_PHASE_2':
+      case 'R2_PHASE_3':
+      case 'ROUND_2_PHASE_3':
+      case 'R2_QUIZ':
+      case 'ROUND_2_QUIZ':
+      case 'ROUND_2_ACTIVE':
+        return 'r2';
+      case 'R3_CODE':
+      case 'ROUND_3_CODE':
+      case 'ROUND_3_ACTIVE':
+        return 'r3';
+      case 'R4_CRACK':
+      case 'ROUND_4_CRACK':
+      case 'ROUND_4_ACTIVE':
+        return 'r4';
+      default:
+        return null;
+    }
+  };
+
+  const isMainRound = Boolean(getMainRoundKey()) && !previewTeamId;
+
+  const enterFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      }
+      setFullscreenLocked(false);
+      fullscreenActiveRef.current = Boolean(document.fullscreenElement);
+    } catch (error) {
+      console.warn('Unable to enter fullscreen:', error);
+      setFullscreenLocked(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!isMainRound) {
+      setFullscreenLocked(false);
+      setFullscreenWarningCount(0);
+      fullscreenActiveRef.current = false;
+      return;
+    }
+
+    const roundKey = getMainRoundKey();
+    const currentWarnings = teamInfo?.fullscreenWarnings?.[roundKey || 'r1'] || 0;
+    setFullscreenWarningCount(currentWarnings);
+    setFullscreenLocked(!document.fullscreenElement);
+    fullscreenActiveRef.current = Boolean(document.fullscreenElement);
+
+    const handleFullscreenChange = async () => {
+      const active = Boolean(document.fullscreenElement);
+      const wasActive = fullscreenActiveRef.current;
+      fullscreenActiveRef.current = active;
+
+      if (active) {
+        setFullscreenLocked(false);
+        return;
+      }
+
+      setFullscreenLocked(true);
+
+      if (!wasActive || !token || fullscreenSubmitting) return;
+      const now = Date.now();
+      if (now - lastFullscreenViolationAtRef.current < 1000) return;
+      lastFullscreenViolationAtRef.current = now;
+
+      setFullscreenSubmitting(true);
+      try {
+        const result = await api.recordFullscreenViolation(token, previewTeamId);
+        if (result?.success && !result?.ignored) {
+          setFullscreenWarningCount(result.warningCount || 0);
+          setTeamInfo(prev => prev ? {
+            ...prev,
+            fullscreenWarnings: result.warnings || prev.fullscreenWarnings
+          } : prev);
+        }
+      } catch (error) {
+        console.error('Failed to record fullscreen violation:', error);
+      } finally {
+        setFullscreenSubmitting(false);
+      }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, [contestState.currentStage, token, previewTeamId, teamInfo?.id]);
 
   // Disable copy, paste, cut, and right-click context menu for participants
   useEffect(() => {
@@ -250,6 +350,36 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
           <div className="text-xs">
             <p className="font-bold text-white tracking-wide">ACTION RESTRICTED</p>
             <p className="text-rose-300 font-medium">{clipboardWarning}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen enforcement: active only during main contest rounds. */}
+      {isMainRound && fullscreenLocked && (
+        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6">
+          <div className="w-full max-w-xl rounded-3xl border-2 border-amber-500/50 bg-slate-950 p-8 text-center shadow-2xl">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/40 bg-amber-500/10 text-amber-400">
+              <LockKeyhole className="h-8 w-8" />
+            </div>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-400">Main Round Locked</p>
+            <h2 className="mt-3 text-3xl font-black text-white">Fullscreen Required</h2>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slate-300">
+              You must remain in fullscreen during this main round. Return to fullscreen to continue.
+            </p>
+            <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/80 px-5 py-4">
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Fullscreen warnings</div>
+              <div className="mt-1 text-2xl font-black text-white">{fullscreenWarningCount} / 3</div>
+              <div className="mt-1 text-xs text-slate-400">Warnings are tracked separately for each main round.</div>
+            </div>
+            <button
+              type="button"
+              onClick={enterFullscreen}
+              disabled={fullscreenSubmitting}
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3 text-sm font-black text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <Maximize className="h-4 w-4" />
+              {fullscreenSubmitting ? 'Recording warning…' : 'Return to Fullscreen'}
+            </button>
           </div>
         </div>
       )}
