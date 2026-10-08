@@ -55,6 +55,7 @@ export interface Team {
   last_active: number;
   is_online: boolean;
   disqualified_reason?: string;
+  fullscreenWarnings?: { r1: number; r2: number; r3: number; r4: number };
   scores: {
     r1: number;
     r2: number;
