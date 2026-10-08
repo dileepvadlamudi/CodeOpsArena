@@ -44,6 +44,50 @@ const teamAuth = (req: any, res: any, next: any) => {
 
 router.use(teamAuth);
 
+const MAIN_ROUND_BY_STAGE: Record<string, 'r1' | 'r2' | 'r3' | 'r4' | null> = {
+  R1_TEST: 'r1', ROUND_1_TEST: 'r1',
+  R2_PHASE_1: 'r2', ROUND_2_PHASE_1: 'r2',
+  R2_PHASE_2: 'r2', ROUND_2_PHASE_2: 'r2',
+  R2_PHASE_3: 'r2', ROUND_2_PHASE_3: 'r2',
+  R2_QUIZ: 'r2', ROUND_2_QUIZ: 'r2', ROUND_2_ACTIVE: 'r2',
+  R3_CODE: 'r3', ROUND_3_CODE: 'r3', ROUND_3_ACTIVE: 'r3',
+  R4_CRACK: 'r4', ROUND_4_CRACK: 'r4', ROUND_4_ACTIVE: 'r4',
+};
+
+const getMainRound = (stage: string) => MAIN_ROUND_BY_STAGE[stage] || null;
+
+// Record one fullscreen exit. Counts are independent for each main round and capped at 3.
+router.post('/fullscreen-violation', (req: any, res) => {
+  if (req.isAdminPreview) {
+    return res.json({ success: true, ignored: true, message: 'Admin preview does not record fullscreen violations.' });
+  }
+
+  const store = db.getStore();
+  const round = getMainRound(store.contestState.currentStage);
+  if (!round) {
+    return res.status(409).json({ success: false, message: 'Fullscreen enforcement is not active outside a main round.' });
+  }
+
+  const team = req.team;
+  if (!team.fullscreenWarnings) team.fullscreenWarnings = { r1: 0, r2: 0, r3: 0, r4: 0 };
+
+  const previous = team.fullscreenWarnings[round] || 0;
+  const current = Math.min(3, previous + 1);
+  team.fullscreenWarnings[round] = current;
+
+  db.logAction('System', 'FULLSCREEN_EXIT', 'TEAM', team.id, String(previous), JSON.stringify({ round, warning: current, maxWarnings: 3 }));
+  db.saveData();
+
+  return res.json({
+    success: true,
+    round,
+    warningCount: current,
+    maxWarnings: 3,
+    isFinalWarning: current >= 3,
+    warnings: team.fullscreenWarnings
+  });
+});
+
 // Get current team profile
 router.get('/profile', (req: any, res) => {
   res.json({
