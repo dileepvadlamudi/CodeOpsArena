@@ -261,6 +261,14 @@ export const api = {
     });
     return res.json();
   },
+  async fullscreenTimeout(token: string, previewTeamId?: string | null) {
+    const res = await fetch(`${BASE_URL}/participant/fullscreen-timeout`, {
+      method: 'POST',
+      headers: getHeaders(token, previewTeamId),
+      body: JSON.stringify({})
+    });
+    return res.json();
+  },
 
   async getTeams(token: string) {
     return this.getAdminTeams(token);
