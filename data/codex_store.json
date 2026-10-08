@@ -4,12 +4,14 @@
     "admin_codex_secret_session_key",
     "adm-tok-1791273688507-df03ox3",
     "adm-tok-1791273688513-bzxb4zm",
-    "adm-tok-1791274268725-ank7dbh",
     "adm-tok-1791277894199-1rcvlh7",
     "adm-tok-1791277916623-lqb1z4c",
     "adm-tok-1791277924696-tvez710",
     "adm-tok-1791277934441-lppghv6",
-    "adm-tok-1791278624869-i1f8daj"
+    "adm-tok-1791278624869-i1f8daj",
+    "adm-tok-1791437767644-swlfcve",
+    "adm-tok-1791439206369-uri7hnp",
+    "adm-tok-1791451685241-qunu4zg"
   ],
   "adminPasswordHash": "codex2026admin",
   "teamCodes": {
@@ -71,10 +73,10 @@
       "id": "team-warriors",
       "team_code": "CDX26-A7K9P2",
       "name": "Code Warriors",
-      "status": "active",
-      "session_token": "tok-team-warriors-1791282884222-eh9w8e",
-      "last_active": 1791282884222,
-      "is_online": true,
+      "status": "disqualified",
+      "session_token": null,
+      "last_active": 1791451677518,
+      "is_online": false,
       "scores": {
         "r1": 0,
         "r2": 1,
@@ -87,7 +89,14 @@
         "r2": true,
         "r3": true,
         "r4": true
-      }
+      },
+      "fullscreenWarnings": {
+        "r1": 3,
+        "r2": 0,
+        "r3": 3,
+        "r4": 0
+      },
+      "disqualified_reason": "Fullscreen policy violation: 3 fullscreen warnings in R1."
     },
     "team-cyber": {
       "id": "team-cyber",
@@ -109,6 +118,12 @@
         "r2": true,
         "r3": true,
         "r4": true
+      },
+      "fullscreenWarnings": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0
       }
     },
     "team-byte": {
@@ -131,6 +146,12 @@
         "r2": true,
         "r3": true,
         "r4": true
+      },
+      "fullscreenWarnings": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0
       }
     },
     "team-muwc7xgt-hksm": {
@@ -153,6 +174,12 @@
         "r2": true,
         "r3": true,
         "r4": true
+      },
+      "fullscreenWarnings": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0
       }
     },
     "team-muwjrtbf-ki9s": {
@@ -175,6 +202,12 @@
         "r2": true,
         "r3": true,
         "r4": true
+      },
+      "fullscreenWarnings": {
+        "r1": 0,
+        "r2": 0,
+        "r3": 0,
+        "r4": 0
       }
     }
   },
@@ -2730,15 +2763,15 @@
   },
   "quizSubmissions": [
     {
-      "id": "sub-quiz-1789711907352-ilzs",
+      "id": "sub-quiz-1791438010819-sw6s",
       "teamId": "team-warriors",
       "teamName": "Code Warriors",
       "questionId": "q-1",
       "answer": "\"32\"",
       "isCorrect": true,
-      "pointsAwarded": 2,
-      "timeTakenSeconds": 29,
-      "submittedAt": 1789711907352
+      "pointsAwarded": 1,
+      "timeTakenSeconds": 6,
+      "submittedAt": 1791438010819
     }
   ],
   "round2Config": {
@@ -3242,6 +3275,686 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "log-1791451685245-9waw",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791451685245
+    },
+    {
+      "id": "log-1791451677518-2crw",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791451677518
+    },
+    {
+      "id": "log-1791443868503-3o9d",
+      "adminUser": "System",
+      "action": "FULLSCREEN_DISQUALIFIED",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "3",
+      "newValue": "{\"round\":\"r1\",\"warning\":3,\"maxWarnings\":3}",
+      "timestamp": 1791443868503
+    },
+    {
+      "id": "log-1791443864087-9x8t",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791443864087
+    },
+    {
+      "id": "log-1791443829091-tnlc",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R3_CODE",
+      "newValue": "R1_TEST",
+      "timestamp": 1791443829091
+    },
+    {
+      "id": "log-1791439489007-c2ts",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R3_CODE",
+      "timestamp": 1791439489007
+    },
+    {
+      "id": "log-1791439476078-nuai",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R3_CODE",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1791439476078
+    },
+    {
+      "id": "log-1791439471979-6357",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R1_TEST",
+      "newValue": "R3_CODE",
+      "timestamp": 1791439471979
+    },
+    {
+      "id": "log-1791439453124-2mcl",
+      "adminUser": "Admin",
+      "action": "RESTORE_TEAM",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "disqualified",
+      "newValue": "active",
+      "timestamp": 1791439453124
+    },
+    {
+      "id": "log-1791439432113-8b59",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791439432113
+    },
+    {
+      "id": "log-1791439426605-knbo",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791439426605
+    },
+    {
+      "id": "log-1791439206374-usee",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791439206374
+    },
+    {
+      "id": "log-1791439191428-385q",
+      "adminUser": "System",
+      "action": "FULLSCREEN_DISQUALIFIED",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "2",
+      "newValue": "{\"round\":\"r1\",\"warning\":3,\"maxWarnings\":3}",
+      "timestamp": 1791439191428
+    },
+    {
+      "id": "log-1791438898392-urvy",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "LOBBY",
+      "newValue": "R1_TEST",
+      "timestamp": 1791438898392
+    },
+    {
+      "id": "log-1791438894122-qbyk",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R2_QUIZ",
+      "newValue": "LOBBY",
+      "timestamp": 1791438894122
+    },
+    {
+      "id": "log-1791438847683-x7bm",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791438847683
+    },
+    {
+      "id": "log-1791438004693-tyei",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_RESULTS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1791438004693
+    },
+    {
+      "id": "log-1791438003378-6wuj",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_RESULTS",
+      "previousValue": "LOBBY",
+      "newValue": "R2_RESULTS",
+      "timestamp": 1791438003378
+    },
+    {
+      "id": "log-1791437999180-u0a9",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1791437999180
+    },
+    {
+      "id": "log-1791437995968-ivw4",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437995968
+    },
+    {
+      "id": "log-1791437974208-zeql",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791437974208
+    },
+    {
+      "id": "log-1791437934214-4ky4",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791437934214
+    },
+    {
+      "id": "log-1791437927314-aiim",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791437927314
+    },
+    {
+      "id": "log-1791437808480-og76",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791437808480
+    },
+    {
+      "id": "log-1791437790511-ggdh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1791437790511
+    },
+    {
+      "id": "log-1791437786946-6vih",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437786946
+    },
+    {
+      "id": "log-1791437771555-monz",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1791437771555
+    },
+    {
+      "id": "log-1791437767647-wzlh",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791437767647
+    },
+    {
+      "id": "log-1791437756845-hmd8",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791437756845
+    },
+    {
+      "id": "log-1791437425704-lc8a",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791437425704
+    },
+    {
+      "id": "log-1791437405362-zx15",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437405362
+    },
+    {
+      "id": "log-1791437394680-nmdf",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1791437394680
+    },
+    {
+      "id": "log-1791437393657-4g7l",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437393657
+    },
+    {
+      "id": "log-1791437390590-pyre",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "LOBBY",
+      "timestamp": 1791437390590
+    },
+    {
+      "id": "log-1791437387563-wirv",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437387563
+    },
+    {
+      "id": "log-1791437382261-4fie",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_TEST",
+      "newValue": "LOBBY",
+      "timestamp": 1791437382261
+    },
+    {
+      "id": "log-1791437188915-h0vq",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1791437188915
+    },
+    {
+      "id": "log-1791437160921-cy0w",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437160921
+    },
+    {
+      "id": "log-1791437159430-ec6n",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_TEST",
+      "newValue": "LOBBY",
+      "timestamp": 1791437159430
+    },
+    {
+      "id": "log-1791437121165-a4rm",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1791437121165
+    },
+    {
+      "id": "log-1791437117672-shnz",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791437117672
+    },
+    {
+      "id": "log-1791437114316-les6",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "LOBBY",
+      "newValue": "LOBBY",
+      "timestamp": 1791437114316
+    },
+    {
+      "id": "log-1791437113569-t5xh",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_TEST",
+      "newValue": "LOBBY",
+      "timestamp": 1791437113569
+    },
+    {
+      "id": "log-1791437107712-b73t",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791437107712
+    },
+    {
+      "id": "log-1791437103266-kbxa",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791437103266
+    },
+    {
+      "id": "log-1791437063826-tran",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "1",
+      "newValue": "{\"round\":\"r1\",\"warning\":2,\"maxWarnings\":3}",
+      "timestamp": 1791437063826
+    },
+    {
+      "id": "log-1791437047843-3vz5",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "0",
+      "newValue": "{\"round\":\"r1\",\"warning\":1,\"maxWarnings\":3}",
+      "timestamp": 1791437047843
+    },
+    {
+      "id": "log-1791437041960-5jpa",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791437041960
+    },
+    {
+      "id": "log-1791436898942-4fmj",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R3_CODE",
+      "newValue": "R1_TEST",
+      "timestamp": 1791436898942
+    },
+    {
+      "id": "log-1791436895318-1yu3",
+      "adminUser": "System",
+      "action": "ADMIN_LOGIN",
+      "entityType": "ADMIN",
+      "entityId": "admin",
+      "previousValue": "127.0.0.1",
+      "newValue": "Administrator device session authenticated",
+      "timestamp": 1791436895318
+    },
+    {
+      "id": "log-1791436890348-a8qn",
+      "adminUser": "Participant",
+      "action": "TEAM_LOGOUT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Session cleared and released",
+      "timestamp": 1791436890348
+    },
+    {
+      "id": "log-1791436870734-1hoy",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "3",
+      "newValue": "{\"round\":\"r3\",\"warning\":3,\"maxWarnings\":3}",
+      "timestamp": 1791436870734
+    },
+    {
+      "id": "log-1791436865566-9ja1",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "3",
+      "newValue": "{\"round\":\"r3\",\"warning\":3,\"maxWarnings\":3}",
+      "timestamp": 1791436865566
+    },
+    {
+      "id": "log-1791436860932-g2ts",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "2",
+      "newValue": "{\"round\":\"r3\",\"warning\":3,\"maxWarnings\":3}",
+      "timestamp": 1791436860932
+    },
+    {
+      "id": "log-1791436857776-oteb",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "1",
+      "newValue": "{\"round\":\"r3\",\"warning\":2,\"maxWarnings\":3}",
+      "timestamp": 1791436857776
+    },
+    {
+      "id": "log-1791436845527-810c",
+      "adminUser": "System",
+      "action": "FULLSCREEN_EXIT",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "0",
+      "newValue": "{\"round\":\"r3\",\"warning\":1,\"maxWarnings\":3}",
+      "timestamp": 1791436845527
+    },
+    {
+      "id": "log-1791436791436-rf70",
+      "adminUser": "System",
+      "action": "TEAM_LOGIN",
+      "entityType": "TEAM",
+      "entityId": "team-warriors",
+      "previousValue": "CDX26-A7K9P2",
+      "newValue": "Authenticated single-device session",
+      "timestamp": 1791436791436
+    },
+    {
+      "id": "log-1791436771679-0k8f",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R2_QUIZ",
+      "newValue": "R3_CODE",
+      "timestamp": 1791436771679
+    },
+    {
+      "id": "log-1791436766665-804d",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R2_INSTRUCTIONS",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1791436766665
+    },
+    {
+      "id": "log-1791436757244-3ssu",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_INSTRUCTIONS",
+      "previousValue": "R1_RESULTS",
+      "newValue": "R2_INSTRUCTIONS",
+      "timestamp": 1791436757244
+    },
+    {
+      "id": "log-1791436755831-1v1w",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_RESULTS",
+      "previousValue": "R1_TEST",
+      "newValue": "R1_RESULTS",
+      "timestamp": 1791436755831
+    },
+    {
+      "id": "log-1791436747719-s7np",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "R1_INSTRUCTIONS",
+      "newValue": "R1_TEST",
+      "timestamp": 1791436747720
+    },
+    {
+      "id": "log-1791436745007-698h",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_INSTRUCTIONS",
+      "previousValue": "LOBBY",
+      "newValue": "R1_INSTRUCTIONS",
+      "timestamp": 1791436745007
+    },
+    {
+      "id": "log-1791436741386-ct9t",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "R1_TEST",
+      "newValue": "LOBBY",
+      "timestamp": 1791436741387
+    },
+    {
+      "id": "log-1791436543083-ke2e",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R1_TEST",
+      "previousValue": "LOBBY",
+      "newValue": "R1_TEST",
+      "timestamp": 1791436543083
+    },
+    {
+      "id": "log-1791436539368-yrb7",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "LOBBY",
+      "previousValue": "ROUND_3_CODE",
+      "newValue": "LOBBY",
+      "timestamp": 1791436539368
+    },
+    {
+      "id": "log-1791435705560-d3wa",
+      "adminUser": "Admin",
+      "action": "START_ROUND_3",
+      "entityType": "CONTEST_STATE",
+      "entityId": "ROUND_3_CODE",
+      "previousValue": "null",
+      "newValue": "{\"durationSeconds\":1800}",
+      "timestamp": 1791435705560
+    },
+    {
+      "id": "log-1791433431127-wyjc",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R2_QUIZ",
+      "previousValue": "R3_CODE",
+      "newValue": "R2_QUIZ",
+      "timestamp": 1791433431127
+    },
     {
       "id": "log-1791365929648-wgkx",
       "adminUser": "Admin",
@@ -4945,17 +5658,17 @@
   ],
   "contestState": {
     "eventStatus": "LIVE",
-    "currentRound": "ROUND_3",
-    "currentStage": "R3_CODE",
-    "stageTitle": "Round 3: Code Minimalist",
+    "currentRound": "ROUND_1",
+    "currentStage": "R1_TEST",
+    "stageTitle": "Round 1: Fastest Fingers First — Main Typing Test",
     "isEmergencyLocked": false,
     "timer": {
-      "isRunning": true,
+      "isRunning": false,
       "isPaused": false,
-      "durationSeconds": 1800,
-      "remainingSeconds": 1570,
-      "startedAt": 1791365929646,
-      "endsAt": 1791367729646
+      "durationSeconds": 120,
+      "remainingSeconds": 0,
+      "startedAt": 1791443829088,
+      "endsAt": 1791443949088
     },
     "currentTypingRoundId": "tr-1",
     "currentQuizQuestionId": null,
@@ -4971,8 +5684,8 @@
     "activeAnnouncement": null,
     "currentTypingRound": "tr-1",
     "activeQuestion": "q-1",
-    "timerStartedAt": 1791365929646,
-    "timerDuration": 1800,
+    "timerStartedAt": 1791443829088,
+    "timerDuration": 120,
     "leaderboardVisible": true,
     "currentQuizPhase": 1
   },
@@ -5047,7 +5760,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r2": {
         "teamId": "team-warriors",
@@ -5058,7 +5771,7 @@
           "correctCount": 1,
           "totalSubmissions": 1,
           "accuracy": 100,
-          "totalTimeSeconds": 29,
+          "totalTimeSeconds": 6,
           "easyCorrect": 1,
           "easyPoints": 1,
           "mediumCorrect": 0,
@@ -5069,7 +5782,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r3": {
         "teamId": "team-warriors",
@@ -5086,7 +5799,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r4": {
         "teamId": "team-warriors",
@@ -5102,7 +5815,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       }
     },
     "team-cyber": {
@@ -5121,7 +5834,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r2": {
         "teamId": "team-cyber",
@@ -5143,7 +5856,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r3": {
         "teamId": "team-cyber",
@@ -5160,7 +5873,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r4": {
         "teamId": "team-cyber",
@@ -5176,7 +5889,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       }
     },
     "team-byte": {
@@ -5195,7 +5908,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r2": {
         "teamId": "team-byte",
@@ -5217,7 +5930,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r3": {
         "teamId": "team-byte",
@@ -5234,7 +5947,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r4": {
         "teamId": "team-byte",
@@ -5250,7 +5963,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       }
     },
     "team-muwc7xgt-hksm": {
@@ -5269,7 +5982,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r2": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5291,7 +6004,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r3": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5308,7 +6021,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r4": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5324,7 +6037,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       }
     },
     "team-muwjrtbf-ki9s": {
@@ -5343,7 +6056,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r2": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5365,7 +6078,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r3": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5390,7 +6103,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       },
       "r4": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5406,7 +6119,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791366159444
+        "updatedAt": 1791453543985
       }
     }
   },

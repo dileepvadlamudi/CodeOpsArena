@@ -383,6 +383,7 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
                 </span>
               );
             })}
+            </div>
           </div>
 
           {/* Active Input Listener */}
