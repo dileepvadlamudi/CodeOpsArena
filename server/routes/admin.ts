@@ -265,9 +265,16 @@ router.get('/teams', (req, res) => {
 
 router.delete('/teams/:id', (req, res) => {
   const { id } = req.params;
+  const store = db.getStore();
+  if (!store.teams[id]) {
+    return res.status(404).json({ success: false, message: 'Team not found.' });
+  }
+
+  forceLogoutTeam(id, 'Your participant account was removed by the administrator.');
   const deleted = db.deleteTeam(id, 'Admin');
   if (!deleted) return res.status(404).json({ success: false, message: 'Team not found.' });
 
+  broadcastLeaderboard(db.getLeaderboard());
   res.json({ success: true, message: 'Team and all associated contest data deleted.' });
 });
 
