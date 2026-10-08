@@ -106,7 +106,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     }
 
     const roundKey = getMainRoundKey();
-    const currentWarnings = teamInfo?.fullscreenWarnings?.[roundKey || 'r1'] || 0;
+    const currentWarnings = Number(teamInfo?.fullscreenWarnings?.[roundKey || 'r1'] || 0);
     setFullscreenWarningCount(currentWarnings);
     setFullscreenLocked(!document.fullscreenElement);
     fullscreenActiveRef.current = Boolean(document.fullscreenElement);
@@ -125,13 +125,13 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         return;
       }
 
-      // Initial gate: the participant has not entered fullscreen yet.
+      // Ignore the initial "not fullscreen" state. Only a transition from
+      // fullscreen -> windowed counts as a violation.
       if (!wasActive) {
         setFullscreenLocked(true);
         return;
       }
 
-      // A real exit: record exactly one warning for this exit.
       setFullscreenLocked(true);
 
       if (!token) return;
@@ -150,6 +150,8 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
         const count = Number(result.warningCount || 0);
         setFullscreenWarningCount(count);
+
+        // Immediately mirror the authoritative server response locally.
         setTeamInfo(prev => prev ? {
           ...prev,
           status: result.disqualified ? 'disqualified' : prev.status,
@@ -159,7 +161,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
           fullscreenWarnings: result.warnings || prev.fullscreenWarnings
         } : prev);
 
-        // Third exit is immediately enforced by the server.
         if (result.disqualified || count >= 3) {
           setFullscreenSecondsLeft(null);
           setFullscreenNotice('WARNING 3/3 — Team disqualified for fullscreen policy violation.');
@@ -168,7 +169,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
         setFullscreenNotice(`WARNING ${count}/3 — Return to fullscreen within 7 seconds.`);
 
-        // Only warnings 1 and 2 get the 7-second grace period.
         if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
         const deadline = Date.now() + 7000;
         setFullscreenSecondsLeft(7);
@@ -208,6 +208,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         setFullscreenNotice('Fullscreen exit detected, but the warning could not be recorded. Stay fullscreen and contact the coordinator.');
       }
     };
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
@@ -280,7 +281,17 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
         api.getTeamProfile(token, previewTeamId)
       ]);
       if (stageRes.success) setStageData(stageRes.stageData || stageRes.data);
-      if (profRes.success) setTeamInfo(profRes.team);
+      if (profRes.success) {
+        setTeamInfo(profRes.team);
+
+        // The server is authoritative for fullscreen warnings. Keep the UI
+        // synchronized with the persisted per-round counter after every refresh.
+        const activeRound = getMainRoundKey();
+        if (activeRound) {
+          const serverWarnings = Number(profRes.team?.fullscreenWarnings?.[activeRound] || 0);
+          setFullscreenWarningCount(serverWarnings);
+        }
+      }
     } catch (err) {
       console.error('Error fetching participant data:', err);
     }
