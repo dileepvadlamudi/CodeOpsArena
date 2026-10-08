@@ -133,10 +133,26 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
   const [fillBlankInput, setFillBlankInput] = useState<string>('');
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
-  // Local countdown timer state
-  const [arenaSecondsLeft, setArenaSecondsLeft] = useState<number>(stageData?.remainingSeconds ?? 600);
+  // Per-question countdown timer state (20 seconds per question)
+  const QUESTION_TIME_LIMIT = 20;
+  const [questionSecondsLeft, setQuestionSecondsLeft] = useState<number>(QUESTION_TIME_LIMIT);
+  const [timeUpBanner, setTimeUpBanner] = useState<string | null>(null);
   const questionStartTimeRef = useRef<number>(Date.now());
+  const questionEndTimeRef = useRef<number>(Date.now() + QUESTION_TIME_LIMIT * 1000);
   const timerIntervalRef = useRef<any>(null);
+
+  // References to keep timeout handler fresh without resetting timers
+  const fillBlankInputRef = useRef(fillBlankInput);
+  fillBlankInputRef.current = fillBlankInput;
+  const selectedOptionRef = useRef(selectedOption);
+  selectedOptionRef.current = selectedOption;
+  const selectedMultiOptionsRef = useRef(selectedMultiOptions);
+  selectedMultiOptionsRef.current = selectedMultiOptions;
+  const activeIdxRef = useRef(currentIdx);
+  activeIdxRef.current = currentIdx;
+  const allQuestionsRef = useRef<any[]>(allQuestions);
+  allQuestionsRef.current = allQuestions;
+  const isTransitioningRef = useRef<boolean>(false);
 
   // Live leaderboard for R2 completion screen
   const [r2Leaderboard, setR2Leaderboard] = useState<any[]>([]);
@@ -170,7 +186,6 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
   // Sync server submissions into answersMap and seenIds on first load
   useEffect(() => {
     if (allQuestions.length > 0) {
-      // Check if server has no recorded answers for this team
       const serverSubmissionsCount = allQuestions.filter((q: any) => q.mySubmission && q.mySubmission.answer !== undefined).length;
       if (serverSubmissionsCount === 0 && Object.keys(answersMap).length > 0) {
         try {
@@ -234,11 +249,14 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
     }
   }, [currentQ?.id]);
 
-  // Populate inputs when active question index changes or when answersMap updates
+  // Populate inputs and reset 20-second countdown when active question index changes
   useEffect(() => {
     if (!currentQ) return;
     questionStartTimeRef.current = Date.now();
+    questionEndTimeRef.current = Date.now() + QUESTION_TIME_LIMIT * 1000;
+    setQuestionSecondsLeft(QUESTION_TIME_LIMIT);
     setSaveStatus('idle');
+    isTransitioningRef.current = false;
 
     const recordedAns = answersMap[currentQ.id] ?? currentQ.mySubmission?.answer;
     if (recordedAns !== undefined && recordedAns !== null && recordedAns !== '__TIMEOUT__') {
@@ -259,28 +277,79 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
     }
   }, [currentIdx, currentQ?.id]);
 
-  // Sync timer when server sends new stageData
-  useEffect(() => {
-    if (typeof stageData?.remainingSeconds === 'number') {
-      setArenaSecondsLeft(stageData.remainingSeconds);
-    }
-  }, [stageData?.remainingSeconds]);
+  // Advance strictly to the immediate next question in designated order
+  const advanceToImmediateNextQuestion = (isTimeout = false) => {
+    if (isTransitioningRef.current || isCompleted || isFinalSubmitting) return;
+    isTransitioningRef.current = true;
 
-  // Tick countdown
+    const currIdx = activeIdxRef.current;
+    const questionsList = allQuestionsRef.current;
+    const q = questionsList[currIdx];
+
+    // Auto-save current answer if any
+    if (q) {
+      if (
+        (q.type === 'fill_blank' ||
+          (q.type === 'code_output' && (!q.options || q.options.length === 0))) &&
+        fillBlankInputRef.current.trim()
+      ) {
+        saveAnswerToServer(q.id, fillBlankInputRef.current.trim());
+      } else if (q.type === 'multi_select' && selectedMultiOptionsRef.current.length > 0) {
+        saveAnswerToServer(q.id, selectedMultiOptionsRef.current);
+      } else if (selectedOptionRef.current) {
+        saveAnswerToServer(q.id, selectedOptionRef.current);
+      }
+    }
+
+    const currentNumber = currIdx + 1;
+    if (isTimeout) {
+      setTimeUpBanner(`Time's up (20s) for Question ${currentNumber}! Moving to Question ${currentNumber + 1}...`);
+      setTimeout(() => {
+        setTimeUpBanner(null);
+      }, 2500);
+    }
+
+    // Auto-advance strictly to immediate next index (currIdx + 1)
+    if (currIdx < questionsList.length - 1) {
+      setCurrentIdx(currIdx + 1);
+    } else {
+      // Reached the final question
+      setShowConfirmSubmitDialog(true);
+    }
+  };
+
+  // Tick 20-second countdown for the current question using real wall-clock time
   useEffect(() => {
-    if (isPaused) {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+    if (isPaused || contestState.isEmergencyLocked || isCompleted || isFinalSubmitting || !currentQ) {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
       return;
     }
 
     timerIntervalRef.current = setInterval(() => {
-      setArenaSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
+      const now = Date.now();
+      const remainingMs = questionEndTimeRef.current - now;
+      const secs = Math.max(0, Math.ceil(remainingMs / 1000));
+      setQuestionSecondsLeft(secs);
+
+      if (remainingMs <= 0) {
+        if (timerIntervalRef.current) {
+          clearInterval(timerIntervalRef.current);
+          timerIntervalRef.current = null;
+        }
+        advanceToImmediateNextQuestion(true);
+      }
+    }, 250);
 
     return () => {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
     };
-  }, [isPaused]);
+  }, [currentIdx, currentQ?.id, isPaused, contestState.isEmergencyLocked, isCompleted, isFinalSubmitting]);
 
   // Helper to persist answer to server and local cache
   const saveAnswerToServer = async (qId: string, answerPayload: any) => {
@@ -359,20 +428,10 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
     }
   };
 
-  // Navigation handlers
+  // Navigation handlers: Strictly sequential designated order only
   const handleNextClick = () => {
-    if (isPaused || contestState.isEmergencyLocked) return;
-    if (currentIdx < allQuestions.length - 1) {
-      setCurrentIdx((prev) => prev + 1);
-    } else {
-      setShowReviewModal(true);
-    }
-  };
-
-  const handlePrevClick = () => {
-    if (currentIdx > 0) {
-      setCurrentIdx((prev) => prev - 1);
-    }
+    if (isPaused || contestState.isEmergencyLocked || isTransitioningRef.current) return;
+    advanceToImmediateNextQuestion(false);
   };
 
   // Final Submit handler
@@ -602,9 +661,9 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
   return (
     <div className="max-w-7xl mx-auto space-y-6 animate-in fade-in duration-300">
       {/* Top Banner: Arena Header & Real-Time Sync */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-xl flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-[#040605] border border-[#606161]/60 rounded-3xl p-4 sm:p-6 shadow-xl flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-[#04D87D]/10 border border-[#04D87D]/30 flex items-center justify-center text-[#04D87D] shrink-0">
             <BrainCircuit className="w-6 h-6" />
           </div>
           <div>
@@ -612,198 +671,54 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
               <h1 className="text-base sm:text-lg font-extrabold text-white">
                 Round 2: Quiz Arena
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-950 text-emerald-300 border border-emerald-800 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-[#045D33]/40 text-[#04D87D] border border-[#045D33] flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#04D87D] animate-pulse" />
                 LIVE
               </span>
             </div>
-            <p className="text-xs text-slate-400">
-              Stage-wise sequential &amp; random access questions. All changes auto-save.
+            <p className="text-xs text-[#9F9694]">
+              Designated Order Only • 20s Per Question • Auto-Advances to Immediate Next
             </p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
+          {/* Question Sequence Progress */}
+          <div className="px-3.5 py-2 rounded-2xl bg-[#040605] border border-[#606161]/60 text-xs font-mono text-[#9F9694] flex items-center gap-2">
+            <span className="text-[#04D87D] font-bold">Question {currentIdx + 1}</span>
+            <span>of</span>
+            <span className="text-white font-bold">{allQuestions.length}</span>
+          </div>
+
           {/* Points indicator */}
-          <div className="px-4 py-2 rounded-2xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+          <div className="px-4 py-2 rounded-2xl bg-[#040605] border border-[#606161]/60 text-xs font-mono text-[#9F9694] flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-amber-400" />
             <span>Score: <strong className="text-amber-400 font-bold">{stageData?.totalScore || 0} pts</strong></span>
           </div>
 
-          {/* Arena countdown timer */}
+          {/* Active Question Countdown Timer (20s per question) */}
           <div
             className={`px-4 py-2 rounded-2xl border text-xs font-mono font-bold flex items-center gap-2 shadow-inner ${
               isPaused
-                ? 'bg-amber-950/60 border-amber-800 text-amber-300'
-                : arenaSecondsLeft < 120
-                ? 'bg-rose-950/60 border-rose-800 text-rose-300 animate-pulse'
-                : 'bg-slate-950 border-slate-800 text-indigo-300'
+                ? 'bg-[#045D33]/40 border-[#045D33] text-amber-300'
+                : questionSecondsLeft <= 5
+                ? 'bg-rose-950/80 border-rose-500 text-rose-300 animate-pulse'
+                : questionSecondsLeft <= 10
+                ? 'bg-[#04768D]/20 border-[#04768D]/70 text-[#04D87D]'
+                : 'bg-[#040605] border-[#04D87D]/50 text-[#04D87D]'
             }`}
           >
-            <Clock className="w-4 h-4" />
-            <span>{isPaused ? 'PAUSED' : formatTime(arenaSecondsLeft)}</span>
+            <Clock className={`w-4 h-4 ${questionSecondsLeft <= 5 ? 'text-rose-400 animate-spin' : 'text-[#04D87D]'}`} />
+            <span>{isPaused ? 'PAUSED' : `Q${currentIdx + 1} Timer: ${questionSecondsLeft}s / 20s`}</span>
           </div>
-
-          {/* Quick Review & Submit header button */}
-          <button
-            type="button"
-            onClick={() => setShowReviewModal(true)}
-            className="px-4 py-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 transition-all cursor-pointer flex items-center gap-1.5"
-          >
-            <ListChecks className="w-4 h-4" />
-            <span>Review &amp; Submit</span>
-          </button>
         </div>
       </div>
 
-      {/* Main Two-Column Layout: Left Tab (Stage-Grouped Navigation) + Right Workspace */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* ============================================================ */}
-        {/* LEFT TAB: Question Numbers Grouped By Stages + Status Legend */}
-        {/* ============================================================ */}
-        <div className="lg:col-span-4 xl:col-span-3.5 space-y-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl space-y-5 sticky top-4">
-            {/* Header: Overview & Stats Legend */}
-            <div>
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                  <Layers className="w-4 h-4 text-indigo-400" /> Question Palette
-                </span>
-                <span className="text-xs font-mono text-indigo-400 font-bold">
-                  {attemptedCount} / {allQuestions.length} Done
-                </span>
-              </div>
-
-              {/* Status Color Legend strictly as requested:
-                  Green for attempted
-                  Red for seen but unattempted
-                  Colorless for unseen
-                  Amber for flagged */}
-              <div className="grid grid-cols-2 gap-2 pt-3 text-[11px] font-medium">
-                <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-950 border border-slate-800/80">
-                  <div className="w-3.5 h-3.5 rounded-md bg-emerald-600 border border-emerald-400 shrink-0" />
-                  <span className="text-slate-300">Attempted</span>
-                  <span className="ml-auto font-mono font-bold text-emerald-400">{attemptedCount}</span>
-                </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-950 border border-slate-800/80">
-                  <div className="w-3.5 h-3.5 rounded-md bg-rose-600 border border-rose-400 shrink-0" />
-                  <span className="text-slate-300">Unattempted</span>
-                  <span className="ml-auto font-mono font-bold text-rose-400">{seenUnattemptedCount}</span>
-                </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-950 border border-slate-800/80">
-                  <div className="w-3.5 h-3.5 rounded-md bg-slate-900 border border-slate-800 shrink-0" />
-                  <span className="text-slate-400">Unseen</span>
-                  <span className="ml-auto font-mono font-bold text-slate-400">{unseenCount}</span>
-                </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-950 border border-slate-800/80">
-                  <div className="w-3.5 h-3.5 rounded-md bg-amber-500/20 border border-amber-500 text-amber-400 flex items-center justify-center text-[9px] shrink-0 font-bold">
-                    ⚑
-                  </div>
-                  <span className="text-slate-300">Flagged</span>
-                  <span className="ml-auto font-mono font-bold text-amber-400">{flaggedCount}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Stages Grouped Navigation */}
-            <div className="space-y-4 max-h-[calc(100vh-340px)] overflow-y-auto pr-1">
-              {[1, 2, 3].map((stgNum) => {
-                const stageInfo = stagesGrouped[stgNum];
-                if (!stageInfo || stageInfo.questions.length === 0) return null;
-
-                const stageAttempted = stageInfo.questions.filter(
-                  (q) => getQuestionStatus(q) === 'attempted'
-                ).length;
-
-                return (
-                  <div
-                    key={stgNum}
-                    className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80 space-y-2.5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="text-xs font-bold text-white tracking-wide">
-                          {stageInfo.title}
-                        </h4>
-                        <span className="text-[10px] text-slate-400 block">
-                          {stageInfo.desc}
-                        </span>
-                      </div>
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-indigo-300 font-bold">
-                        {stageAttempted}/{stageInfo.questions.length}
-                      </span>
-                    </div>
-
-                    {/* Question Numbers Grid */}
-                    <div className="grid grid-cols-5 gap-1.5 pt-1">
-                      {stageInfo.questions.map((q: any) => {
-                        const status = getQuestionStatus(q);
-                        const isCurrent = q.globalIdx === currentIdx;
-                        const isFlagged = Boolean(flaggedIds[q.id]);
-
-                        // Color rules strictly matching request:
-                        // - GREEN for attempted
-                        // - RED for seen but unattempted
-                        // - COLORLESS for unseen
-                        let colorClasses = 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white';
-                        if (status === 'attempted') {
-                          colorClasses = 'bg-emerald-600 border-emerald-400 text-white font-bold shadow-sm shadow-emerald-950/40 hover:bg-emerald-500';
-                        } else if (status === 'seen_unattempted') {
-                          colorClasses = 'bg-rose-600 border-rose-400 text-white font-bold shadow-sm shadow-rose-950/40 hover:bg-rose-500';
-                        }
-
-                        return (
-                          <button
-                            key={q.id}
-                            type="button"
-                            onClick={() => setCurrentIdx(q.globalIdx)}
-                            className={`relative h-9 rounded-xl border text-xs font-mono transition-all flex items-center justify-center select-none cursor-pointer ${colorClasses} ${
-                              isCurrent ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-950 scale-105 z-10' : ''
-                            }`}
-                            title={`Question ${q.globalIdx + 1} (${q.category}) - ${
-                              status === 'attempted'
-                                ? 'Attempted'
-                                : status === 'seen_unattempted'
-                                ? 'Seen but unattempted'
-                                : 'Unseen'
-                            }${isFlagged ? ' • Flagged' : ''}`}
-                          >
-                            <span>{q.globalIdx + 1}</span>
-
-                            {/* Flagged icon badge */}
-                            {isFlagged && (
-                              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-[9px] font-bold shadow">
-                                ⚑
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Bottom Button in Left Tab: Review & Final Submit */}
-            <button
-              type="button"
-              onClick={() => setShowReviewModal(true)}
-              className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all cursor-pointer flex items-center justify-center gap-2"
-            >
-              <ListChecks className="w-4 h-4" />
-              <span>Review All &amp; Submit</span>
-            </button>
-          </div>
-        </div>
-
-        {/* ============================================================ */}
-        {/* RIGHT AREA: Active Question Workspace & Input Controls      */}
-        {/* ============================================================ */}
-        <div className="lg:col-span-8 xl:col-span-8.5 space-y-6">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-            {/* Header Metadata & Status Controls */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+      {/* Main Single-Column Focused Question Workspace (Designated Order - No Arbitrary Palette) */}
+      <div className="max-w-4xl mx-auto space-y-6">
+        <div className="bg-[#040605] border border-[#606161]/60 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+          {/* Header Metadata & Status Controls */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#606161]/40 pb-4">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800 text-xs font-bold uppercase tracking-wider">
                   Stage {currentQ?.stageNumber || 1}
@@ -872,10 +787,62 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
               </div>
             )}
 
+            {/* Per-Question 20-Second Countdown HUD & Smooth Progress Bar */}
+            <div className="bg-[#040605] border border-[#606161]/60 rounded-2xl p-4 space-y-2.5 shadow-inner">
+              <div className="flex items-center justify-between text-xs flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <Clock className={`w-4 h-4 ${questionSecondsLeft <= 5 ? 'text-rose-400 animate-bounce' : 'text-[#04D87D]'}`} />
+                  <span className="font-bold text-white uppercase tracking-wider font-mono text-[11px]">
+                    Question Time Limit: 20 Seconds
+                  </span>
+                  {questionSecondsLeft <= 5 && (
+                    <span className="px-2 py-0.5 rounded-full bg-rose-950/80 border border-rose-500/60 text-rose-300 text-[10px] font-bold animate-pulse">
+                      HURRY! Auto-advancing soon
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] text-[#9F9694] font-mono">Time Left:</span>
+                  <span className={`font-mono text-base font-black px-2.5 py-0.5 rounded-lg border ${
+                    questionSecondsLeft <= 5
+                      ? 'bg-rose-950/90 border-rose-500 text-rose-300 animate-pulse'
+                      : questionSecondsLeft <= 10
+                      ? 'bg-[#04768D]/20 border-[#04768D]/70 text-[#04D87D]'
+                      : 'bg-[#045D33]/30 border-[#04D87D]/50 text-[#04D87D]'
+                  }`}>
+                    {questionSecondsLeft}s
+                  </span>
+                </div>
+              </div>
+
+              {/* Smooth 20s Progress Bar */}
+              <div className="w-full bg-[#606161]/30 rounded-full h-2 overflow-hidden border border-[#606161]/40">
+                <div
+                  className={`h-full transition-all duration-1000 ease-linear rounded-full ${
+                    questionSecondsLeft <= 5
+                      ? 'bg-rose-500'
+                      : questionSecondsLeft <= 10
+                      ? 'bg-[#04768D]'
+                      : 'bg-[#04D87D]'
+                  }`}
+                  style={{ width: `${Math.max(0, Math.min(100, (questionSecondsLeft / 20) * 100))}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Time Up Notification Banner */}
+            {timeUpBanner && (
+              <div className="p-3 rounded-xl bg-rose-950/70 border border-rose-500 text-rose-200 text-xs font-bold flex items-center gap-2 animate-in fade-in slide-in-from-top-1">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                <span>{timeUpBanner}</span>
+              </div>
+            )}
+
             {/* Question Text */}
             <div className="space-y-2">
-              <span className="text-xs font-mono text-slate-400">
-                Question {currentIdx + 1} of {allQuestions.length}
+              <span className="text-xs font-mono text-[#04768D] font-bold">
+                Question {currentIdx + 1} of {allQuestions.length} • Designated Order
               </span>
               <h2 className="text-lg sm:text-xl font-extrabold text-white leading-relaxed">
                 {currentQ?.questionText}
@@ -884,7 +851,7 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
 
             {/* Code Snippet */}
             {currentQ?.codeSnippet && (
-              <div className="bg-slate-950 rounded-2xl border border-slate-800 p-4 font-mono text-xs sm:text-sm text-indigo-300 whitespace-pre-wrap overflow-x-auto leading-relaxed shadow-inner">
+              <div className="bg-[#040605] rounded-2xl border border-[#606161]/50 p-4 font-mono text-xs sm:text-sm text-[#04D87D] whitespace-pre-wrap overflow-x-auto leading-relaxed shadow-inner">
                 {currentQ.codeSnippet}
               </div>
             )}
@@ -906,16 +873,16 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                         onClick={() => handleSelectOption(option)}
                         className={`w-full p-4 rounded-2xl border text-left font-medium text-sm transition-all flex items-center justify-between cursor-pointer ${
                           isSelected
-                            ? 'bg-indigo-600 border-indigo-400 text-white shadow-lg shadow-indigo-600/30'
-                            : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                            ? 'bg-[#045D33]/60 border-[#04D87D] text-white shadow-lg shadow-[#04D87D]/20 ring-1 ring-[#04D87D]'
+                            : 'bg-[#040605] border-[#606161]/60 text-slate-200 hover:border-[#04D87D]/60 hover:bg-[#045D33]/20'
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <span
                             className={`w-7 h-7 rounded-lg border text-xs font-bold flex items-center justify-center font-mono ${
                               isSelected
-                                ? 'bg-indigo-700 border-indigo-300 text-white'
-                                : 'bg-slate-900 border-slate-800 text-slate-400'
+                                ? 'bg-[#04D87D] border-[#04D87D] text-[#040605]'
+                                : 'bg-[#040605] border-[#606161]/60 text-[#9F9694]'
                             }`}
                           >
                             {String.fromCharCode(65 + index)}
@@ -925,10 +892,10 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
 
                         <div
                           className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
-                            isSelected ? 'border-white bg-white' : 'border-slate-700'
+                            isSelected ? 'border-[#04D87D] bg-[#04D87D]' : 'border-[#606161]'
                           }`}
                         >
-                          {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-indigo-600" />}
+                          {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-[#040605]" />}
                         </div>
                       </button>
                     );
@@ -939,7 +906,7 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
               {/* Option 2: Multi-Select */}
               {currentQ?.type === 'multi_select' && hasOptions && (
                 <div className="space-y-2.5">
-                  <span className="text-xs text-indigo-400 font-mono block">
+                  <span className="text-xs text-[#04768D] font-mono block">
                     (Select all that apply)
                   </span>
                   {currentQ.options.map((option: string, index: number) => {
@@ -952,16 +919,16 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                         onClick={() => handleToggleMulti(option)}
                         className={`w-full p-4 rounded-2xl border text-left font-medium text-sm transition-all flex items-center justify-between cursor-pointer ${
                           isSelected
-                            ? 'bg-indigo-600 border-indigo-400 text-white shadow-lg shadow-indigo-600/30'
-                            : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                            ? 'bg-[#045D33]/60 border-[#04D87D] text-white shadow-lg shadow-[#04D87D]/20 ring-1 ring-[#04D87D]'
+                            : 'bg-[#040605] border-[#606161]/60 text-slate-200 hover:border-[#04D87D]/60 hover:bg-[#045D33]/20'
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <span
                             className={`w-7 h-7 rounded-lg border text-xs font-bold flex items-center justify-center font-mono ${
                               isSelected
-                                ? 'bg-indigo-700 border-indigo-300 text-white'
-                                : 'bg-slate-900 border-slate-800 text-slate-400'
+                                ? 'bg-[#04D87D] border-[#04D87D] text-[#040605]'
+                                : 'bg-[#040605] border-[#606161]/60 text-[#9F9694]'
                             }`}
                           >
                             {String.fromCharCode(65 + index)}
@@ -972,8 +939,8 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                         <div
                           className={`w-5 h-5 rounded-md border flex items-center justify-center text-xs shrink-0 ${
                             isSelected
-                              ? 'border-white bg-white text-indigo-600 font-bold'
-                              : 'border-slate-700'
+                              ? 'border-[#04D87D] bg-[#04D87D] text-[#040605] font-bold'
+                              : 'border-[#606161]'
                           }`}
                         >
                           {isSelected && '✓'}
@@ -997,8 +964,8 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                         onClick={() => handleSelectOption(tf)}
                         className={`py-4 rounded-2xl border text-center font-bold text-sm transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-indigo-600 border-indigo-400 text-white shadow-lg shadow-indigo-600/30'
-                            : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                            ? 'bg-[#045D33]/60 border-[#04D87D] text-white shadow-lg shadow-[#04D87D]/20 ring-1 ring-[#04D87D]'
+                            : 'bg-[#040605] border-[#606161]/60 text-slate-200 hover:border-[#04D87D]/60 hover:bg-[#045D33]/20'
                         }`}
                       >
                         {tf}
@@ -1030,65 +997,60 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                           ? 'Enter exact console output...'
                           : 'Type your answer here...'
                       }
-                      className="flex-1 px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-2xl text-white font-mono text-sm placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 transition-all"
+                      className="flex-1 px-4 py-3.5 bg-[#040605] border border-[#606161]/60 rounded-2xl text-white font-mono text-sm placeholder:text-[#606161] focus:outline-none focus:border-[#04D87D] transition-all"
                     />
                     <button
                       type="button"
                       onClick={handleSaveFillBlank}
-                      className="px-5 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
+                      className="px-5 py-3.5 rounded-2xl bg-[#04D87D] hover:bg-[#04D87D]/90 text-[#040605] font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
                     >
                       <Check className="w-4 h-4" /> Save
                     </button>
                   </div>
-                  <span className="text-[11px] text-slate-500">
+                  <span className="text-[11px] text-[#9F9694]">
                     Press Enter or click Save to record your answer.
                   </span>
                 </div>
               )}
             </div>
 
-            {/* Bottom Action Controls */}
-            <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800">
+            {/* Bottom Action Controls: Designated Order Forward Navigation */}
+            <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#606161]/40">
               <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handlePrevClick}
-                  disabled={currentIdx <= 0}
-                  className="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 hover:text-white disabled:opacity-30 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
-                >
-                  <ChevronLeft className="w-4 h-4" /> Previous
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNextClick}
-                  className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 hover:text-white hover:bg-slate-800 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
-                >
-                  {currentIdx < allQuestions.length - 1 ? (
-                    <>
-                      Next <ChevronRight className="w-4 h-4" />
-                    </>
-                  ) : (
-                    <>
-                      Review All <ChevronRight className="w-4 h-4" />
-                    </>
-                  )}
-                </button>
+                <span className="text-xs font-mono text-[#9F9694] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#04D87D] animate-pulse" />
+                  <span>Question {currentIdx + 1} of {allQuestions.length}</span>
+                  <span className="text-[#606161]">•</span>
+                  <span className="text-white font-bold">Designated Order</span>
+                </span>
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
-                <button
-                  type="button"
-                  onClick={() => setShowReviewModal(true)}
-                  className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all cursor-pointer flex items-center justify-center gap-2"
-                >
-                  <ListChecks className="w-4 h-4" />
-                  <span>Review &amp; Final Submit</span>
-                </button>
+                {currentIdx < allQuestions.length - 1 ? (
+                  <button
+                    type="button"
+                    disabled={isPaused || contestState.isEmergencyLocked || isFinalSubmitting}
+                    onClick={handleNextClick}
+                    className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#04D87D] hover:bg-[#04D87D]/90 active:scale-95 text-[#040605] font-extrabold text-xs shadow-lg shadow-[#04D87D]/25 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>Save &amp; Next Question</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled={isPaused || contestState.isEmergencyLocked || isFinalSubmitting}
+                    onClick={() => setShowConfirmSubmitDialog(true)}
+                    className="w-full sm:w-auto px-7 py-3 rounded-2xl bg-[#04D87D] hover:bg-[#04D87D]/90 active:scale-95 text-[#040605] font-extrabold text-xs shadow-lg shadow-[#04D87D]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Finish &amp; Final Submit Quiz</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
         </div>
-      </div>
 
       {/* ============================================================ */}
       {/* REVIEW & FINAL SUBMIT MODAL                                 */}
@@ -1143,9 +1105,9 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
               </div>
               <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
                 <span className="text-slate-400 flex items-center gap-1.5">
-                  <Clock className="w-3 h-3 text-indigo-400" /> Time Left:
+                  <Clock className="w-3 h-3 text-[#04D87D]" /> Time Limit:
                 </span>
-                <span className="font-mono font-bold text-indigo-300 text-sm">{formatTime(arenaSecondsLeft)}</span>
+                <span className="font-mono font-bold text-[#04D87D] text-sm">20s / Question</span>
               </div>
             </div>
 
@@ -1234,16 +1196,9 @@ export const Round2QuizView: React.FC<Round2QuizViewProps> = ({
                               </div>
                             </div>
 
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setCurrentIdx(q.globalIdx);
-                                setShowReviewModal(false);
-                              }}
-                              className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 text-indigo-300 hover:text-white text-xs font-bold transition-all cursor-pointer"
-                            >
-                              {hasAns ? 'Change' : 'Answer'}
-                            </button>
+                            <span className="px-3 py-1 rounded-xl bg-[#040605] border border-[#606161]/50 text-xs font-mono text-[#9F9694]">
+                              {hasAns ? 'Recorded' : 'Unanswered'}
+                            </span>
                           </div>
                         );
                       })}

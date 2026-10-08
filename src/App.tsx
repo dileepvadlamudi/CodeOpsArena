@@ -40,7 +40,7 @@ const ContestAppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-zinc-100 flex flex-col font-sans selection:bg-amber-500 selection:text-black relative blackops-grid">
+    <div className="min-h-screen bg-[#040605] text-[#f4f4f5] flex flex-col font-sans selection:bg-[#04D87D] selection:text-[#040605] relative blackops-grid">
       {/* Central Global Header */}
       <Header contestState={contestState} isConnected={isConnected} />
 

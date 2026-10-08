@@ -47,7 +47,7 @@ export const InstructionsView: React.FC<InstructionsViewProps> = ({ stage }) => 
             'Stage 2 (Medium): Complex closures, async event loops, SQL queries (20 points each).',
             'Stage 3 (Hard): Deep system design, memory management, algorithmic nuances (30 points each).',
             'Question Formats: Single-select MCQ, Multi-select checkboxes, True/False, and Fill-in-the-Blank.',
-            'Per-Question Timers: Each question has an independent countdown timer managed by the Admin.'
+            'Per-Question Timers: Each question has an independent countdown timer of 20 seconds separately.'
           ],
           tips: 'Read code snippets carefully. Watch out for edge cases, implicit type conversions, and scoping quirks.'
         };
@@ -136,9 +136,9 @@ export const InstructionsView: React.FC<InstructionsViewProps> = ({ stage }) => 
         </div>
       </div>
 
-      <div className="pt-4 border-t border-slate-800 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
-        <Clock className="w-4 h-4 text-slate-500" />
-        <span>Waiting for Admin to initiate the live round...</span>
+      <div className="pt-4 border-t border-[#606161]/40 text-center text-xs text-[#9F9694] flex items-center justify-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#04D87D] animate-pulse" />
+        <span>Waiting for Admin to initiate the live round arena...</span>
       </div>
     </div>
   );

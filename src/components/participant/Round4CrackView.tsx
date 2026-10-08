@@ -13,7 +13,8 @@ import {
   Trophy,
   History,
   KeyRound,
-  RotateCcw
+  RotateCcw,
+  Clock
 } from 'lucide-react';
 
 interface Round4CrackViewProps {
@@ -170,11 +171,28 @@ export const Round4CrackView: React.FC<Round4CrackViewProps> = ({
             </p>
           </div>
 
-          <div className="bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800 text-center shrink-0">
-            <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Round 4 Points</span>
-            <span className="font-mono text-2xl font-black text-rose-400">
-              {totalPointsEarned} pts
-            </span>
+          <div className="flex items-center gap-3 shrink-0">
+            {/* Round 4 Arena Interactive Countdown Timer */}
+            <div className="bg-[#040605] px-4 py-2.5 rounded-2xl border border-[#606161]/60 text-center">
+              <span className="text-[10px] uppercase font-bold text-[#9F9694] block tracking-wider flex items-center justify-center gap-1">
+                <Clock className="w-3 h-3 text-[#04D87D]" /> Time Left
+              </span>
+              <span className={`font-mono text-xl font-black ${
+                (contestState.timer?.remainingSeconds || 0) <= 60 && (contestState.timer?.remainingSeconds || 0) > 0
+                  ? 'text-rose-400 animate-pulse'
+                  : 'text-[#04D87D]'
+              }`}>
+                {Math.floor((contestState.timer?.remainingSeconds || 0) / 60)}:
+                {String((contestState.timer?.remainingSeconds || 0) % 60).padStart(2, '0')}
+              </span>
+            </div>
+
+            <div className="bg-[#040605] px-5 py-2.5 rounded-2xl border border-[#606161]/60 text-center">
+              <span className="text-[10px] uppercase font-bold text-[#9F9694] block tracking-wider">Round 4 Points</span>
+              <span className="font-mono text-xl font-black text-[#04D87D]">
+                {totalPointsEarned} pts
+              </span>
+            </div>
           </div>
         </div>
 

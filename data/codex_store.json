@@ -3243,6 +3243,26 @@
   ],
   "auditLogs": [
     {
+      "id": "log-1791365929648-wgkx",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_CODE",
+      "previousValue": "R3_RESULTS",
+      "newValue": "R3_CODE",
+      "timestamp": 1791365929648
+    },
+    {
+      "id": "log-1791365928139-wwnf",
+      "adminUser": "Admin",
+      "action": "SET_CONTEST_STAGE",
+      "entityType": "CONTEST_STATE",
+      "entityId": "R3_RESULTS",
+      "previousValue": "R3_CODE",
+      "newValue": "R3_RESULTS",
+      "timestamp": 1791365928139
+    },
+    {
       "id": "log-1791290672161-58ry",
       "adminUser": "System",
       "action": "TEAM_LOGIN",
@@ -4930,12 +4950,12 @@
     "stageTitle": "Round 3: Code Minimalist",
     "isEmergencyLocked": false,
     "timer": {
-      "isRunning": false,
+      "isRunning": true,
       "isPaused": false,
       "durationSeconds": 1800,
-      "remainingSeconds": 0,
-      "startedAt": 1791281730496,
-      "endsAt": 1791283530496
+      "remainingSeconds": 1570,
+      "startedAt": 1791365929646,
+      "endsAt": 1791367729646
     },
     "currentTypingRoundId": "tr-1",
     "currentQuizQuestionId": null,
@@ -4951,7 +4971,7 @@
     "activeAnnouncement": null,
     "currentTypingRound": "tr-1",
     "activeQuestion": "q-1",
-    "timerStartedAt": 1791281730496,
+    "timerStartedAt": 1791365929646,
     "timerDuration": 1800,
     "leaderboardVisible": true,
     "currentQuizPhase": 1
@@ -5027,7 +5047,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r2": {
         "teamId": "team-warriors",
@@ -5049,7 +5069,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r3": {
         "teamId": "team-warriors",
@@ -5066,7 +5086,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r4": {
         "teamId": "team-warriors",
@@ -5082,7 +5102,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       }
     },
     "team-cyber": {
@@ -5101,7 +5121,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r2": {
         "teamId": "team-cyber",
@@ -5123,7 +5143,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r3": {
         "teamId": "team-cyber",
@@ -5140,7 +5160,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r4": {
         "teamId": "team-cyber",
@@ -5156,7 +5176,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       }
     },
     "team-byte": {
@@ -5175,7 +5195,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r2": {
         "teamId": "team-byte",
@@ -5197,7 +5217,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r3": {
         "teamId": "team-byte",
@@ -5214,7 +5234,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r4": {
         "teamId": "team-byte",
@@ -5230,7 +5250,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       }
     },
     "team-muwc7xgt-hksm": {
@@ -5249,7 +5269,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r2": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5271,7 +5291,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r3": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5288,7 +5308,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r4": {
         "teamId": "team-muwc7xgt-hksm",
@@ -5304,7 +5324,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       }
     },
     "team-muwjrtbf-ki9s": {
@@ -5323,7 +5343,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r2": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5345,7 +5365,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r3": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5370,7 +5390,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       },
       "r4": {
         "teamId": "team-muwjrtbf-ki9s",
@@ -5386,7 +5406,7 @@
           "multiplier": 1
         },
         "manualOverride": null,
-        "updatedAt": 1791290731749
+        "updatedAt": 1791366159444
       }
     }
   },
