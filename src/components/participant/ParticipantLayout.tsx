@@ -29,6 +29,8 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
   const [fullscreenLocked, setFullscreenLocked] = useState(false);
   const [fullscreenWarningCount, setFullscreenWarningCount] = useState(0);
   const [fullscreenSubmitting, setFullscreenSubmitting] = useState(false);
+  const [fullscreenSecondsLeft, setFullscreenSecondsLeft] = useState<number | null>(null);
+  const fullscreenGraceTimerRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
   const [fullscreenNotice, setFullscreenNotice] = useState<string | null>(null);
   const fullscreenActiveRef = React.useRef(false);
   const fullscreenSubmittingRef = React.useRef(false);
@@ -62,7 +64,8 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     }
   };
 
-  const isMainRound = Boolean(getMainRoundKey()) && !previewTeamId;
+  const isParticipantSession = user?.role === 'participant' && !previewTeamId;
+  const isMainRound = Boolean(getMainRoundKey()) && isParticipantSession;
 
   const enterFullscreen = async () => {
     try {
@@ -94,6 +97,9 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
       setFullscreenLocked(false);
       setFullscreenWarningCount(0);
       setFullscreenNotice(null);
+      setFullscreenSecondsLeft(null);
+      if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+      fullscreenGraceTimerRef.current = null;
       fullscreenActiveRef.current = false;
       fullscreenSubmittingRef.current = false;
       return;
@@ -113,11 +119,45 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
       if (active) {
         setFullscreenLocked(false);
         setFullscreenNotice(null);
+        setFullscreenSecondsLeft(null);
+        if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+        fullscreenGraceTimerRef.current = null;
         return;
       }
 
       // During a main round, leaving fullscreen always locks the workstation.
       setFullscreenLocked(true);
+
+      // Give the participant 7 seconds to return. The timer starts only for a
+      // real fullscreen exit (not the initial fullscreen gate).
+      if (wasActive && token && !fullscreenSubmittingRef.current) {
+        if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+        const deadline = Date.now() + 7000;
+        setFullscreenSecondsLeft(7);
+
+        fullscreenGraceTimerRef.current = setInterval(async () => {
+          const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+          setFullscreenSecondsLeft(remaining);
+
+          if (document.fullscreenElement) {
+            if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+            fullscreenGraceTimerRef.current = null;
+            setFullscreenSecondsLeft(null);
+            return;
+          }
+
+          if (remaining <= 0) {
+            if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+            fullscreenGraceTimerRef.current = null;
+            try {
+              await api.fullscreenTimeout(token, previewTeamId);
+              setTeamInfo(prev => prev ? { ...prev, status: 'disqualified' } : prev);
+            } catch (error) {
+              console.error('Failed to process fullscreen timeout:', error);
+            }
+          }
+        }, 250);
+      }
 
       // The initial state may be non-fullscreen before the participant has clicked
       // "Enter Fullscreen"; that is a gate, not a violation.
@@ -138,6 +178,7 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
           setFullscreenWarningCount(count);
           setTeamInfo(prev => prev ? {
             ...prev,
+            status: result.disqualified ? 'disqualified' : prev.status,
             fullscreenWarnings: result.warnings || prev.fullscreenWarnings
           } : prev);
 
@@ -157,7 +198,11 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      if (fullscreenGraceTimerRef.current) clearInterval(fullscreenGraceTimerRef.current);
+      fullscreenGraceTimerRef.current = null;
+    };
   }, [contestState.currentStage, token, previewTeamId, teamInfo?.id]);
   // Disable copy, paste, cut, and right-click context menu for participants
   useEffect(() => {
@@ -407,6 +452,13 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
                 ? 'You exited fullscreen during the main round. Your workstation is locked until you return to fullscreen.'
                 : 'This main round requires fullscreen. Enter fullscreen before you can continue.'}
             </p>
+            {fullscreenSecondsLeft !== null && (
+              <div className="mt-5 rounded-2xl border border-rose-500/50 bg-rose-500/10 px-5 py-4">
+                <div className="text-xs font-black uppercase tracking-widest text-rose-400">Return to fullscreen</div>
+                <div className="mt-1 text-4xl font-black text-white">{fullscreenSecondsLeft}s</div>
+                <div className="mt-1 text-xs text-slate-400">Failure to return before the timer reaches 0 will disqualify the team.</div>
+              </div>
+            )}
 
             {fullscreenNotice && (
               <div className="mt-5 rounded-2xl border border-rose-500/40 bg-rose-500/10 px-5 py-4 text-sm font-bold text-rose-200">
