@@ -362,9 +362,9 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
           {/* Target Passage Character Stream */}
           <div
             onClick={() => inputRef.current?.focus()}
-            className="p-6 bg-slate-950 rounded-2xl border border-slate-800/80 font-mono text-base sm:text-lg leading-relaxed select-none cursor-text min-h-[160px] max-h-[280px] overflow-y-auto overflow-x-auto whitespace-pre-wrap break-words tracking-wide relative scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-950"
+            className="p-6 bg-slate-950 rounded-2xl border border-slate-800/80 font-mono text-base sm:text-lg leading-relaxed select-none cursor-text min-h-[160px] max-h-[280px] overflow-y-auto overflow-x-hidden whitespace-pre-wrap break-words tracking-wide relative scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-950"
           >
-            <div className="whitespace-pre-wrap min-w-max">
+            <div className="whitespace-pre-wrap break-words min-w-0">
             {passage.split('').map((char: string, index: number) => {
               const isTyped = index < userInput.length;
               const isCurrent = index === userInput.length;
@@ -378,7 +378,13 @@ export const Round1TypingView: React.FC<Round1TypingViewProps> = ({
               }
 
               return (
-                <span key={index} className={style}>
+                <span
+                  key={index}
+                  ref={isCurrent ? (el) => {
+                    el?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                  } : undefined}
+                  className={style}
+                >
                   {char === '\n' ? '\n' : char}
                 </span>
               );
