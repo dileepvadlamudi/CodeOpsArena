@@ -29,7 +29,9 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
   const [fullscreenLocked, setFullscreenLocked] = useState(false);
   const [fullscreenWarningCount, setFullscreenWarningCount] = useState(0);
   const [fullscreenSubmitting, setFullscreenSubmitting] = useState(false);
+  const [fullscreenNotice, setFullscreenNotice] = useState<string | null>(null);
   const fullscreenActiveRef = React.useRef(false);
+  const fullscreenSubmittingRef = React.useRef(false);
   const lastFullscreenViolationAtRef = React.useRef(0);
 
   const getMainRoundKey = (): 'r1' | 'r2' | 'r3' | 'r4' | null => {
@@ -64,14 +66,26 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
   const enterFullscreen = async () => {
     try {
-      if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
+      if (!document.fullscreenEnabled) {
+        setFullscreenNotice('Fullscreen is unavailable in this browser. Please use a supported desktop browser.');
+        return;
       }
-      setFullscreenLocked(false);
-      fullscreenActiveRef.current = Boolean(document.fullscreenElement);
+
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
+      }
+
+      const active = Boolean(document.fullscreenElement);
+      fullscreenActiveRef.current = active;
+      setFullscreenLocked(!active);
+
+      if (active) {
+        setFullscreenNotice(null);
+      }
     } catch (error) {
       console.warn('Unable to enter fullscreen:', error);
       setFullscreenLocked(true);
+      setFullscreenNotice('Fullscreen permission was denied. Click the button again and allow fullscreen.');
     }
   };
 
@@ -79,7 +93,9 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     if (!isMainRound) {
       setFullscreenLocked(false);
       setFullscreenWarningCount(0);
+      setFullscreenNotice(null);
       fullscreenActiveRef.current = false;
+      fullscreenSubmittingRef.current = false;
       return;
     }
 
@@ -96,29 +112,46 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
 
       if (active) {
         setFullscreenLocked(false);
+        setFullscreenNotice(null);
         return;
       }
 
+      // During a main round, leaving fullscreen always locks the workstation.
       setFullscreenLocked(true);
 
-      if (!wasActive || !token || fullscreenSubmitting) return;
+      // The initial state may be non-fullscreen before the participant has clicked
+      // "Enter Fullscreen"; that is a gate, not a violation.
+      if (!wasActive || !token || fullscreenSubmittingRef.current) return;
+
       const now = Date.now();
       if (now - lastFullscreenViolationAtRef.current < 1000) return;
       lastFullscreenViolationAtRef.current = now;
 
+      fullscreenSubmittingRef.current = true;
       setFullscreenSubmitting(true);
+
       try {
         const result = await api.recordFullscreenViolation(token, previewTeamId);
+
         if (result?.success && !result?.ignored) {
-          setFullscreenWarningCount(result.warningCount || 0);
+          const count = result.warningCount || 0;
+          setFullscreenWarningCount(count);
           setTeamInfo(prev => prev ? {
             ...prev,
             fullscreenWarnings: result.warnings || prev.fullscreenWarnings
           } : prev);
+
+          setFullscreenNotice(
+            count >= 3
+              ? 'WARNING 3/3 — This is your final fullscreen warning for this round.'
+              : `WARNING ${count}/3 — You exited fullscreen during the main round.`
+          );
         }
       } catch (error) {
         console.error('Failed to record fullscreen violation:', error);
+        setFullscreenNotice('Fullscreen exit detected, but the warning could not be recorded. Stay fullscreen and contact the coordinator.');
       } finally {
+        fullscreenSubmittingRef.current = false;
         setFullscreenSubmitting(false);
       }
     };
@@ -126,7 +159,6 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, [contestState.currentStage, token, previewTeamId, teamInfo?.id]);
-
   // Disable copy, paste, cut, and right-click context menu for participants
   useEffect(() => {
     let warningTimeout: any = null;
@@ -361,26 +393,56 @@ export const ParticipantLayout: React.FC<ParticipantLayoutProps> = ({
             <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/40 bg-amber-500/10 text-amber-400">
               <LockKeyhole className="h-8 w-8" />
             </div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-400">Main Round Locked</p>
-            <h2 className="mt-3 text-3xl font-black text-white">Fullscreen Required</h2>
-            <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slate-300">
-              You must remain in fullscreen during this main round. Return to fullscreen to continue.
+
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-400">
+              {fullscreenWarningCount > 0 ? 'Fullscreen Violation' : 'Main Round Security'}
             </p>
+
+            <h2 className="mt-3 text-3xl font-black text-white">
+              {fullscreenWarningCount > 0 ? `Warning ${fullscreenWarningCount}/3` : 'Fullscreen Required'}
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slate-300">
+              {fullscreenWarningCount > 0
+                ? 'You exited fullscreen during the main round. Your workstation is locked until you return to fullscreen.'
+                : 'This main round requires fullscreen. Enter fullscreen before you can continue.'}
+            </p>
+
+            {fullscreenNotice && (
+              <div className="mt-5 rounded-2xl border border-rose-500/40 bg-rose-500/10 px-5 py-4 text-sm font-bold text-rose-200">
+                {fullscreenNotice}
+              </div>
+            )}
+
             <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/80 px-5 py-4">
-              <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Fullscreen warnings</div>
-              <div className="mt-1 text-2xl font-black text-white">{fullscreenWarningCount} / 3</div>
-              <div className="mt-1 text-xs text-slate-400">Warnings are tracked separately for each main round.</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-500">
+                Warnings for this round
+              </div>
+              <div className="mt-1 text-3xl font-black text-white">
+                {fullscreenWarningCount} <span className="text-slate-600">/ 3</span>
+              </div>
+              <div className="mt-1 text-xs text-slate-400">
+                Each main round has its own separate 3-warning limit.
+              </div>
             </div>
+
             <button
               type="button"
               onClick={enterFullscreen}
               disabled={fullscreenSubmitting}
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3 text-sm font-black text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-7 py-3.5 text-sm font-black text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Maximize className="h-4 w-4" />
-              {fullscreenSubmitting ? 'Recording warning…' : 'Return to Fullscreen'}
+              {fullscreenSubmitting ? 'Recording warning…' : 'Enter Fullscreen & Continue'}
             </button>
           </div>
+        </div>
+      )}
+
+      {isMainRound && fullscreenNotice && !fullscreenLocked && (
+        <div className="fixed top-6 left-1/2 z-[110] -translate-x-1/2 rounded-2xl border border-amber-500/60 bg-amber-950/95 px-6 py-4 text-center shadow-2xl backdrop-blur-md">
+          <p className="text-xs font-black uppercase tracking-widest text-amber-400">Fullscreen Warning</p>
+          <p className="mt-1 text-sm font-bold text-white">{fullscreenNotice}</p>
         </div>
       )}
 
