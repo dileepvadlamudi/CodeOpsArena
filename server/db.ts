@@ -2625,12 +2625,39 @@ class DatabaseService {
     // Remove all per-team scoring overrides so no historical score can reappear.
     // Initialize legacy/missing override maps first so deletion also works with
     // older persisted database files created before these fields existed.
+    this.store.round1Config ||= getInitialStore().round1Config;
+    this.store.round2Config ||= getInitialStore().round2Config;
     this.store.round1Config.scoreOverrides ||= {};
     this.store.round2Config.scoreOverrides ||= {};
-    this.store.masterScoringConfig.r1.overrides ||= {};
-    this.store.masterScoringConfig.r2.overrides ||= {};
-    this.store.masterScoringConfig.r3.overrides ||= {};
-    this.store.masterScoringConfig.r4.overrides ||= {};
+
+    // Normalize legacy/incomplete scoring data before removing team overrides.
+    // Older persisted stores may have missing round-level scoring objects.
+    const defaultScoring = getDefaultMasterScoringConfig();
+    const scoring = this.store.masterScoringConfig || defaultScoring;
+    this.store.masterScoringConfig = {
+      ...defaultScoring,
+      ...scoring,
+      r1: {
+        ...defaultScoring.r1,
+        ...(scoring.r1 || {}),
+        overrides: { ...defaultScoring.r1.overrides, ...(scoring.r1?.overrides || {}) }
+      },
+      r2: {
+        ...defaultScoring.r2,
+        ...(scoring.r2 || {}),
+        overrides: { ...defaultScoring.r2.overrides, ...(scoring.r2?.overrides || {}) }
+      },
+      r3: {
+        ...defaultScoring.r3,
+        ...(scoring.r3 || {}),
+        overrides: { ...defaultScoring.r3.overrides, ...(scoring.r3?.overrides || {}) }
+      },
+      r4: {
+        ...defaultScoring.r4,
+        ...(scoring.r4 || {}),
+        overrides: { ...defaultScoring.r4.overrides, ...(scoring.r4?.overrides || {}) }
+      }
+    };
 
     delete this.store.round1Config.scoreOverrides[teamId];
     delete this.store.round2Config.scoreOverrides[teamId];
