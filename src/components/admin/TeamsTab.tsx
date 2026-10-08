@@ -139,6 +139,26 @@ export const TeamsTab: React.FC<TeamsTabProps> = ({ teams = [], onRefresh }) => 
     }
   };
 
+  const handleDeleteTeam = async (team: Team) => {
+    if (!token) return;
+    const confirmed = confirm(
+      `Permanently delete ${team.name} (${team.team_code})? This removes the player, all round scores, submissions, progress, and the leaderboard record. This cannot be undone.`
+    );
+    if (!confirmed) return;
+
+    try {
+      const res = await api.deleteTeam(token, team.id);
+      if (res.success) {
+        onRefresh();
+      } else {
+        alert(res.message || 'Unable to delete the team.');
+      }
+    } catch (err) {
+      console.error('Error deleting team:', err);
+      alert('Unable to delete the team.');
+    }
+  };
+
   const handleConfirmDisqualify = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!token || !disqualifyTeam) return;
@@ -444,6 +464,15 @@ export const TeamsTab: React.FC<TeamsTabProps> = ({ teams = [], onRefresh }) => 
                                 <Ban className="w-3.5 h-3.5" />
                               </button>
                             )}
+
+                            {/* Permanent Delete */}
+                            <button
+                              onClick={() => handleDeleteTeam(team)}
+                              className="p-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 hover:text-white transition-colors"
+                              title="Permanently Delete Team & All Data"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
 
                             {/* Force Logout */}
                             <button
